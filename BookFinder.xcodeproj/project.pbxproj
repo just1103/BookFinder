@@ -11,7 +11,6 @@
 		36EAEF9F28961EB5009B58DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAEF9E28961EB5009B58DD /* SceneDelegate.swift */; };
 		36EAEFA628961EB6009B58DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36EAEFA528961EB6009B58DD /* Assets.xcassets */; };
 		36EAEFA928961EB6009B58DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36EAEFA728961EB6009B58DD /* LaunchScreen.storyboard */; };
-		36EAEFB428961EB6009B58DD /* BookFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAEFB328961EB6009B58DD /* BookFinderTests.swift */; };
 		36EAEFCE28962438009B58DD /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 36EAEFCD28962438009B58DD /* .swiftlint.yml */; };
 		36EAEFCF28962438009B58DD /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 36EAEFCD28962438009B58DD /* .swiftlint.yml */; };
 		36EAEFD428962B3B009B58DD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAEFD328962B3B009B58DD /* AppCoordinator.swift */; };
@@ -32,6 +31,9 @@
 		36EAF00528965574009B58DD /* BookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAF00428965574009B58DD /* BookItem.swift */; };
 		36EAF00728965916009B58DD /* MockBookItem.json in Resources */ = {isa = PBXBuildFile; fileRef = 36EAF00628965916009B58DD /* MockBookItem.json */; };
 		36EAF008289659ED009B58DD /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAEFD728962B78009B58DD /* CoordinatorProtocol.swift */; };
+		36EAF00A28965DFB009B58DD /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAF00928965DFB009B58DD /* MockURLSession.swift */; };
+		36EAF00D28965E44009B58DD /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAF00C28965E44009B58DD /* URLSessionProtocol.swift */; };
+		36EAF00F28965EC1009B58DD /* MockNetworkProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAF00E28965EC1009B58DD /* MockNetworkProviderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +54,6 @@
 		36EAEFA828961EB6009B58DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36EAEFAA28961EB6009B58DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36EAEFAF28961EB6009B58DD /* BookFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		36EAEFB328961EB6009B58DD /* BookFinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFinderTests.swift; sourceTree = "<group>"; };
 		36EAEFCD28962438009B58DD /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		36EAEFD328962B3B009B58DD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		36EAEFD728962B78009B58DD /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
@@ -68,6 +69,9 @@
 		36EAF0022896553A009B58DD /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		36EAF00428965574009B58DD /* BookItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItem.swift; sourceTree = "<group>"; };
 		36EAF00628965916009B58DD /* MockBookItem.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockBookItem.json; sourceTree = "<group>"; };
+		36EAF00928965DFB009B58DD /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		36EAF00C28965E44009B58DD /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		36EAF00E28965EC1009B58DD /* MockNetworkProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkProviderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,8 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				36EAEFEE28964133009B58DD /* Mock */,
-				36EAEFB328961EB6009B58DD /* BookFinderTests.swift */,
 				36EAEFF22896435F009B58DD /* JSONParserTests.swift */,
+				36EAF00E28965EC1009B58DD /* MockNetworkProviderTests.swift */,
 			);
 			path = BookFinderTests;
 			sourceTree = "<group>";
@@ -166,6 +170,7 @@
 			children = (
 				36EAEFD728962B78009B58DD /* CoordinatorProtocol.swift */,
 				36EAEFE928963383009B58DD /* APIProtocol.swift */,
+				36EAF00C28965E44009B58DD /* URLSessionProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 			children = (
 				36EAEFEF28964161009B58DD /* MockSearchResult.json */,
 				36EAF00628965916009B58DD /* MockBookItem.json */,
+				36EAF00928965DFB009B58DD /* MockURLSession.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -363,6 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36EAF00D28965E44009B58DD /* URLSessionProtocol.swift in Sources */,
 				36EAEFEA28963383009B58DD /* APIProtocol.swift in Sources */,
 				36EAEFD428962B3B009B58DD /* AppCoordinator.swift in Sources */,
 				36EAEFF5289643C2009B58DD /* SearchResultDTO.swift in Sources */,
@@ -384,9 +391,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				36EAEFF32896435F009B58DD /* JSONParserTests.swift in Sources */,
+				36EAF00F28965EC1009B58DD /* MockNetworkProviderTests.swift in Sources */,
 				36EAEFD528962B40009B58DD /* AppCoordinator.swift in Sources */,
 				36EAF008289659ED009B58DD /* CoordinatorProtocol.swift in Sources */,
-				36EAEFB428961EB6009B58DD /* BookFinderTests.swift in Sources */,
+				36EAF00A28965DFB009B58DD /* MockURLSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
