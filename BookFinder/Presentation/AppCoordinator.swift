@@ -24,6 +24,10 @@ final class AppCoordinator: CoordinatorProtocol {
     }
     
     private func showSearchPage() {
+        guard let navigationController = navigationController else { return }
+//        let searchCoordinator = SearchCoordinator(navigationController: navigationController)
+//        childCoordinators.append(searchCoordinator)
+//        searchCoordinator.start()
     }
     
 //    func removeFromChildCoordinators(coordinator: CoordinatorProtocol) {
