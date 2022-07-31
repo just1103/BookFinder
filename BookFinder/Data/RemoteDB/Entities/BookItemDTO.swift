@@ -76,6 +76,7 @@ struct SearchInformation: Codable {
 // MARK: - VolumeInformation
 struct VolumeInformation: Codable {
     let title: String
+//    let subtitle: String?  // TODO: 확인
     let authors: [String]
     let publisher, publishedDate, volumeDescription: String
     let industryIdentifiers: [IndustryIdentifier]
@@ -97,7 +98,7 @@ struct VolumeInformation: Codable {
         case title, authors, publisher, publishedDate
         case volumeDescription = "description"
         case industryIdentifiers, readingModes, pageCount, printType, categories, averageRating, ratingsCount,
-             maturityRating, allowAnonLogging, contentVersion, panelizationSummary, imageLinks, language, 
+             maturityRating, allowAnonLogging, contentVersion, panelizationSummary, imageLinks, language,
              previewLink, infoLink, canonicalVolumeLink
     }
 }

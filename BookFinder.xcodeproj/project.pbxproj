@@ -30,6 +30,8 @@
 		36EAEFF728964425009B58DD /* BookItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAEFF628964425009B58DD /* BookItemDTO.swift */; };
 		36EAF0032896553A009B58DD /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAF0022896553A009B58DD /* SearchResult.swift */; };
 		36EAF00528965574009B58DD /* BookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAF00428965574009B58DD /* BookItem.swift */; };
+		36EAF00728965916009B58DD /* MockBookItem.json in Resources */ = {isa = PBXBuildFile; fileRef = 36EAF00628965916009B58DD /* MockBookItem.json */; };
+		36EAF008289659ED009B58DD /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAEFD728962B78009B58DD /* CoordinatorProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,7 @@
 		36EAEFF628964425009B58DD /* BookItemDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItemDTO.swift; sourceTree = "<group>"; };
 		36EAF0022896553A009B58DD /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		36EAF00428965574009B58DD /* BookItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItem.swift; sourceTree = "<group>"; };
+		36EAF00628965916009B58DD /* MockBookItem.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockBookItem.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				36EAEFEF28964161009B58DD /* MockSearchResult.json */,
+				36EAF00628965916009B58DD /* MockBookItem.json */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -327,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36EAEFCF28962438009B58DD /* .swiftlint.yml in Resources */,
+				36EAF00728965916009B58DD /* MockBookItem.json in Resources */,
 				36EAEFF028964161009B58DD /* MockSearchResult.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,6 +385,7 @@
 			files = (
 				36EAEFF32896435F009B58DD /* JSONParserTests.swift in Sources */,
 				36EAEFD528962B40009B58DD /* AppCoordinator.swift in Sources */,
+				36EAF008289659ED009B58DD /* CoordinatorProtocol.swift in Sources */,
 				36EAEFB428961EB6009B58DD /* BookFinderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
