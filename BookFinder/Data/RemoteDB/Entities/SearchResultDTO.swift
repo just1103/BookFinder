@@ -8,7 +8,12 @@
 import Foundation
 
 struct SearchResultDTO: Codable {
-    let kind: String
-    let totalItems: Int
-    let items: [BookItemDTO]
+    let kind: String?
+    let totalItems: Int?
+    let items: [BookItemDTO]?
+    
+//    enum CodingKeys: String, CodingKeys {
+//        case kine, totalItems
+//        case items = "items"
+//    }
 }

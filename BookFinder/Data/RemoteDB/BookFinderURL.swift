@@ -15,12 +15,12 @@ struct BookFinderURL {
         let method: HttpMethod = .get
         
         init(query: String, baseURL: String = baseURL) {
-            var urlComponents = URLComponents(string: "\(baseURL)volumes?")
-            let titleOrAuthorsQuery = URLQueryItem(name: "q", value: "\(query)")
-            urlComponents?.queryItems?.append(titleOrAuthorsQuery)
-            self.url = urlComponents?.url
+//            var urlComponents = URLComponents(string: "\(baseURL)volumes?")
+//            let titleOrAuthorsQuery = URLQueryItem(name: "q", value: "\(query)")
+//            urlComponents?.queryItems?.append(titleOrAuthorsQuery)
+//            self.url = urlComponents?.url
             
-//            self.url = URL(string: "\(baseURL)volumes?q=\(query)")  // TODO: 검색 구체화 (제목, 저자로 항목 한정)
+            self.url = URL(string: "\(baseURL)volumes?q=\(query)")  // TODO: 검색 구체화 (제목, 저자로 항목 한정)
         }
     }
 }

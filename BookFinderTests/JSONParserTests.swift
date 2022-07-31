@@ -42,8 +42,8 @@ class JSONParserTests: XCTestCase {
         
         XCTAssertNotNil(result)
         XCTAssertEqual(result.id, "_oG_iTxP1pIC")
-        XCTAssertEqual(result.volumeInfo.title, "Flowers For Algernon")
-        XCTAssertEqual(result.volumeInfo.authors, ["Daniel Keyes"])
-        XCTAssertEqual(result.accessInfo.epub.isAvailable, true)
+        XCTAssertEqual(result.volumeInfo?.title, "Flowers For Algernon")
+        XCTAssertEqual(result.volumeInfo?.authors, ["Daniel Keyes"])
+        XCTAssertEqual(result.accessInfo?.epub?.isAvailable, true)
     }
 }

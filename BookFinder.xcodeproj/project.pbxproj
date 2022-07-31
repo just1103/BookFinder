@@ -34,6 +34,7 @@
 		36EAF00A28965DFB009B58DD /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAF00928965DFB009B58DD /* MockURLSession.swift */; };
 		36EAF00D28965E44009B58DD /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAF00C28965E44009B58DD /* URLSessionProtocol.swift */; };
 		36EAF00F28965EC1009B58DD /* MockNetworkProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAF00E28965EC1009B58DD /* MockNetworkProviderTests.swift */; };
+		36EAF0112896610A009B58DD /* NetworkProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAF0102896610A009B58DD /* NetworkProviderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		36EAF00928965DFB009B58DD /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		36EAF00C28965E44009B58DD /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		36EAF00E28965EC1009B58DD /* MockNetworkProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkProviderTests.swift; sourceTree = "<group>"; };
+		36EAF0102896610A009B58DD /* NetworkProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProviderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				36EAEFEE28964133009B58DD /* Mock */,
 				36EAEFF22896435F009B58DD /* JSONParserTests.swift */,
 				36EAF00E28965EC1009B58DD /* MockNetworkProviderTests.swift */,
+				36EAF0102896610A009B58DD /* NetworkProviderTests.swift */,
 			);
 			path = BookFinderTests;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36EAEFF32896435F009B58DD /* JSONParserTests.swift in Sources */,
+				36EAF0112896610A009B58DD /* NetworkProviderTests.swift in Sources */,
 				36EAF00F28965EC1009B58DD /* MockNetworkProviderTests.swift in Sources */,
 				36EAEFD528962B40009B58DD /* AppCoordinator.swift in Sources */,
 				36EAF008289659ED009B58DD /* CoordinatorProtocol.swift in Sources */,
