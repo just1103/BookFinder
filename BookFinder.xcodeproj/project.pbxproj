@@ -9,13 +9,16 @@
 /* Begin PBXBuildFile section */
 		36EAEF9D28961EB5009B58DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAEF9C28961EB5009B58DD /* AppDelegate.swift */; };
 		36EAEF9F28961EB5009B58DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAEF9E28961EB5009B58DD /* SceneDelegate.swift */; };
-		36EAEFA128961EB5009B58DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAEFA028961EB5009B58DD /* ViewController.swift */; };
-		36EAEFA428961EB5009B58DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36EAEFA228961EB5009B58DD /* Main.storyboard */; };
 		36EAEFA628961EB6009B58DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36EAEFA528961EB6009B58DD /* Assets.xcassets */; };
 		36EAEFA928961EB6009B58DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36EAEFA728961EB6009B58DD /* LaunchScreen.storyboard */; };
 		36EAEFB428961EB6009B58DD /* BookFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAEFB328961EB6009B58DD /* BookFinderTests.swift */; };
 		36EAEFCE28962438009B58DD /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 36EAEFCD28962438009B58DD /* .swiftlint.yml */; };
 		36EAEFCF28962438009B58DD /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 36EAEFCD28962438009B58DD /* .swiftlint.yml */; };
+		36EAEFD428962B3B009B58DD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAEFD328962B3B009B58DD /* AppCoordinator.swift */; };
+		36EAEFD528962B40009B58DD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAEFD328962B3B009B58DD /* AppCoordinator.swift */; };
+		36EAEFD828962B78009B58DD /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAEFD728962B78009B58DD /* CoordinatorProtocol.swift */; };
+		36EAEFDB28962D8F009B58DD /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 36EAEFDA28962D8F009B58DD /* RxCocoa */; };
+		36EAEFDD28962D8F009B58DD /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 36EAEFDC28962D8F009B58DD /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +35,14 @@
 		36EAEF9928961EB5009B58DD /* BookFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36EAEF9C28961EB5009B58DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36EAEF9E28961EB5009B58DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		36EAEFA028961EB5009B58DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		36EAEFA328961EB5009B58DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		36EAEFA528961EB6009B58DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36EAEFA828961EB6009B58DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36EAEFAA28961EB6009B58DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36EAEFAF28961EB6009B58DD /* BookFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		36EAEFB328961EB6009B58DD /* BookFinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFinderTests.swift; sourceTree = "<group>"; };
 		36EAEFCD28962438009B58DD /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		36EAEFD328962B3B009B58DD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		36EAEFD728962B78009B58DD /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +50,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36EAEFDD28962D8F009B58DD /* RxSwift in Frameworks */,
+				36EAEFDB28962D8F009B58DD /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,12 +87,10 @@
 		36EAEF9B28961EB5009B58DD /* BookFinder */ = {
 			isa = PBXGroup;
 			children = (
-				36EAEF9C28961EB5009B58DD /* AppDelegate.swift */,
-				36EAEF9E28961EB5009B58DD /* SceneDelegate.swift */,
-				36EAEFA028961EB5009B58DD /* ViewController.swift */,
-				36EAEFA228961EB5009B58DD /* Main.storyboard */,
-				36EAEFA528961EB6009B58DD /* Assets.xcassets */,
-				36EAEFA728961EB6009B58DD /* LaunchScreen.storyboard */,
+				36EAEFD0289629F8009B58DD /* App */,
+				36EAEFD228962A39009B58DD /* Presentation */,
+				36EAEFD628962B63009B58DD /* Protocols */,
+				36EAEFD128962A0C009B58DD /* Resources */,
 				36EAEFAA28961EB6009B58DD /* Info.plist */,
 			);
 			path = BookFinder;
@@ -99,6 +102,40 @@
 				36EAEFB328961EB6009B58DD /* BookFinderTests.swift */,
 			);
 			path = BookFinderTests;
+			sourceTree = "<group>";
+		};
+		36EAEFD0289629F8009B58DD /* App */ = {
+			isa = PBXGroup;
+			children = (
+				36EAEF9C28961EB5009B58DD /* AppDelegate.swift */,
+				36EAEF9E28961EB5009B58DD /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		36EAEFD128962A0C009B58DD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				36EAEFA728961EB6009B58DD /* LaunchScreen.storyboard */,
+				36EAEFA528961EB6009B58DD /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		36EAEFD228962A39009B58DD /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				36EAEFD328962B3B009B58DD /* AppCoordinator.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		36EAEFD628962B63009B58DD /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				36EAEFD728962B78009B58DD /* CoordinatorProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +155,10 @@
 			dependencies = (
 			);
 			name = BookFinder;
+			packageProductDependencies = (
+				36EAEFDA28962D8F009B58DD /* RxCocoa */,
+				36EAEFDC28962D8F009B58DD /* RxSwift */,
+			);
 			productName = BookFinder;
 			productReference = 36EAEF9928961EB5009B58DD /* BookFinder.app */;
 			productType = "com.apple.product-type.application";
@@ -168,6 +209,9 @@
 				Base,
 			);
 			mainGroup = 36EAEF9028961EB5009B58DD;
+			packageReferences = (
+				36EAEFD928962D8F009B58DD /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 36EAEF9A28961EB5009B58DD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -186,7 +230,6 @@
 				36EAEFCE28962438009B58DD /* .swiftlint.yml in Resources */,
 				36EAEFA928961EB6009B58DD /* LaunchScreen.storyboard in Resources */,
 				36EAEFA628961EB6009B58DD /* Assets.xcassets in Resources */,
-				36EAEFA428961EB5009B58DD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,8 +268,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36EAEFA128961EB5009B58DD /* ViewController.swift in Sources */,
+				36EAEFD428962B3B009B58DD /* AppCoordinator.swift in Sources */,
 				36EAEF9D28961EB5009B58DD /* AppDelegate.swift in Sources */,
+				36EAEFD828962B78009B58DD /* CoordinatorProtocol.swift in Sources */,
 				36EAEF9F28961EB5009B58DD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36EAEFD528962B40009B58DD /* AppCoordinator.swift in Sources */,
 				36EAEFB428961EB6009B58DD /* BookFinderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,14 +295,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		36EAEFA228961EB5009B58DD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				36EAEFA328961EB5009B58DD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		36EAEFA728961EB6009B58DD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -395,7 +432,7 @@
 				INFOPLIST_FILE = BookFinder/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -424,7 +461,7 @@
 				INFOPLIST_FILE = BookFinder/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -512,6 +549,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		36EAEFD928962D8F009B58DD /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		36EAEFDA28962D8F009B58DD /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 36EAEFD928962D8F009B58DD /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		36EAEFDC28962D8F009B58DD /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 36EAEFD928962D8F009B58DD /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 36EAEF9128961EB5009B58DD /* Project object */;
 }
