@@ -30,13 +30,13 @@ class MockNetworkProviderTests: XCTestCase {
         let expectation = XCTestExpectation(description: "MockSession fetchData 비동기 테스트")
         
         let observable = sut.fetchData(
-            api: BookFinderURL.BookSearchAPI(query: "flowers"),
+            api: BookFinderURL.BookSearchAPI(keywords: "flowers"),
             decodingType: SearchResultDTO.self
         )
         _ = observable.subscribe(onNext: { result in
             XCTAssertNotNil(result)
             XCTAssertEqual(result.kind, "books#volumes")
-            XCTAssertEqual(result.totalItems, 2)
+            XCTAssertEqual(result.totalItems, 623)
             expectation.fulfill()
         })
         .disposed(by: disposeBag)

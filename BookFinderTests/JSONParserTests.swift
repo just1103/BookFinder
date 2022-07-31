@@ -24,7 +24,7 @@ class JSONParserTests: XCTestCase {
         
         XCTAssertNotNil(result)
         XCTAssertEqual(result.kind, "books#volumes")
-        XCTAssertEqual(result.totalItems, 2)
+        XCTAssertEqual(result.totalItems, 623)
     }
     
     func test_BookItemDTO타입_decode했을때_Nil이_아닌지_테스트() {

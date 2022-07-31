@@ -35,6 +35,10 @@
 		36EAF00D28965E44009B58DD /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAF00C28965E44009B58DD /* URLSessionProtocol.swift */; };
 		36EAF00F28965EC1009B58DD /* MockNetworkProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAF00E28965EC1009B58DD /* MockNetworkProviderTests.swift */; };
 		36EAF0112896610A009B58DD /* NetworkProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAF0102896610A009B58DD /* NetworkProviderTests.swift */; };
+		36EAF01328966B77009B58DD /* VolumeInfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAF01228966B77009B58DD /* VolumeInfoDTO.swift */; };
+		36EAF01528966B8B009B58DD /* SaleInfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAF01428966B8B009B58DD /* SaleInfoDTO.swift */; };
+		36EAF01728966B97009B58DD /* AccessInfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAF01628966B97009B58DD /* AccessInfoDTO.swift */; };
+		36EAF01928966BA3009B58DD /* SearchInfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAF01828966BA3009B58DD /* SearchInfoDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +78,10 @@
 		36EAF00C28965E44009B58DD /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		36EAF00E28965EC1009B58DD /* MockNetworkProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkProviderTests.swift; sourceTree = "<group>"; };
 		36EAF0102896610A009B58DD /* NetworkProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProviderTests.swift; sourceTree = "<group>"; };
+		36EAF01228966B77009B58DD /* VolumeInfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeInfoDTO.swift; sourceTree = "<group>"; };
+		36EAF01428966B8B009B58DD /* SaleInfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleInfoDTO.swift; sourceTree = "<group>"; };
+		36EAF01628966B97009B58DD /* AccessInfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessInfoDTO.swift; sourceTree = "<group>"; };
+		36EAF01828966BA3009B58DD /* SearchInfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInfoDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,8 +223,8 @@
 		36EAEFEE28964133009B58DD /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				36EAEFEF28964161009B58DD /* MockSearchResult.json */,
 				36EAF00628965916009B58DD /* MockBookItem.json */,
+				36EAEFEF28964161009B58DD /* MockSearchResult.json */,
 				36EAF00928965DFB009B58DD /* MockURLSession.swift */,
 			);
 			path = Mock;
@@ -227,6 +235,10 @@
 			children = (
 				36EAEFF4289643C2009B58DD /* SearchResultDTO.swift */,
 				36EAEFF628964425009B58DD /* BookItemDTO.swift */,
+				36EAF01228966B77009B58DD /* VolumeInfoDTO.swift */,
+				36EAF01428966B8B009B58DD /* SaleInfoDTO.swift */,
+				36EAF01628966B97009B58DD /* AccessInfoDTO.swift */,
+				36EAF01828966BA3009B58DD /* SearchInfoDTO.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -376,7 +388,9 @@
 				36EAEFEA28963383009B58DD /* APIProtocol.swift in Sources */,
 				36EAEFD428962B3B009B58DD /* AppCoordinator.swift in Sources */,
 				36EAEFF5289643C2009B58DD /* SearchResultDTO.swift in Sources */,
+				36EAF01528966B8B009B58DD /* SaleInfoDTO.swift in Sources */,
 				36EAEFF728964425009B58DD /* BookItemDTO.swift in Sources */,
+				36EAF01328966B77009B58DD /* VolumeInfoDTO.swift in Sources */,
 				36EAEFED28963440009B58DD /* JSONParser.swift in Sources */,
 				36EAEF9D28961EB5009B58DD /* AppDelegate.swift in Sources */,
 				36EAEFD828962B78009B58DD /* CoordinatorProtocol.swift in Sources */,
@@ -384,8 +398,10 @@
 				36EAEFE5289632EF009B58DD /* BookFinderURL.swift in Sources */,
 				36EAEFE828963367009B58DD /* URLRequest+Initializer.swift in Sources */,
 				36EAF0032896553A009B58DD /* SearchResult.swift in Sources */,
+				36EAF01728966B97009B58DD /* AccessInfoDTO.swift in Sources */,
 				36EAEFE3289632C0009B58DD /* NetworkProvider.swift in Sources */,
 				36EAF00528965574009B58DD /* BookItem.swift in Sources */,
+				36EAF01928966BA3009B58DD /* SearchInfoDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
