@@ -8,14 +8,19 @@
 import Foundation
 
 struct BookFinderURL {
-    static let baseURL: String = "http://3.39.155.132:8080/"
+    static let baseURL: String = "https://www.googleapis.com/books/v1/"
     
-    struct SearchBookAPI: Gettable {
+    struct BookSearchAPI: Gettable {
         let url: URL?
         let method: HttpMethod = .get
         
-        init(baseURL: String = baseURL) {
-            self.url = URL(string: "\(baseURL)22222222")
+        init(query: String, baseURL: String = baseURL) {
+            var urlComponents = URLComponents(string: "\(baseURL)volumes?")
+            let titleOrAuthorsQuery = URLQueryItem(name: "q", value: "\(query)")
+            urlComponents?.queryItems?.append(titleOrAuthorsQuery)
+            self.url = urlComponents?.url
+            
+//            self.url = URL(string: "\(baseURL)volumes?q=\(query)")  // TODO: 검색 구체화 (제목, 저자로 항목 한정)
         }
     }
 }
