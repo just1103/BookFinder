@@ -51,6 +51,7 @@ final class SearchListViewModel {
         return output
     }
     
+    // FIXME: 가끔 searchText가 onNext로 전달되어도 flatMap이 실행되지 않는 문제 발생
     private func configureSearchTextDidChangedObserver(by searchText: Observable<String>) -> Observable<(Int, [BookItem])> {
         return searchText
             .withUnretained(self)
@@ -102,7 +103,6 @@ final class SearchListViewModel {
                 smallThumbnailURL: item.volumeInfo?.imageLinks?.smallThumbnail
             )
         }
-        
         return bookItems
     }
     

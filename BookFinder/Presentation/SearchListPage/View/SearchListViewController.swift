@@ -51,9 +51,16 @@ final class SearchListViewController: UIViewController {
         collectionView.backgroundColor = .background
         return collectionView
     }()
+    private let activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.style = .large
+        activityIndicator.hidesWhenStopped = true
+        return activityIndicator
+    }()
+    
     private var dataSource: DiffableDataSource!
     private var snapshot: NSDiffableDataSourceSnapshot<SectionKind, BookItem>!
-    
     private var viewModel: SearchListViewModel!
 //    private let invokedViewDidLoad = PublishSubject<Void>()
     private let searchTextDidChanged = PublishSubject<String>()
@@ -132,6 +139,7 @@ final class SearchListViewController: UIViewController {
         
     private func configureHierarchy() {
         view.addSubview(containerStackView)
+        view.addSubview(activityIndicator)
         containerStackView.addArrangedSubview(itemCountLabel)
         containerStackView.addArrangedSubview(collectionView)
         
@@ -142,6 +150,8 @@ final class SearchListViewController: UIViewController {
             containerStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             itemCountLabel.topAnchor.constraint(equalTo: containerStackView.topAnchor, constant: 12),
             itemCountLabel.leadingAnchor.constraint(equalTo: containerStackView.leadingAnchor, constant: 12),
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
     }
     
@@ -160,10 +170,17 @@ final class SearchListViewController: UIViewController {
             )
             let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 1)
             let section = NSCollectionLayoutSection(group: group)
-            
             return section
         }
         return layout
+    }
+    
+    private func showActivityIndicator() {
+        activityIndicator.startAnimating()
+    }
+    
+    private func hideActivityIndicator() {
+        activityIndicator.stopAnimating()
     }
     
     private func configureDataSource() {
@@ -185,7 +202,6 @@ extension SearchListViewController {
             collectionViewDidScroll: collectionViewDidScroll,
             cellDidSelect: cellDidSelect
         )
-        
         let output = viewModel.transform(input)
         
         configureSearchCountAndItems(with: output.searchCountAndItems)
@@ -198,9 +214,10 @@ extension SearchListViewController {
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { (self, searchCountAndItems) in
                 let (searchCount, bookItems) = searchCountAndItems
-                
                 self.updateLabel(with: searchCount)
                 self.createAndApplySnapshot(with: bookItems)
+                
+                self.hideActivityIndicator()
             })
             .disposed(by: disposeBag)
     }
@@ -223,6 +240,8 @@ extension SearchListViewController {
             .subscribe(onNext: { (self, nextPageBookItems) in
                 // TODO: Activity Indicator 추가
                 self.appendAndApplySnapshot(with: nextPageBookItems)
+                
+                self.hideActivityIndicator()
             })
             .disposed(by: disposeBag)
     }
@@ -241,6 +260,8 @@ extension SearchListViewController: UICollectionViewDelegate {
         forItemAt indexPath: IndexPath
     ) {
         collectionViewDidScroll.onNext(indexPath.row)
+        // TODO: 목록 업데이트되는 index라면 showActivityIndicator 호출
+        // ViewModel을 activityIndicatorDelegate로 지정해서 호출해야 할듯 or Subject 추가
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -254,6 +275,12 @@ extension SearchListViewController: UICollectionViewDelegate {
 extension SearchListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else { return }
+        
+        if searchText.isEmpty || searchText == " " {
+            hideActivityIndicator()
+        } else {
+            showActivityIndicator()
+        }
         
         searchTextDidChanged.onNext(searchText)
     }

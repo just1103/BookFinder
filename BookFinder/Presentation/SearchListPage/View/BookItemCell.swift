@@ -108,7 +108,7 @@ final class BookItemCell: UICollectionViewCell {
     }()
     
     private var starViews = [StarImageView(), StarImageView(), StarImageView(), StarImageView(), StarImageView()]
-//    private var starViews = [StarImageView](repeating: StarImageView(), count: 5)
+//    private var starViews = [StarImageView](repeating: StarImageView(), count: 5)  // TODO: 중복코드 개선
     private var bookItem: BookItem!
     
     // MARK: - Initializers
