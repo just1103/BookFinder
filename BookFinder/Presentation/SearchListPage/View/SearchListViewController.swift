@@ -136,24 +136,6 @@ final class SearchListViewController: UIViewController {
         collectionView.collectionViewLayout = createCollectionViewLayout()
         collectionView.delegate = self
     }
-        
-    private func configureHierarchy() {
-        view.addSubview(containerStackView)
-        view.addSubview(activityIndicator)
-        containerStackView.addArrangedSubview(itemCountLabel)
-        containerStackView.addArrangedSubview(collectionView)
-        
-        NSLayoutConstraint.activate([
-            containerStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            containerStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            containerStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            containerStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            itemCountLabel.topAnchor.constraint(equalTo: containerStackView.topAnchor, constant: 12),
-            itemCountLabel.leadingAnchor.constraint(equalTo: containerStackView.leadingAnchor, constant: 12),
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        ])
-    }
     
     private func createCollectionViewLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { _, _ -> NSCollectionLayoutSection? in
@@ -174,13 +156,23 @@ final class SearchListViewController: UIViewController {
         }
         return layout
     }
-    
-    private func showActivityIndicator() {
-        activityIndicator.startAnimating()
-    }
-    
-    private func hideActivityIndicator() {
-        activityIndicator.stopAnimating()
+        
+    private func configureHierarchy() {
+        view.addSubview(containerStackView)
+        view.addSubview(activityIndicator)
+        containerStackView.addArrangedSubview(itemCountLabel)
+        containerStackView.addArrangedSubview(collectionView)
+        
+        NSLayoutConstraint.activate([
+            containerStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            containerStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            containerStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            containerStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            itemCountLabel.topAnchor.constraint(equalTo: containerStackView.topAnchor, constant: 12),
+            itemCountLabel.leadingAnchor.constraint(equalTo: containerStackView.leadingAnchor, constant: 12),
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
     }
     
     private func configureDataSource() {
@@ -194,6 +186,17 @@ final class SearchListViewController: UIViewController {
     }
 }
 
+// MARK: - ActivityIndicator
+extension SearchListViewController {
+    private func showActivityIndicator() {
+        activityIndicator.startAnimating()
+    }
+    
+    private func hideActivityIndicator() {
+        activityIndicator.stopAnimating()
+    }
+}
+
 // MARK: - Rx Binding Methods
 extension SearchListViewController {
     private func bind() {
@@ -202,6 +205,7 @@ extension SearchListViewController {
             collectionViewDidScroll: collectionViewDidScroll,
             cellDidSelect: cellDidSelect
         )
+        
         let output = viewModel.transform(input)
         
         configureSearchCountAndItems(with: output.searchCountAndItems)
@@ -221,6 +225,10 @@ extension SearchListViewController {
             })
             .disposed(by: disposeBag)
     }
+      
+    private func updateLabel(with itemCount: Int) {
+        itemCountLabel.text = "검색 결과 (\(itemCount))"
+    }
     
     private func createAndApplySnapshot(with bookItems: [BookItem]) {
         snapshot = SnapShot()
@@ -228,17 +236,12 @@ extension SearchListViewController {
         snapshot.appendItems(bookItems)
         dataSource.apply(self.snapshot, animatingDifferences: true)
     }
-      
-    private func updateLabel(with itemCount: Int) {
-        itemCountLabel.text = "검색 결과 (\(itemCount))"
-    }
             
     private func configureNextPageItems(with inputObservable: Observable<[BookItem]>) {
         inputObservable
             .withUnretained(self)
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { (self, nextPageBookItems) in
-                // TODO: Activity Indicator 추가
                 self.appendAndApplySnapshot(with: nextPageBookItems)
                 
                 self.hideActivityIndicator()
@@ -260,8 +263,7 @@ extension SearchListViewController: UICollectionViewDelegate {
         forItemAt indexPath: IndexPath
     ) {
         collectionViewDidScroll.onNext(indexPath.row)
-        // TODO: 목록 업데이트되는 index라면 showActivityIndicator 호출
-        // ViewModel을 activityIndicatorDelegate로 지정해서 호출해야 할듯 or Subject 추가
+        // TODO: 목록 업데이트되는 index라면 ViewModel에서 showActivityIndicator 호출
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -276,6 +278,8 @@ extension SearchListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else { return }
         
+        // TODO: 입력값이 있다면 ViewModel에서 showActivityIndicator 호출
+        // VC이 판단하지 말고 VM이 판단해야 함 (if문 삭제 필요)
         if searchText.isEmpty || searchText == " " {
             hideActivityIndicator()
         } else {

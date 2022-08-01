@@ -29,7 +29,6 @@ final class SearchListViewModel {
     private var currentPageNumber: Int = 1
     private var currentItemCount: Int = 0
     private var currentSearchText: String = ""
-    
     private let disposeBag = DisposeBag()
     
     // MARK: - Initializers
@@ -40,7 +39,7 @@ final class SearchListViewModel {
     // MARK: - Methods
     func transform(_ input: Input) -> Output {
         let searchResult = configureSearchTextDidChangedObserver(by: input.searchTextDidChanged)
-        let nextPageItems = configurecollectionViewDidScrollObserver(by: input.collectionViewDidScroll)
+        let nextPageItems = configureCollectionViewDidScrollObserver(by: input.collectionViewDidScroll)
         configureCellDidSelectObserver(by: input.cellDidSelect)
         
         let output = Output(
@@ -59,13 +58,15 @@ final class SearchListViewModel {
                 if searchText.isEmpty || searchText == " " {
                     self.currentSearchText = ""
                     self.currentPageNumber = 1
-                    self.currentItemCount = 0  // 검색어를 지웠으므로 재처리
+                    self.currentItemCount = 0
                     
                     return Observable.just((0, []))
                 }
                 
                 return self.fetchSearchResult(with: searchText, at: self.initialPageNumber)
                     .map { searchResultDTO -> (Int, [BookItem]) in
+                        // TODO: 여기서 startActivityViewAnimation을 해야 함 (delegate.start-)
+                        
                         self.currentSearchText = searchText
                         self.currentPageNumber = 1
                         self.currentItemCount = self.itemPerPage * self.currentPageNumber
@@ -88,6 +89,7 @@ final class SearchListViewModel {
             ),
             decodingType: SearchResultDTO.self
         )
+        
         return searchResult
     }
     
@@ -103,22 +105,26 @@ final class SearchListViewModel {
                 smallThumbnailURL: item.volumeInfo?.imageLinks?.smallThumbnail
             )
         }
+        
         return bookItems
     }
     
-    private func configurecollectionViewDidScrollObserver(by inputObservable: Observable<Int>) -> Observable<[BookItem]> {
+    private func configureCollectionViewDidScrollObserver(by inputObservable: Observable<Int>) -> Observable<[BookItem]> {
         return inputObservable
             .withUnretained(self)
             .filter { (self, row) in
                 return row + 4 == self.currentItemCount
             }
             .flatMap { _ -> Observable<[BookItem]> in
+                // TODO: 여기서 startActivityViewAnimation을 해야 함 (delegate.start-)
+                
                 self.currentPageNumber += 1
                 self.currentItemCount = self.itemPerPage * self.currentPageNumber
                 
                 return self.fetchSearchResult(with: self.currentSearchText, at: self.currentPageNumber)
                     .map { searchResultDTO -> [BookItem] in
                         let bookItems = self.makeBookItems(with: searchResultDTO.items ?? [])
+                        
                         return bookItems
                     }
             }

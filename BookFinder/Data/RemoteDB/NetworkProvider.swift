@@ -48,19 +48,6 @@ struct NetworkProvider {
         }
     }
     
-//    func request(api: Requestable) -> Observable<Data> {
-//        return Observable.create { emitter in
-//            guard let task = dataTask(api: api, emitter: emitter) else {
-//                return Disposables.create()
-//            }
-//            task.resume()
-//
-//            return Disposables.create {
-//                task.cancel()
-//            }
-//        }
-//    }
-    
     private func dataTask<T: Codable>(api: APIProtocol, emitter: AnyObserver<T>) -> URLSessionDataTask? {
         guard let urlRequest = URLRequest(api: api) else {
             emitter.onError(NetworkError.urlIsNil)

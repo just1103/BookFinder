@@ -27,7 +27,6 @@
 		36EAEFF32896435F009B58DD /* JSONParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAEFF22896435F009B58DD /* JSONParserTests.swift */; };
 		36EAEFF5289643C2009B58DD /* SearchResultDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAEFF4289643C2009B58DD /* SearchResultDTO.swift */; };
 		36EAEFF728964425009B58DD /* BookItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAEFF628964425009B58DD /* BookItemDTO.swift */; };
-		36EAF0032896553A009B58DD /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAF0022896553A009B58DD /* SearchResult.swift */; };
 		36EAF00528965574009B58DD /* BookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAF00428965574009B58DD /* BookItem.swift */; };
 		36EAF00728965916009B58DD /* MockBookItem.json in Resources */ = {isa = PBXBuildFile; fileRef = 36EAF00628965916009B58DD /* MockBookItem.json */; };
 		36EAF008289659ED009B58DD /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EAEFD728962B78009B58DD /* CoordinatorProtocol.swift */; };
@@ -104,7 +103,6 @@
 		36EAEFF22896435F009B58DD /* JSONParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParserTests.swift; sourceTree = "<group>"; };
 		36EAEFF4289643C2009B58DD /* SearchResultDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultDTO.swift; sourceTree = "<group>"; };
 		36EAEFF628964425009B58DD /* BookItemDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItemDTO.swift; sourceTree = "<group>"; };
-		36EAF0022896553A009B58DD /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		36EAF00428965574009B58DD /* BookItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItem.swift; sourceTree = "<group>"; };
 		36EAF00628965916009B58DD /* MockBookItem.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockBookItem.json; sourceTree = "<group>"; };
 		36EAF00928965DFB009B58DD /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
@@ -295,7 +293,6 @@
 		36EAF001289654E0009B58DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				36EAF0022896553A009B58DD /* SearchResult.swift */,
 				36EAF00428965574009B58DD /* BookItem.swift */,
 			);
 			path = Model;
@@ -479,7 +476,6 @@
 				36EAEF9F28961EB5009B58DD /* SceneDelegate.swift in Sources */,
 				36EAEFE5289632EF009B58DD /* BookFinderURL.swift in Sources */,
 				36EAEFE828963367009B58DD /* URLRequest+Initializer.swift in Sources */,
-				36EAF0032896553A009B58DD /* SearchResult.swift in Sources */,
 				36EAF02C2896AAC4009B58DD /* ImageCacheManager.swift in Sources */,
 				36EAF01728966B97009B58DD /* AccessInfoDTO.swift in Sources */,
 				36EAF02228969ABE009B58DD /* SearchListViewModel.swift in Sources */,
