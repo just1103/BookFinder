@@ -7,8 +7,7 @@
 
 import Foundation
 
-struct SearchResult {
-    let kind: String
-    let totalItems: Int
-    let items: [BookItem]
+struct SearchResult {  // TODO: 필요없음
+    let itemCount: Int
+    let items: [BookItemDTO]
 }

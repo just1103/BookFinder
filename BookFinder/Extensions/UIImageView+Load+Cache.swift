@@ -17,12 +17,18 @@ extension UIImageView {
         
         DispatchQueue.global().async {
             guard
-                let imageURL = URL(string: key),
+                let url = URL(string: key),
+                var urlCompoentns = URLComponents(url: url, resolvingAgainstBaseURL: false)
+            else { return }
+            
+            urlCompoentns.scheme = "https"
+            
+            guard
+                let imageURL = urlCompoentns.url,
                 let imageData = try? Data(contentsOf: imageURL),
                 let loadedImage = UIImage(data: imageData)
-            else {
-                return
-            }
+            else { return }
+            
             ImageCacheManager.shared.setObject(loadedImage, forKey: cacheKey)
             
             DispatchQueue.main.async {

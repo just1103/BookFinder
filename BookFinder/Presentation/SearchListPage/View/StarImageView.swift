@@ -14,10 +14,6 @@ final class StarImageView: UIImageView {
         contentMode = .scaleAspectFit
         heightAnchor.constraint(equalTo: widthAnchor).isActive = true
     }
-    
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
 }
 
 // MARK: - NameSpaces

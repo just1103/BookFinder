@@ -16,27 +16,40 @@ final class SearchListViewController: UIViewController {
     }
     
     // MARK: - Properties
-//    private let containerStackView: UIStackView = {
-//        let stackView = UIStackView()
-//        stackView.translatesAutoresizingMaskIntoConstraints = false
-//        stackView.axis = .vertical
-//        stackView.alignment = .fill
-//        stackView.distribution = .fill
-//        stackView.spacing = 10
-//        let verticalInset: CGFloat = 5
-//        let horizontalInset: CGFloat = 12
-//        stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(
-//            top: verticalInset,
-//            leading: horizontalInset,
-//            bottom: verticalInset,
-//            trailing: horizontalInset
-//        )
-//        stackView.isLayoutMarginsRelativeArrangement = true
-//        return stackView
-//    }()
+    private let containerStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.spacing = 10
+        let verticalInset: CGFloat = 5
+        let horizontalInset: CGFloat = 12
+        stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(
+            top: verticalInset,
+            leading: horizontalInset,
+            bottom: verticalInset,
+            trailing: horizontalInset
+        )
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.backgroundColor = .background
+        return stackView
+    }()
+    private let itemCountLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .left
+        label.font = .preferredFont(forTextStyle: .title2)
+        label.textColor = .label
+        label.numberOfLines = 1
+        label.text = "검색 결과"
+        return label
+    }()
     private var searchController: UISearchController = {
         let searchController = UISearchController()
         searchController.searchBar.placeholder = "책 제목, 저자 검색"
+        searchController.searchBar.setValue("취소", forKey: "cancelButtonText")
+//        searchController.searchBar.searchTextField.backgroundColor = .clear
 //        searchController.hidesNavigationBarDuringPresentation = true
 //        searchController.automaticallyShowsCancelButton = true
         return searchController
@@ -51,8 +64,9 @@ final class SearchListViewController: UIViewController {
     private var snapshot: NSDiffableDataSourceSnapshot<SectionKind, BookItem>!
     
     private var viewModel: SearchListViewModel!
-    private let invokedViewDidLoad = PublishSubject<Void>()
-    private let cellDidScroll = PublishSubject<IndexPath>()
+//    private let invokedViewDidLoad = PublishSubject<Void>()
+    private let searchTextDidChanged = PublishSubject<String>()
+    private let collectionViewDidScroll = PublishSubject<IndexPath>()
     private let disposeBag = DisposeBag()
     
     private typealias CellRegistration = UICollectionView.CellRegistration<BookItemCell, BookItem>
@@ -71,7 +85,8 @@ final class SearchListViewController: UIViewController {
         checkIOSVersion()
         configureUI()
         configureDataSource()
-        performQuery(with: nil)
+        bind()
+//        performQuery(with: nil)  // 초기화면에서는 아무것도 안해도 될듯
     }
 
     // MARK: - Methods
@@ -98,7 +113,8 @@ final class SearchListViewController: UIViewController {
     private func configureUI() {
         configureNavigationBar()
         configureSearchBar()
-        configureCollectionView()
+        configureHierarchy()
+        configureDataSource()
     }
 
     private func configureNavigationBar() {
@@ -116,16 +132,18 @@ final class SearchListViewController: UIViewController {
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
     }
-    
-    private func configureCollectionView() {
+        
+    private func configureHierarchy() {
         collectionView.collectionViewLayout = createCollectionViewLayout()
-        view.addSubview(collectionView)
+        view.addSubview(containerStackView)
+        containerStackView.addArrangedSubview(itemCountLabel)
+        containerStackView.addArrangedSubview(collectionView)
         
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            containerStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            containerStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            containerStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            containerStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
     
@@ -153,23 +171,65 @@ final class SearchListViewController: UIViewController {
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: bookItem)
         }
     }
-    
-    // TODO: initial snapshot을 따로 그려야할까? 아니지 검색입력값이 없으니까
-    private func performQuery(with searchText: String?) {
-        guard let searchText = searchText else { return }
-        // TODO: 데이터 새로 받고, 새로운 snapshot 적용
+}
+
+// MARK: - Rx Binding Methods
+extension SearchListViewController {
+    private func bind() {
+        let input = SearchListViewModel.Input(
+            searchTextDidChanged: searchTextDidChanged,
+            collectionViewDidScroll: collectionViewDidScroll,
+            cellDidSelect: collectionView.rx.itemSelected.asObservable()
+        )
         
-        snapshot = SnapShot()
-        snapshot.appendSections([.main])
-        snapshot.appendItems([BookItem(id: "123", title: "제목", authors: ["저자"], publisher: "123", publishedDate: "2022", volumeDescription: "123", pageCount: 1, categories: ["123"], averageRating: 3.7, ratingsCount: 20, language: "123", smallThumbnailURL: "http://books.google.com/books/content?id=vAlIAAAAYAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api", thumbnailURL: "123", isEbookAvailable: true, istextToSpeechAvailable: true)])
-        dataSource.apply(snapshot, animatingDifferences: true)
+        let output = viewModel.transform(input)
+        
+        configureSearchCountAndItems(with: output.searchCountAndItems)
+//        configureNextPageItems(with: output.nextPageItems)
+    }
+    
+    private func configureSearchCountAndItems(with inputObservable: Observable<(Int, [BookItem])>) {
+        inputObservable
+            .withUnretained(self)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { (self, searchCountAndItems) in
+                let (searchCount, bookItems) = searchCountAndItems
+                self.snapshot = SnapShot()
+                self.snapshot.appendSections([.main])
+                self.snapshot.appendItems(bookItems)
+                self.dataSource.apply(self.snapshot, animatingDifferences: true)
+                
+                self.updateLabel(with: searchCount)
+            })
+            .disposed(by: disposeBag)
+    }
+      
+    private func updateLabel(with itemCount: Int) {
+        itemCountLabel.text = "검색 결과 (\(itemCount))"
+    }
+            
+    private func configureNextPageItems(with inputObservable: Observable<[BookItem]>) {
+        
     }
 }
 
+// MARK: - CollectionView Delegate
+extension SearchListViewController: UICollectionViewDelegate {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        willDisplay cell: UICollectionViewCell,
+        forItemAt indexPath: IndexPath
+    ) {
+        collectionViewDidScroll.onNext(indexPath)
+    }
+}
+
+// MARK: - UISearchResultsUpdating
 extension SearchListViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
+    func updateSearchResults(for searchController: UISearchController) {  // x버튼이나 취소버튼을 눌렀을 때도 호출됨
         guard let searchText = searchController.searchBar.text else { return }
-        performQuery(with: searchText)  
+        
+        searchTextDidChanged.onNext(searchText)
     }
 }
 

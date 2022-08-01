@@ -134,8 +134,13 @@ final class BookItemCell: UICollectionViewCell {
     
     // MARK: - Methods
     func apply(bookItem: BookItem) {
-//        imageView.loadCachedImage(of: bookItem.smallThumbnailURL) // TODO: 확인용
-        imageView.image = UIImage(named: "bookCover")
+        if let imageURL = bookItem.smallThumbnailURL {
+            imageView.loadCachedImage(of: imageURL)
+        } else {
+            imageView.image = UIImage(systemName: "display.trianglebadge.exclamationmark")
+            imageView.tintColor = .lightGreen
+        }
+        
         titleLabel.text = bookItem.title
         configureAuthorLabel(with: bookItem.authors)
         publicationYearLabel.text = String(bookItem.publishedDate.prefix(4))
@@ -195,6 +200,8 @@ final class BookItemCell: UICollectionViewCell {
             imageView.widthAnchor.constraint(equalTo: containerStackView.widthAnchor, multiplier: 0.3),
             accessoryImageView.widthAnchor.constraint(equalTo: containerStackView.widthAnchor, multiplier: 0.03)
         ])
+        
+        starViews.forEach { $0.heightAnchor.constraint(equalTo: ratingCountLabel.heightAnchor).isActive = true }
     }
 }
 

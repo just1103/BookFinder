@@ -30,7 +30,7 @@ class MockNetworkProviderTests: XCTestCase {
         let expectation = XCTestExpectation(description: "MockSession fetchData 비동기 테스트")
         
         let observable = sut.fetchData(
-            api: BookFinderURL.BookSearchAPI(keywords: "flowers"),
+            api: BookFinderURL.BookSearchAPI(searchText: "flowers"),
             decodingType: SearchResultDTO.self
         )
         _ = observable.subscribe(onNext: { result in

@@ -11,13 +11,14 @@ struct VolumeInfoDTO: Codable {
     let title: String?
     let subtitle: String?
     let authors: [String]?
-    let publisher, publishedDate, volumeInfoDescription: String?
+    let publisher, publishedDate, volumeDescription: String?
     let industryIdentifiers: [IndustryIdentifier]?
     let readingModes: ReadingModes?
     let pageCount: Int?
     let printType: String?
     let categories: [String]?
-    let averageRating, ratingsCount: Int?
+    let averageRating: Double?
+    let ratingsCount: Int?
     let maturityRating: String?
     let allowAnonLogging: Bool?
     let contentVersion: String?
@@ -29,7 +30,7 @@ struct VolumeInfoDTO: Codable {
     
     enum CodingKeys: String, CodingKey {
         case title, subtitle, authors, publisher, publishedDate
-        case volumeInfoDescription = "description"
+        case volumeDescription = "description"
         case industryIdentifiers, readingModes, pageCount, printType, categories, averageRating, ratingsCount,
              maturityRating, allowAnonLogging, contentVersion, panelizationSummary, imageLinks, language,
              previewLink, infoLink, canonicalVolumeLink

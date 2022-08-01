@@ -9,7 +9,7 @@ import UIKit
 
 final class ImageCacheManager {
     static let shared = NSCache<NSString, UIImage>()
-    private let memoryWarningNotification = UIApplication.didReceiveMemoryWarningNotification  // TODO: 재확인 필요
+    private let memoryWarningNotification = UIApplication.didReceiveMemoryWarningNotification
     
     private init() {
         NotificationCenter.default.addObserver(
