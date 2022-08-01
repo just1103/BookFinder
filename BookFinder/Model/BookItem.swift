@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BookItem {
+struct BookItem: Hashable {
     let id: String
     
     // VolumeInformation
@@ -18,7 +18,7 @@ struct BookItem {
     let volumeDescription: String
     let pageCount: Int?
     let categories: [String]?
-    let averageRating: Int?
+    let averageRating: Double?
     let ratingsCount: Int?
     let language: String
     let smallThumbnailURL: String  // ImageLinks

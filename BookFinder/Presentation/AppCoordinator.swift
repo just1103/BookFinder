@@ -20,14 +20,14 @@ final class AppCoordinator: CoordinatorProtocol {
     
     // MARK: - Methods
     func start() {
-        showSearchPage()
+        showSearchListPage()
     }
     
-    private func showSearchPage() {
+    private func showSearchListPage() {
         guard let navigationController = navigationController else { return }
-//        let searchCoordinator = SearchCoordinator(navigationController: navigationController)
-//        childCoordinators.append(searchCoordinator)
-//        searchCoordinator.start()
+        let searchListCoordinator = SearchListCoordinator(navigationController: navigationController)
+        childCoordinators.append(searchListCoordinator)
+        searchListCoordinator.start()
     }
     
 //    func removeFromChildCoordinators(coordinator: CoordinatorProtocol) {
