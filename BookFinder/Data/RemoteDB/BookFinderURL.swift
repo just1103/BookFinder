@@ -17,9 +17,9 @@ struct BookFinderURL {
         init(
             searchText: String,
             pageNumber: Int = 1,
+            itemPerPage: Int = 20,
             baseURL: String = baseURL
         ) {
-            let itemPerPage = 20  // TODO: ListViewModel이 들고있어야 하나?
             let startIndex = (pageNumber - 1) * itemPerPage
             
             var urlComponents = URLComponents(string: "\(baseURL)volumes?")

@@ -13,20 +13,23 @@ final class SearchListViewModel {
     struct Input {
 //        let invokedViewDidLoad: Observable<Void>
         let searchTextDidChanged: Observable<String>
-        let collectionViewDidScroll: Observable<IndexPath>
+        let collectionViewDidScroll: Observable<Int>
         let cellDidSelect: Observable<IndexPath>
     }
     
     struct Output {
-        let searchCountAndItems: Observable<(Int, [BookItem])>  // TODO: 시간 남으면 DTO 없는 Model로 전환시키기
-//        let nextPageItems: Observable<[BookItem]>
+        let searchCountAndItems: Observable<(Int, [BookItem])>
+        let nextPageItems: Observable<[BookItem]>
     }
     
     // MARK: - Properties
     private weak var coordinator: SearchListCoordinator!
-    private var initialPageNumber = 1
-    private var currentProductPage: Int = 1
-    private var currentProductsCount: Int = 20
+    private let initialPageNumber = 1
+    private let itemPerPage = 20
+    private var currentPageNumber: Int = 1
+    private var currentItemCount: Int = 0
+    private var currentSearchText: String = ""
+    
     private let disposeBag = DisposeBag()
     
     // MARK: - Initializers
@@ -37,12 +40,12 @@ final class SearchListViewModel {
     // MARK: - Methods
     func transform(_ input: Input) -> Output {
         let searchResult = configureSearchTextDidChangedObserver(by: input.searchTextDidChanged)
-//        let nextPageBookItems = configurecollectionViewDidScrollObserver(by: input.collectionViewDidScroll)
+        let nextPageItems = configurecollectionViewDidScrollObserver(by: input.collectionViewDidScroll)
         configureCellDidSelectObserver(by: input.cellDidSelect)
         
         let output = Output(
-            searchCountAndItems: searchResult
-//            nextPageItems: nextPageBookItems
+            searchCountAndItems: searchResult,
+            nextPageItems: nextPageItems
         )
         
         return output
@@ -53,29 +56,35 @@ final class SearchListViewModel {
             .withUnretained(self)
             .flatMap { (self, searchText) -> Observable<(Int, [BookItem])> in
                 if searchText.isEmpty || searchText == " " {
-                    self.currentProductPage = 1
-                    self.currentProductsCount = 0  // 검색어를 지웠으므로 재처리
+                    self.currentSearchText = ""
+                    self.currentPageNumber = 1
+                    self.currentItemCount = 0  // 검색어를 지웠으므로 재처리
                     
                     return Observable.just((0, []))
                 }
                 
                 return self.fetchSearchResult(with: searchText, at: self.initialPageNumber)
-                    .flatMap { searchResultDTO -> Observable<(Int, [BookItem])> in
-                        self.currentProductPage = 1
-                        self.currentProductsCount = 20
+                    .map { searchResultDTO -> (Int, [BookItem]) in
+                        self.currentSearchText = searchText
+                        self.currentPageNumber = 1
+                        self.currentItemCount = self.itemPerPage * self.currentPageNumber
                         
                         let itemCount = searchResultDTO.totalItems ?? 0
                         let bookItemsDTO = searchResultDTO.items ?? []
                         let bookItems = self.makeBookItems(with: bookItemsDTO)
                         
-                        return Observable.just((itemCount, bookItems))
+                        return (itemCount, bookItems)
                     }
             }
     }
     
     private func fetchSearchResult(with searchText: String, at pageNumber: Int) -> Observable<SearchResultDTO> {
         let searchResult = NetworkProvider().fetchData(
-            api: BookFinderURL.BookSearchAPI(searchText: searchText, pageNumber: pageNumber),
+            api: BookFinderURL.BookSearchAPI(
+                searchText: searchText,
+                pageNumber: pageNumber,
+                itemPerPage: self.itemPerPage
+            ),
             decodingType: SearchResultDTO.self
         )
         return searchResult
@@ -97,24 +106,23 @@ final class SearchListViewModel {
         return bookItems
     }
     
-//    private func configurecollectionViewDidScrollObserver(by inputObservable: Observable<IndexPath>) -> Observable<[BookItem]> {
-    //    self.currentProductPage = 1    // TODO: Page +1
-    //    self.currentProductsCount = 20
-    
-    
-//        return inputObservable
-//            .filter { [weak self] indexPath in
-//                return indexPath.row + 4 == self?.currentProductsCount
-//            }
-//            .flatMap { [weak self] _ -> Observable<[BookItem]> in
-//                guard let self = self else { return Observable.just([]) }
-//                self.currentProductPage += 1
-//                self.currentProductsCount += 20
-//                return self.fetchProducts(at: self.currentProductPage, with: 20).map { productPage -> [UniqueProduct] in
-//                    return self.makeHashable(from: productPage.products)
-//                }
-//            }
-//    }
+    private func configurecollectionViewDidScrollObserver(by inputObservable: Observable<Int>) -> Observable<[BookItem]> {
+        return inputObservable
+            .withUnretained(self)
+            .filter { (self, row) in
+                return row + 4 == self.currentItemCount
+            }
+            .flatMap { _ -> Observable<[BookItem]> in
+                self.currentPageNumber += 1
+                self.currentItemCount = self.itemPerPage * self.currentPageNumber
+                
+                return self.fetchSearchResult(with: self.currentSearchText, at: self.currentPageNumber)
+                    .map { searchResultDTO -> [BookItem] in
+                        let bookItems = self.makeBookItems(with: searchResultDTO.items ?? [])
+                        return bookItems
+                    }
+            }
+    }
     
     private func configureCellDidSelectObserver(by inputObservable: Observable<IndexPath>) {
         inputObservable

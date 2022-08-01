@@ -66,7 +66,7 @@ final class SearchListViewController: UIViewController {
     private var viewModel: SearchListViewModel!
 //    private let invokedViewDidLoad = PublishSubject<Void>()
     private let searchTextDidChanged = PublishSubject<String>()
-    private let collectionViewDidScroll = PublishSubject<IndexPath>()
+    private let collectionViewDidScroll = PublishSubject<Int>()
     private let disposeBag = DisposeBag()
     
     private typealias CellRegistration = UICollectionView.CellRegistration<BookItemCell, BookItem>
@@ -113,6 +113,7 @@ final class SearchListViewController: UIViewController {
     private func configureUI() {
         configureNavigationBar()
         configureSearchBar()
+        configureCollectionView()
         configureHierarchy()
         configureDataSource()
     }
@@ -132,9 +133,13 @@ final class SearchListViewController: UIViewController {
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
     }
+    
+    private func configureCollectionView() {
+        collectionView.collectionViewLayout = createCollectionViewLayout()
+        collectionView.delegate = self
+    }
         
     private func configureHierarchy() {
-        collectionView.collectionViewLayout = createCollectionViewLayout()
         view.addSubview(containerStackView)
         containerStackView.addArrangedSubview(itemCountLabel)
         containerStackView.addArrangedSubview(collectionView)
@@ -150,10 +155,16 @@ final class SearchListViewController: UIViewController {
     private func createCollectionViewLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { _, _ -> NSCollectionLayoutSection? in
             let screenWidth = UIScreen.main.bounds.width
-            let estimatedHeight = NSCollectionLayoutDimension.estimated(screenWidth * 0.3)
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: estimatedHeight)
+            let estimatedHeight = NSCollectionLayoutDimension.estimated(screenWidth * 0.35)
+            let itemSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: estimatedHeight
+            )
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: estimatedHeight)
+            let groupSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: estimatedHeight
+            )
             let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 1)
             let section = NSCollectionLayoutSection(group: group)
             
@@ -163,7 +174,7 @@ final class SearchListViewController: UIViewController {
     }
     
     private func configureDataSource() {
-        let cellRegistration = CellRegistration { (cell, indexPath, bookItem) in
+        let cellRegistration = CellRegistration { (cell, _, bookItem) in
             cell.apply(bookItem: bookItem)
         }
         
@@ -185,7 +196,7 @@ extension SearchListViewController {
         let output = viewModel.transform(input)
         
         configureSearchCountAndItems(with: output.searchCountAndItems)
-//        configureNextPageItems(with: output.nextPageItems)
+        configureNextPageItems(with: output.nextPageItems)
     }
     
     private func configureSearchCountAndItems(with inputObservable: Observable<(Int, [BookItem])>) {
@@ -194,14 +205,18 @@ extension SearchListViewController {
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { (self, searchCountAndItems) in
                 let (searchCount, bookItems) = searchCountAndItems
-                self.snapshot = SnapShot()
-                self.snapshot.appendSections([.main])
-                self.snapshot.appendItems(bookItems)
-                self.dataSource.apply(self.snapshot, animatingDifferences: true)
                 
                 self.updateLabel(with: searchCount)
+                self.createAndApplySnapshot(with: bookItems)
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func createAndApplySnapshot(with bookItems: [BookItem]) {
+        snapshot = SnapShot()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(bookItems)
+        dataSource.apply(self.snapshot, animatingDifferences: true)
     }
       
     private func updateLabel(with itemCount: Int) {
@@ -209,7 +224,19 @@ extension SearchListViewController {
     }
             
     private func configureNextPageItems(with inputObservable: Observable<[BookItem]>) {
-        
+        inputObservable
+            .withUnretained(self)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { (self, nextPageBookItems) in
+                // TODO: Activity Indicator 추가
+                self.appendAndApplySnapshot(with: nextPageBookItems)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func appendAndApplySnapshot(with bookItems: [BookItem]) {
+        snapshot.appendItems(bookItems)
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
 }
 
@@ -220,7 +247,8 @@ extension SearchListViewController: UICollectionViewDelegate {
         willDisplay cell: UICollectionViewCell,
         forItemAt indexPath: IndexPath
     ) {
-        collectionViewDidScroll.onNext(indexPath)
+        print(indexPath)
+        collectionViewDidScroll.onNext(indexPath.row)
     }
 }
 

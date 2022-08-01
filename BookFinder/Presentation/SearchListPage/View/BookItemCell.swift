@@ -16,7 +16,7 @@ final class BookItemCell: UICollectionViewCell {
         stackView.alignment = .fill
         stackView.distribution = .fill
         stackView.spacing = 10
-        let verticalInset: CGFloat = 5
+        let verticalInset: CGFloat = 10
         let horizontalInset: CGFloat = 10
         stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(
             top: verticalInset,
@@ -33,7 +33,7 @@ final class BookItemCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFit
         imageView.layer.cornerRadius = 6
         imageView.clipsToBounds = true
-        imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
+//        imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
         return imageView
     }()
     private let volumeInfoStackView: UIStackView = {
@@ -51,7 +51,7 @@ final class BookItemCell: UICollectionViewCell {
         label.textAlignment = .left
         label.font = .preferredFont(forTextStyle: .title3)
         label.textColor = .label
-        label.numberOfLines = 0
+        label.numberOfLines = 1  // TODO: 2줄도 가능하도록 개선 (이미지 크기를 키워서 ratingStackView 하단에 공백 주기)
         label.setContentHuggingPriority(.defaultLow, for: .vertical)
         label.setContentCompressionResistancePriority(.required, for: .vertical)
         return label
@@ -128,7 +128,7 @@ final class BookItemCell: UICollectionViewCell {
         titleLabel.text = nil
         authorLabel.text = nil
         publicationYearLabel.text = nil
-        starViews.forEach { $0.image = nil }
+        starViews.forEach { $0.image = UIImage(systemName: Design.emptyStarName) }
         ratingCountLabel.text = nil
     }
     
@@ -209,7 +209,7 @@ final class BookItemCell: UICollectionViewCell {
 extension BookItemCell {
     private enum Design {
         static let accessoryImageName: String = "chevron.right"
-//        static let emptyStarName: String = "star"
+        static let emptyStarName: String = "star"
         static let filledStarName: String = "star.fill"
         static let halfFilledStarName: String = "star.leadinghalf.filled"
         
