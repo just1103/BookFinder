@@ -22,9 +22,7 @@ final class SearchListCoordinator: CoordinatorProtocol {
     func start() {
         showSearchListPage()
     }
-    
-//    func finish() {}
-    
+
     private func showSearchListPage() {
         guard let navigationController = navigationController else { return }
         let searchListViewModel = SearchListViewModel(coordinator: self)
@@ -32,4 +30,16 @@ final class SearchListCoordinator: CoordinatorProtocol {
         
         navigationController.pushViewController(searchListViewController, animated: false)
     }
+    
+    func showDetailPage(with bookItem: BookItem) {
+        guard let navigationController = navigationController else { return }
+//        let detailCoordinator = DetailCoordinator(navigationController: navigationController)
+//        childCoordinators.append(detailCoordinator)
+//        detailCoordinator.start()
+    }
+    
+//    func removeFromChildCoordinators(coordinator: CoordinatorProtocol) {
+//        let updatedChildCoordinators = childCoordinators.filter { $0 !== coordinator }
+//        childCoordinators = updatedChildCoordinators
+//    }
 }

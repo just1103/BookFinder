@@ -29,13 +29,4 @@ final class AppCoordinator: CoordinatorProtocol {
         childCoordinators.append(searchListCoordinator)
         searchListCoordinator.start()
     }
-    
-//    func removeFromChildCoordinators(coordinator: CoordinatorProtocol) {
-//        let updatedChildCoordinators = childCoordinators.filter { $0 !== coordinator }
-//        childCoordinators = updatedChildCoordinators
-//    }
-    
-//    func popCurrentPage() {
-//        navigationController?.popViewController(animated: true)
-//    }
 }

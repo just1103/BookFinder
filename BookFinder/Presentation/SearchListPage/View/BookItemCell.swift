@@ -16,8 +16,8 @@ final class BookItemCell: UICollectionViewCell {
         stackView.alignment = .fill
         stackView.distribution = .fill
         stackView.spacing = 10
-        let verticalInset: CGFloat = 10
-        let horizontalInset: CGFloat = 10
+        let verticalInset: CGFloat = 12
+        let horizontalInset: CGFloat = 12
         stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(
             top: verticalInset,
             leading: horizontalInset,
@@ -109,6 +109,7 @@ final class BookItemCell: UICollectionViewCell {
     
     private var starViews = [StarImageView(), StarImageView(), StarImageView(), StarImageView(), StarImageView()]
 //    private var starViews = [StarImageView](repeating: StarImageView(), count: 5)
+    private var bookItem: BookItem!
     
     // MARK: - Initializers
     override init(frame: CGRect) {
@@ -134,6 +135,8 @@ final class BookItemCell: UICollectionViewCell {
     
     // MARK: - Methods
     func apply(bookItem: BookItem) {
+        self.bookItem = bookItem
+        
         if let imageURL = bookItem.smallThumbnailURL {
             imageView.loadCachedImage(of: imageURL)
         } else {
@@ -151,6 +154,10 @@ final class BookItemCell: UICollectionViewCell {
         } else {
             ratingCountLabel.text = "(0)"
         }
+    }
+    
+    func retrieveBookItem() -> BookItem {
+        return bookItem
     }
     
     private func configureAuthorLabel(with authors: [String]) {

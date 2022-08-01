@@ -14,7 +14,7 @@ final class SearchListViewModel {
 //        let invokedViewDidLoad: Observable<Void>
         let searchTextDidChanged: Observable<String>
         let collectionViewDidScroll: Observable<Int>
-        let cellDidSelect: Observable<IndexPath>
+        let cellDidSelect: Observable<BookItem>
     }
     
     struct Output {
@@ -124,11 +124,11 @@ final class SearchListViewModel {
             }
     }
     
-    private func configureCellDidSelectObserver(by inputObservable: Observable<IndexPath>) {
+    private func configureCellDidSelectObserver(by inputObservable: Observable<BookItem>) {
         inputObservable
             .withUnretained(self)
-            .subscribe(onNext: { (self, productID) in
-//                self?.coordinator.showBookItemDetail(productID)  // TODO: ID 또는 indexPath 활용
+            .subscribe(onNext: { (self, bookItem) in
+                self.coordinator.showDetailPage(with: bookItem)
             })
             .disposed(by: disposeBag)
     }

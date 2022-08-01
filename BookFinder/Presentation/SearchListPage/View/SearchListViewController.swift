@@ -23,15 +23,6 @@ final class SearchListViewController: UIViewController {
         stackView.alignment = .fill
         stackView.distribution = .fill
         stackView.spacing = 10
-        let verticalInset: CGFloat = 5
-        let horizontalInset: CGFloat = 12
-        stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(
-            top: verticalInset,
-            leading: horizontalInset,
-            bottom: verticalInset,
-            trailing: horizontalInset
-        )
-        stackView.isLayoutMarginsRelativeArrangement = true
         stackView.backgroundColor = .background
         return stackView
     }()
@@ -67,6 +58,7 @@ final class SearchListViewController: UIViewController {
 //    private let invokedViewDidLoad = PublishSubject<Void>()
     private let searchTextDidChanged = PublishSubject<String>()
     private let collectionViewDidScroll = PublishSubject<Int>()
+    private let cellDidSelect = PublishSubject<BookItem>()
     private let disposeBag = DisposeBag()
     
     private typealias CellRegistration = UICollectionView.CellRegistration<BookItemCell, BookItem>
@@ -86,7 +78,6 @@ final class SearchListViewController: UIViewController {
         configureUI()
         configureDataSource()
         bind()
-//        performQuery(with: nil)  // 초기화면에서는 아무것도 안해도 될듯
     }
 
     // MARK: - Methods
@@ -149,6 +140,8 @@ final class SearchListViewController: UIViewController {
             containerStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             containerStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             containerStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            itemCountLabel.topAnchor.constraint(equalTo: containerStackView.topAnchor, constant: 12),
+            itemCountLabel.leadingAnchor.constraint(equalTo: containerStackView.leadingAnchor, constant: 12),
         ])
     }
     
@@ -190,7 +183,7 @@ extension SearchListViewController {
         let input = SearchListViewModel.Input(
             searchTextDidChanged: searchTextDidChanged,
             collectionViewDidScroll: collectionViewDidScroll,
-            cellDidSelect: collectionView.rx.itemSelected.asObservable()
+            cellDidSelect: cellDidSelect
         )
         
         let output = viewModel.transform(input)
@@ -247,14 +240,19 @@ extension SearchListViewController: UICollectionViewDelegate {
         willDisplay cell: UICollectionViewCell,
         forItemAt indexPath: IndexPath
     ) {
-        print(indexPath)
         collectionViewDidScroll.onNext(indexPath.row)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let selectedCell = collectionView.cellForItem(at: indexPath) as? BookItemCell else { return }
+        let bookItem = selectedCell.retrieveBookItem()
+        cellDidSelect.onNext(bookItem)
     }
 }
 
 // MARK: - UISearchResultsUpdating
 extension SearchListViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {  // x버튼이나 취소버튼을 눌렀을 때도 호출됨
+    func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else { return }
         
         searchTextDidChanged.onNext(searchText)
