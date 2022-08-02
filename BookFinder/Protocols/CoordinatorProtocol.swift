@@ -9,7 +9,7 @@ import UIKit
 
 enum CoordinatorType {
     case app
-    case list, detail
+    case searchList, detail
 }
 
 protocol CoordinatorProtocol: AnyObject {
@@ -18,6 +18,4 @@ protocol CoordinatorProtocol: AnyObject {
     var type: CoordinatorType { get }
     
     func start()
-//    func removeFromChildCoordinators(coordinator: CoordinatorProtocol)
-//    func popCurrentPage()
 }

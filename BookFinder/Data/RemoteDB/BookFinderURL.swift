@@ -15,19 +15,19 @@ struct BookFinderURL {
         let method: HttpMethod = .get
         
         init(
-            keywords: String,
+            searchText: String,
             pageNumber: Int = 1,
+            itemPerPage: Int = 20,
             baseURL: String = baseURL
         ) {
-            let itemPerPage = 10
             let startIndex = (pageNumber - 1) * itemPerPage
             
             var urlComponents = URLComponents(string: "\(baseURL)volumes?")
-            let keywordsForTitleOrAuthorsQuery = URLQueryItem(name: "q", value: "\(keywords)") // TODO: 검색 구체화 (제목, 저자로 항목 한정)
+            let searchTextQuery = URLQueryItem(name: "q", value: "\(searchText)") // TODO: 검색 구체화 (제목, 저자로 항목 한정)
             let startIndexQuery = URLQueryItem(name: "startIndex", value: "\(startIndex)")
             let maxResultsQuery = URLQueryItem(name: "maxResults", value: "\(itemPerPage)")
             urlComponents?.queryItems?.append(
-                contentsOf: [keywordsForTitleOrAuthorsQuery, startIndexQuery, maxResultsQuery]
+                contentsOf: [searchTextQuery, startIndexQuery, maxResultsQuery]
             )
             
             self.url = urlComponents?.url
