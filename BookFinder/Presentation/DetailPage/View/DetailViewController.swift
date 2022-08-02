@@ -11,12 +11,15 @@ import RxCocoa
 
 final class DetailViewController: UIViewController {
     // MARK: - Properties
+    private let backgroundView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = Design.backgroundViewColor
+        return view
+    }()
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-//        scrollView.isDirectionalLockEnabled = true
-//        scrollView.isPagingEnabled = false
-        scrollView.backgroundColor = .background
         return scrollView
     }()
     private let imageView: UIImageView = {
@@ -142,6 +145,7 @@ final class DetailViewController: UIViewController {
     }
     
     private func configureHierarchy() {
+        view.addSubview(backgroundView)
         view.addSubview(scrollView)
         scrollView.addSubview(imageView)
         scrollView.addSubview(titleLabel)
@@ -157,44 +161,40 @@ final class DetailViewController: UIViewController {
         ratingStackView.addArrangedSubview(ratingCountLabel)
         
         NSLayoutConstraint.activate([
+            backgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             scrollView.contentLayoutGuide.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            
             imageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 12),
             imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
             imageView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.5),
-            
             titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 12),
             titleLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -12),
-            
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             subtitleLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 12),
             subtitleLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -12),
-            
             authorLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 8),
             authorLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 12),
             authorLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -12),
-            
             publisherLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 8),
             publisherLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 12),
             publisherLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -12),
-            
             publicationDateLabel.topAnchor.constraint(equalTo: publisherLabel.bottomAnchor, constant: 8),
             publicationDateLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 12),
             publicationDateLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -12),
-            
             ratingStackView.topAnchor.constraint(equalTo: publicationDateLabel.bottomAnchor, constant: 8),
             ratingStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 12),
-            
             underlineView.topAnchor.constraint(equalTo: ratingStackView.bottomAnchor, constant: 8),
             underlineView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 12),
             underlineView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -12),
             underlineView.heightAnchor.constraint(equalToConstant: 0.5),
-            
             descriptionTextView.topAnchor.constraint(equalTo: underlineView.bottomAnchor, constant: 15),
             descriptionTextView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 12),
             descriptionTextView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -12),
@@ -288,6 +288,8 @@ extension DetailViewController {
     }
     
     private enum Design {
+        static let backgroundViewColor: UIColor = .background
+        
         static let filledStarName: String = "star.fill"
         static let halfFilledStarName: String = "star.leadinghalf.filled"
         static let textViewContentInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
