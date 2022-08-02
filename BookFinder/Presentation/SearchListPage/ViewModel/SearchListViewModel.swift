@@ -101,6 +101,7 @@ final class SearchListViewModel {
                 id: item.id,
                 title: item.volumeInfo?.title,
                 authors: item.volumeInfo?.authors,
+                publisher: item.volumeInfo?.publisher,
                 publishedDate: item.volumeInfo?.publishedDate,
                 averageRating: item.volumeInfo?.averageRating,
                 ratingsCount: item.volumeInfo?.ratingsCount,

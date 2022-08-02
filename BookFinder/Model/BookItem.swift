@@ -9,11 +9,9 @@ import Foundation
 
 final class BookItem: Hashable {
     let id: String
-    
-    // VolumeInformation
     let title: String
     let authors: [String]
-    
+    let publisher: String
     let publishedDate: String
     let averageRating: Double?
     let ratingsCount: Int?
@@ -25,6 +23,7 @@ final class BookItem: Hashable {
         id: String?,
         title: String?,
         authors: [String]?,
+        publisher: String?,
         publishedDate: String?,
         averageRating: Double?,
         ratingsCount: Int?,
@@ -35,6 +34,7 @@ final class BookItem: Hashable {
         self.id = id ?? "id 정보 없음"
         self.title = title ?? "제목 없음"
         self.authors = authors ?? ["저자 정보 없음"]
+        self.publisher = publisher ?? "출판사 정보 없음"
         self.publishedDate = publishedDate ?? "출간일 정보 없음"
         self.averageRating = averageRating
         self.ratingsCount = ratingsCount

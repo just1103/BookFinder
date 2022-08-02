@@ -43,12 +43,21 @@ final class DetailViewController: UIViewController {
         label.numberOfLines = 0
         return label
     }()
+    private let publisherLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .left
+        label.font = .preferredFont(forTextStyle: .title2)
+        label.textColor = .systemGray
+        label.numberOfLines = 0
+        return label
+    }()
     private let publicationDateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.font = .preferredFont(forTextStyle: .title3)
-        label.textColor = .label
+        label.textColor = .systemGray
         label.numberOfLines = 1
         return label
     }()
@@ -121,6 +130,7 @@ final class DetailViewController: UIViewController {
         scrollView.addSubview(imageView)
         scrollView.addSubview(titleLabel)
         scrollView.addSubview(authorLabel)
+        scrollView.addSubview(publisherLabel)
         scrollView.addSubview(publicationDateLabel)
         scrollView.addSubview(ratingStackView)
         scrollView.addSubview(descriptionTextView)
@@ -147,7 +157,11 @@ final class DetailViewController: UIViewController {
             authorLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 12),
             authorLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -12),
             
-            publicationDateLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 8),
+            publisherLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 8),
+            publisherLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 12),
+            publisherLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -12),
+            
+            publicationDateLabel.topAnchor.constraint(equalTo: publisherLabel.bottomAnchor, constant: 8),
             publicationDateLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 12),
             publicationDateLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -12),
             
@@ -207,7 +221,8 @@ extension DetailViewController {
         let authors = bookItem.authors.joined(separator: ", ")
         authorLabel.text = "저자 : \(authors)"
         
-        publicationDateLabel.text = "출간일자 : \(bookItem.publishedDate)"
+        publisherLabel.text = "출판사 : \(bookItem.publisher)"
+        publicationDateLabel.text = "출판일자 : \(bookItem.publishedDate)"
         
         configureRatingStackView(with: bookItem.averageRating ?? 0)
         
