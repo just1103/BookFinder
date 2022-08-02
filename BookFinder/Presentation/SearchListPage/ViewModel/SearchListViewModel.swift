@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-final class SearchListViewModel {
+final class SearchListViewModel: ViewModelProtocol {
     // MARK: - Nested Types
     struct Input {
         let searchTextDidChanged: Observable<String>

@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-final class DetailViewModel {
+final class DetailViewModel: ViewModelProtocol {
     // MARK: - Nested Types
     struct Input {
         let leftBarButtonDidTap: Observable<Void>
