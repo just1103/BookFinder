@@ -19,13 +19,13 @@ struct AccessInfoDTO: Decodable {
 }
 
 // MARK: - Epub
-struct Epub: Codable {
+struct Epub: Decodable {
     let isAvailable: Bool?
     let acsTokenLink: String?
 }
 
 // MARK: - PDF
-struct PDF: Codable {
+struct PDF: Decodable {
     let isAvailable: Bool?
     let acsTokenLink: String?
 }

@@ -16,19 +16,19 @@ struct SaleInfoDTO: Decodable {
 }
 
 // MARK: - SaleInfoListPrice
-struct SaleInfoListPrice: Codable {
+struct SaleInfoListPrice: Decodable {
     let amount: Int?
     let currencyCode: String?
 }
 
 // MARK: - Offer
-struct Offer: Codable {
+struct Offer: Decodable {
     let finskyOfferType: Int?
     let listPrice, retailPrice: OfferListPrice?
 }
 
 // MARK: - OfferListPrice
-struct OfferListPrice: Codable {
+struct OfferListPrice: Decodable {
     let amountInMicros: Int?
     let currencyCode: String?
 }

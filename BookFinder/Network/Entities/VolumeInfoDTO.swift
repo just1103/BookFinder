@@ -38,21 +38,21 @@ struct VolumeInfoDTO: Decodable {
 }
 
 // MARK: - ImageLinks
-struct ImageLinks: Codable {
+struct ImageLinks: Decodable {
     let smallThumbnail, thumbnail, small, medium, large, extraLarge: String?
 }
 
 // MARK: - IndustryIdentifier
-struct IndustryIdentifier: Codable {
+struct IndustryIdentifier: Decodable {
     let type, identifier: String?
 }
 
 // MARK: - PanelizationSummary
-struct PanelizationSummary: Codable {
+struct PanelizationSummary: Decodable {
     let containsEpubBubbles, containsImageBubbles: Bool?
 }
 
 // MARK: - ReadingModes
-struct ReadingModes: Codable {
+struct ReadingModes: Decodable {
     let text, image: Bool?
 }
