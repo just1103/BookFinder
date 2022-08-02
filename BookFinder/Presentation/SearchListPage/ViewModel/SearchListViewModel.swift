@@ -105,6 +105,7 @@ final class SearchListViewModel {
                 averageRating: item.volumeInfo?.averageRating,
                 ratingsCount: item.volumeInfo?.ratingsCount,
                 smallThumbnailURL: item.volumeInfo?.imageLinks?.smallThumbnail,
+                smallImageURL: item.volumeInfo?.imageLinks?.small,
                 description: item.volumeInfo?.volumeDescription
             )
         }

@@ -14,7 +14,8 @@ final class DetailViewController: UIViewController {
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.isDirectionalLockEnabled = true
+//        scrollView.isDirectionalLockEnabled = true
+//        scrollView.isPagingEnabled = false
         scrollView.backgroundColor = .background
         return scrollView
     }()
@@ -124,11 +125,14 @@ final class DetailViewController: UIViewController {
         starViews.forEach { ratingStackView.addArrangedSubview($0) }
         ratingStackView.addArrangedSubview(ratingCountLabel)
         
+        
+        
         NSLayoutConstraint.activate([
             // FIXME: scrollView trailing 고정이 안되어 Horizontal Scroll되는 문제 발생
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+//            scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             imageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 12),
@@ -158,6 +162,7 @@ final class DetailViewController: UIViewController {
             descriptionTextView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -12),
         ])
         
+        scrollView.contentSize.width = UIScreen.main.bounds.width
         starViews.forEach { $0.heightAnchor.constraint(equalTo: ratingCountLabel.heightAnchor).isActive = true }
     }
     
@@ -191,8 +196,10 @@ extension DetailViewController {
     func apply(_ bookItem: BookItem) {
         setNavigationTitle(bookItem.title)
         
-        if let imageURL = bookItem.smallThumbnailURL {
+        if let imageURL = bookItem.smallImageURL {
             imageView.loadCachedImage(of: imageURL)
+        } else if let thumbnailImageURL = bookItem.smallThumbnailURL {
+            imageView.loadCachedImage(of: thumbnailImageURL)
         } else {
             imageView.image = UIImage(systemName: "display.trianglebadge.exclamationmark")
             imageView.tintColor = .lightGreen
@@ -213,6 +220,8 @@ extension DetailViewController {
         } else {
             ratingCountLabel.text = "(0건)"
         }
+        
+        descriptionTextView.text = bookItem.description
     }
     
     private func setNavigationTitle(_ title: String) {
@@ -241,6 +250,6 @@ extension DetailViewController {
     private enum Design {
         static let filledStarName: String = "star.fill"
         static let halfFilledStarName: String = "star.leadinghalf.filled"
-        static let textViewContentInsets = UIEdgeInsets(top: 30, left: 10, bottom: 10, right: 10)
+        static let textViewContentInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
 }

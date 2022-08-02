@@ -17,7 +17,8 @@ final class BookItem: Hashable {
     let publishedDate: String
     let averageRating: Double?
     let ratingsCount: Int?
-    let smallThumbnailURL: String?  // ImageLinks
+    let smallThumbnailURL: String?
+    let smallImageURL: String?
     let description: String
     
     init(
@@ -28,6 +29,7 @@ final class BookItem: Hashable {
         averageRating: Double?,
         ratingsCount: Int?,
         smallThumbnailURL: String?,
+        smallImageURL: String?,
         description: String?
     ) {
         self.id = id ?? "id 정보 없음"
@@ -36,7 +38,8 @@ final class BookItem: Hashable {
         self.publishedDate = publishedDate ?? "출간일 정보 없음"
         self.averageRating = averageRating
         self.ratingsCount = ratingsCount
-        self.smallThumbnailURL = smallThumbnailURL  // TODO: 정보없음 이미지로 교체
+        self.smallThumbnailURL = smallThumbnailURL
+        self.smallImageURL = smallImageURL
         self.description = description ?? "상세설명 정보 없음"
     }
     
