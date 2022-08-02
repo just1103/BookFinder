@@ -21,7 +21,7 @@ enum JSONParserError: Error, LocalizedError {
     }
 }
 
-struct JSONParser<Item: Codable> {
+struct JSONParser<Item: Decodable> {
     func decode(from json: Data?) -> Item? {
         guard let data = json else {
             return nil
@@ -33,18 +33,4 @@ struct JSONParser<Item: Codable> {
         
         return decodedData
     }
-    
-//    func encode(from item: Item?) -> Data? {
-//        guard let item = item else {
-//            return nil
-//        }
-//
-//        let encoder = JSONEncoder()
-//
-//        guard let encodedData = try? encoder.encode(item) else {
-//            return nil
-//        }
-//
-//        return encodedData
-//    }
 }

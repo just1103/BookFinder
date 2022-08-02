@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct VolumeInfoDTO: Codable {
+struct VolumeInfoDTO: Decodable {
     let title: String?
     let subtitle: String?
     let authors: [String]?

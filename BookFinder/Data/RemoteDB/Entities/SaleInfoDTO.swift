@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SaleInfoDTO: Codable {
+struct SaleInfoDTO: Decodable {
     let country, saleability: String?
     let isEbook: Bool?
     let listPrice, retailPrice: SaleInfoListPrice?

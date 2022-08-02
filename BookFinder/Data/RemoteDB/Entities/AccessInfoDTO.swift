@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AccessInfoDTO: Codable {
+struct AccessInfoDTO: Decodable {
     let country, viewability: String?
     let embeddable, publicDomain: Bool?
     let textToSpeechPermission: String?

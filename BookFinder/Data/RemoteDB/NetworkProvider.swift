@@ -35,7 +35,7 @@ struct NetworkProvider {
         self.session = session
     }
     
-    func fetchData<T: Codable>(api: Gettable, decodingType: T.Type) -> Observable<T> {
+    func fetchData<T: Decodable>(api: Gettable, decodingType: T.Type) -> Observable<T> {
         return Observable.create { emitter in
             guard let task = dataTask(api: api, emitter: emitter) else {
                 return Disposables.create()
@@ -48,7 +48,7 @@ struct NetworkProvider {
         }
     }
     
-    private func dataTask<T: Codable>(api: APIProtocol, emitter: AnyObserver<T>) -> URLSessionDataTask? {
+    private func dataTask<T: Decodable>(api: APIProtocol, emitter: AnyObserver<T>) -> URLSessionDataTask? {
         guard let urlRequest = URLRequest(api: api) else {
             emitter.onError(NetworkError.urlIsNil)
             return nil
