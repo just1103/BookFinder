@@ -20,15 +20,17 @@ final class SearchListViewController: UIViewController {
     }
     
     // MARK: - Properties
-    private let containerStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.alignment = .fill
-        stackView.distribution = .fill
-        stackView.spacing = 10
-        stackView.backgroundColor = .background
-        return stackView
+    private var searchController: UISearchController = {
+        let searchController = UISearchController()
+        searchController.searchBar.placeholder = "책 제목, 저자 검색"
+        searchController.searchBar.setValue("취소", forKey: "cancelButtonText")
+        return searchController
+    }()
+    private let backgroundView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = Design.backgroundViewColor
+        return view
     }()
     private let itemCountLabel: UILabel = {
         let label = UILabel()
@@ -39,12 +41,6 @@ final class SearchListViewController: UIViewController {
         label.numberOfLines = 1
         label.text = "검색 결과"
         return label
-    }()
-    private var searchController: UISearchController = {
-        let searchController = UISearchController()
-        searchController.searchBar.placeholder = "책 제목, 저자 검색"
-        searchController.searchBar.setValue("취소", forKey: "cancelButtonText")
-        return searchController
     }()
     private let collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
@@ -162,18 +158,26 @@ final class SearchListViewController: UIViewController {
     }
         
     private func configureHierarchy() {
-        view.addSubview(containerStackView)
+        view.addSubview(backgroundView)
+        view.addSubview(itemCountLabel)
+        view.addSubview(collectionView)
         view.addSubview(activityIndicator)
-        containerStackView.addArrangedSubview(itemCountLabel)
-        containerStackView.addArrangedSubview(collectionView)
         
         NSLayoutConstraint.activate([
-            containerStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            containerStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            containerStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            containerStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            itemCountLabel.topAnchor.constraint(equalTo: containerStackView.topAnchor, constant: 12),
-            itemCountLabel.leadingAnchor.constraint(equalTo: containerStackView.leadingAnchor, constant: 12),
+            backgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+
+            itemCountLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 12),
+            itemCountLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 12),
+            itemCountLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -12),
+            
+            collectionView.topAnchor.constraint(equalTo: itemCountLabel.bottomAnchor, constant: 12),
+            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 12),
+            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -12),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -12),
+            
             activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
@@ -295,6 +299,8 @@ extension SearchListViewController {
     }
     
     private enum Design {
+        static let backgroundViewColor: UIColor = .background
+        
         static let listRefreshButtonTitleFont: UIFont = .preferredFont(forTextStyle: .body)
     }
 }
