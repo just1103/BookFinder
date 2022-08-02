@@ -164,7 +164,7 @@ final class BookItemCell: UICollectionViewCell {
         if authors.count == 1 {
             authorLabel.text = firstAuthor
         } else {
-            authorLabel.text = "\(firstAuthor) 외 \(authors.count - 1)"
+            authorLabel.text = "\(firstAuthor) 외 \(authors.count - 1)인"
         }
     }
     

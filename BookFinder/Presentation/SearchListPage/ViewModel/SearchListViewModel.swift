@@ -56,12 +56,15 @@ final class SearchListViewModel {
     private func configureSearchTextDidChangedObserver(by searchText: Observable<String>) -> Observable<(Int, [BookItem])> {
         return searchText
             .withUnretained(self)
+            .filter { (self, searchText) in
+                self.currentSearchText != searchText
+            }
             .flatMap { (self, searchText) -> Observable<(Int, [BookItem])> in
                 if searchText.isEmpty || searchText == " " {
                     self.currentSearchText = ""
                     self.currentPageNumber = 1
                     self.currentItemCount = 0
-                    
+
                     return Observable.just((0, []))  // 여기서 stream이 끊기는건가?
                 }
                 

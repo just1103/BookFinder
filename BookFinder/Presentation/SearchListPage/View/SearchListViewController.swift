@@ -129,7 +129,6 @@ final class SearchListViewController: UIViewController {
             .font: UIFont.preferredFont(forTextStyle: .title1)
         ]
         navigationItem.backButtonDisplayMode = .minimal
-//        navigationItem.hidesSearchBarWhenScrolling = true
     }
 
     private func configureSearchBar() {

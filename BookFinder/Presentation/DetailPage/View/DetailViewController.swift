@@ -47,7 +47,7 @@ final class DetailViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
-        label.font = .preferredFont(forTextStyle: .title2)
+        label.font = .preferredFont(forTextStyle: .title3)
         label.textColor = .systemGray
         label.numberOfLines = 0
         return label
@@ -78,6 +78,12 @@ final class DetailViewController: UIViewController {
         label.textColor = .label
         label.numberOfLines = 1
         return label
+    }()
+    private let underlineView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .systemGray
+        return view
     }()
     private let descriptionTextView: UITextView = {
         let textView = UITextView()
@@ -133,6 +139,7 @@ final class DetailViewController: UIViewController {
         scrollView.addSubview(publisherLabel)
         scrollView.addSubview(publicationDateLabel)
         scrollView.addSubview(ratingStackView)
+        scrollView.addSubview(underlineView)
         scrollView.addSubview(descriptionTextView)
         
         starViews.forEach { ratingStackView.addArrangedSubview($0) }
@@ -168,7 +175,12 @@ final class DetailViewController: UIViewController {
             ratingStackView.topAnchor.constraint(equalTo: publicationDateLabel.bottomAnchor, constant: 8),
             ratingStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 12),
             
-            descriptionTextView.topAnchor.constraint(equalTo: ratingStackView.bottomAnchor, constant: 15),
+            underlineView.topAnchor.constraint(equalTo: ratingStackView.bottomAnchor, constant: 8),
+            underlineView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 12),
+            underlineView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -12),
+            underlineView.heightAnchor.constraint(equalToConstant: 0.5),
+            
+            descriptionTextView.topAnchor.constraint(equalTo: underlineView.bottomAnchor, constant: 15),
             descriptionTextView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 12),
             descriptionTextView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -12),
             descriptionTextView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -12),
