@@ -30,17 +30,17 @@ BookFinderTests
 ```
 
 ## 목차
-- [Feature1. 네트워크 및 목록 화면 구현](##feature1.-네트워크-및-목록-화면-구현)
+- Feature-1. 네트워크 및 목록 화면 구현
     + [주요 기능](#1-1-주요-기능)
     + [구현 내용](#1-2-구현-내용)
     + [Trouble Shooting](#1-3-trouble-shooting)
-- [Feature2. 상세 화면 구현](##feature2.-상세-화면-구현)
+- Feature-2. 상세 화면 구현
     + [주요 기능](#2-1-주요-기능)
     + [구현 내용](#2-2-구현-내용)
     + [Trouble Shooting](#2-3-trouble-shooting)
-- [보완할 점](##보완할-점)
+- [보완할 점](#보완할-점)
 
-## Feature1. 네트워크 및 목록 화면 구현
+## Feature-1. 네트워크 및 목록 화면 구현
 ### 1-1 주요 기능
 - 사용자가 검색한 도서 데이터를 서버에서 받아와 목록으로 나타냅니다.
 - `URLSession`을 통해 네트워크 통신을 구현했습니다. (MockURLSession을 통한 테스트 실행)
@@ -103,7 +103,7 @@ subtitle, publishedData 등 일부 데이터가 누락된 경우가 빈번하여
 #### 4. estimatedHeight 사용 시 특정 버전에서 crash 발생
 CompositionalLayout에서 `estimatedHeight`를 사용할 때, iOS 15.0 이상 15.3 이하 버전에서 crash가 발생했습니다. 이에 대응하기 위해 사용자의 기기 버전이 iOS 15.0~15.3인 경우 Alert를 띄워 사용자에게 업데이트를 권하도록 구현했습니다.
 
-## Feature2. 상세 화면 구현
+## Feature-2. 상세 화면 구현
 ### 2-1 주요 기능
 - 검색 목록의 도서 Cell을 탭하면 상세 화면으로 이동합니다.
 - 가로/세로 모드 전환에 반응합니다.
