@@ -13,7 +13,6 @@ protocol DetailCoordinatorDelegete: AnyObject {
 
 final class DetailCoordinator: CoordinatorProtocol {
     // MARK: - Properties
-    
     weak var delegate: DetailCoordinatorDelegete!
     var navigationController: UINavigationController?
     var childCoordinators = [CoordinatorProtocol]()

@@ -10,7 +10,7 @@ import UIKit
 final class StarImageView: UIImageView {
     // MARK: - Initializers
     convenience init() {
-        self.init(image: UIImage(systemName: Design.emptyStarName))
+        self.init(image: UIImage(systemName: Text.emptyStarImageName))
         configureUI()
     }
     
@@ -23,7 +23,7 @@ final class StarImageView: UIImageView {
 
 // MARK: - NameSpaces
 extension StarImageView {
-    private enum Design {
-        static let emptyStarName: String = "star"
+    private enum Text {
+        static let emptyStarImageName: String = "star"
     }
 }

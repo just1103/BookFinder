@@ -22,14 +22,17 @@ final class SearchListViewController: UIViewController {
     // MARK: - Properties
     private var searchController: UISearchController = {
         let searchController = UISearchController()
-        searchController.searchBar.placeholder = "책 제목, 저자 검색"
-        searchController.searchBar.setValue("취소", forKey: "cancelButtonText")
+        searchController.searchBar.placeholder = Text.searchBarPlaceHolder
+        searchController.searchBar.setValue(
+            Text.searchBarCancelButtonTitle,
+            forKey: Text.searchBarCancelButtonTitleKey
+        )
         return searchController
     }()
     private let backgroundView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = Design.backgroundViewColor
+        view.backgroundColor = .lightGreen2
         return view
     }()
     private let itemCountLabel: UILabel = {
@@ -39,13 +42,13 @@ final class SearchListViewController: UIViewController {
         label.font = .preferredFont(forTextStyle: .title2)
         label.textColor = .black
         label.numberOfLines = 1
-        label.text = "검색 결과"
+        label.text = Text.itemCountLabelDefaultText
         return label
     }()
     private let collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .background
+        collectionView.backgroundColor = .lightGreen2
         return collectionView
     }()
     private let activityIndicator: UIActivityIndicatorView = {
@@ -119,7 +122,7 @@ final class SearchListViewController: UIViewController {
         view.backgroundColor = .darkGreen
         navigationItem.title = Text.navigationTitle
         navigationController?.navigationBar.titleTextAttributes = [
-            .foregroundColor: UIColor.background,
+            .foregroundColor: UIColor.lightGreen2,
             .font: UIFont.preferredFont(forTextStyle: .title1)
         ]
         navigationItem.backButtonDisplayMode = .minimal
@@ -221,7 +224,7 @@ extension SearchListViewController {
     }
       
     private func setLabel(with itemCount: Int) {
-        itemCountLabel.text = "검색 결과 (\(itemCount))"
+        itemCountLabel.text = "\(Text.itemCountLabelDefaultText) (\(itemCount))"
     }
     
     private func createAndApplySnapshot(with bookItems: [BookItem]) {
@@ -290,14 +293,13 @@ extension SearchListViewController: ActivityIndicatorSwitchDelegate {
 // MARK: - NameSpaces
 extension SearchListViewController {
     private enum Text {
+        static let searchBarPlaceHolder = "책 제목, 저자 검색"
+        static let searchBarCancelButtonTitle = "취소"
+        static let searchBarCancelButtonTitleKey = "cancelButtonText"
+        static let itemCountLabelDefaultText = "검색 결과"
+        
         static let navigationTitle = "Wanted Book Finder"
         static let versionErrorTitle = "기기를 iOS 15.4 이상으로 업데이트 해주세요"
         static let okAlertActionTitle = "OK"
-    }
-    
-    private enum Design {
-        static let backgroundViewColor: UIColor = .background
-        
-        static let listRefreshButtonTitleFont: UIFont = .preferredFont(forTextStyle: .body)
     }
 }

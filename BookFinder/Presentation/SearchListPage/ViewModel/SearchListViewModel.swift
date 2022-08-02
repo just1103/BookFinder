@@ -28,7 +28,7 @@ final class SearchListViewModel: ViewModelProtocol {
     private let itemPerPage = 20
     private var currentPageNumber: Int = 1
     private var currentItemCount: Int = 0
-    private var currentSearchText: String = ""
+    private var currentSearchText: String = Text.emptyString
     private let disposeBag = DisposeBag()
     
     // MARK: - Initializers
@@ -58,7 +58,7 @@ final class SearchListViewModel: ViewModelProtocol {
             .withUnretained(self)
             .flatMap { (self, searchText) -> Observable<(Int, [BookItem])> in
                 if self.isEmptyOrSpace(searchText) {
-                    self.currentSearchText = ""
+                    self.currentSearchText = Text.emptyString
                     self.currentPageNumber = 1
                     self.currentItemCount = 0
 
@@ -83,7 +83,7 @@ final class SearchListViewModel: ViewModelProtocol {
     }
     
     private func isEmptyOrSpace(_ text: String) -> Bool {
-        let textWithoutSpace = text.replacingOccurrences(of: " ", with: "")
+        let textWithoutSpace = text.replacingOccurrences(of: Text.space, with: Text.emptyString)
         return textWithoutSpace.isEmpty
     }
     
@@ -150,5 +150,13 @@ final class SearchListViewModel: ViewModelProtocol {
                 self.coordinator.showDetailPage(with: bookItem)
             })
             .disposed(by: disposeBag)
+    }
+}
+
+// MARK: - NameSpaces
+extension SearchListViewModel {
+    private enum Text {
+        static let emptyString: String = ""
+        static let space: String = " "
     }
 }

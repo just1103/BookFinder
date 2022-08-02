@@ -99,8 +99,8 @@ final class BookItemCell: UICollectionViewCell {
     private let accessoryImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(systemName: Design.accessoryImageName)
-        imageView.tintColor = Design.accessoryImageViewColor
+        imageView.image = UIImage(systemName: Text.accessoryImageName)
+        imageView.tintColor = .darkGreen
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -125,7 +125,7 @@ final class BookItemCell: UICollectionViewCell {
         titleLabel.text = nil
         authorLabel.text = nil
         publicationYearLabel.text = nil
-        starViews.forEach { $0.image = UIImage(systemName: Design.emptyStarName) }
+        starViews.forEach { $0.image = UIImage(systemName: Text.emptyStarImageName) }
         ratingCountLabel.text = nil
     }
     
@@ -136,8 +136,8 @@ final class BookItemCell: UICollectionViewCell {
         if let imageURL = bookItem.smallThumbnailURL {
             imageView.loadCachedImage(of: imageURL)
         } else {
-            imageView.image = UIImage(systemName: "display.trianglebadge.exclamationmark")
-            imageView.tintColor = .lightGreen
+            imageView.image = UIImage(systemName: Text.notFoundImageName)
+            imageView.tintColor = .lightGreen1
         }
         
         titleLabel.text = bookItem.title
@@ -172,16 +172,16 @@ final class BookItemCell: UICollectionViewCell {
         let remainder = averageRating.truncatingRemainder(dividingBy: 1)
         
         (0...quotient).forEach { number in
-            starViews[safe: number - 1]?.image = UIImage(systemName: Design.filledStarName)
+            starViews[safe: number - 1]?.image = UIImage(systemName: Text.filledStarImageName)
         }
         
         if remainder >= 0.5 {
-            starViews[safe: quotient]?.image = UIImage(systemName: Design.halfFilledStarName)
+            starViews[safe: quotient]?.image = UIImage(systemName: Text.halfFilledStarImageName)
         }
     }
     
     private func configureUI() {
-        backgroundColor = .background
+        backgroundColor = .lightGreen2
         
         addSubview(containerStackView)
         containerStackView.addArrangedSubview(imageView)
@@ -211,12 +211,11 @@ final class BookItemCell: UICollectionViewCell {
 
 // MARK: - NameSpaces
 extension BookItemCell {
-    private enum Design {
+    private enum Text {
+        static let notFoundImageName: String = "display.trianglebadge.exclamationmark"
+        static let emptyStarImageName: String = "star"
+        static let filledStarImageName: String = "star.fill"
+        static let halfFilledStarImageName: String = "star.leadinghalf.filled"
         static let accessoryImageName: String = "chevron.right"
-        static let emptyStarName: String = "star"
-        static let filledStarName: String = "star.fill"
-        static let halfFilledStarName: String = "star.leadinghalf.filled"
-        
-        static let accessoryImageViewColor: UIColor = .darkGreen
     }
 }

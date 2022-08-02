@@ -14,7 +14,7 @@ final class DetailViewController: UIViewController {
     private let backgroundView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = Design.backgroundViewColor
+        view.backgroundColor = .lightGreen2
         return view
     }()
     private let scrollView: UIScrollView = {
@@ -102,11 +102,11 @@ final class DetailViewController: UIViewController {
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.textContainer.lineBreakMode = .byWordWrapping
         textView.dataDetectorTypes = .all
-        textView.textContainerInset = Design.textViewContentInsets
+        textView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         textView.isEditable = false
         textView.isScrollEnabled = false
         textView.font = .preferredFont(forTextStyle: .body)
-        textView.backgroundColor = .lightGreen
+        textView.backgroundColor = .lightGreen1
         textView.layer.cornerRadius = 10
         textView.clipsToBounds = true
         return textView
@@ -139,7 +139,7 @@ final class DetailViewController: UIViewController {
     private func configureNavigationBar() {
         view.backgroundColor = .darkGreen
         navigationController?.navigationBar.titleTextAttributes = [
-            .foregroundColor: UIColor.background,
+            .foregroundColor: UIColor.lightGreen2,
             .font: UIFont.preferredFont(forTextStyle: .title3)
         ]
     }
@@ -239,8 +239,8 @@ extension DetailViewController {
         } else if let thumbnailImageURL = bookItem.smallThumbnailURL {
             imageView.loadCachedImage(of: thumbnailImageURL)
         } else {
-            imageView.image = UIImage(systemName: "display.trianglebadge.exclamationmark")
-            imageView.tintColor = .lightGreen
+            imageView.image = UIImage(systemName: Text.notFoundImageName)
+            imageView.tintColor = .lightGreen1
         }
         
         titleLabel.text = bookItem.title
@@ -273,11 +273,11 @@ extension DetailViewController {
         let remainder = averageRating.truncatingRemainder(dividingBy: 1)
         
         (0...quotient).forEach { number in
-            starViews[safe: number - 1]?.image = UIImage(systemName: Design.filledStarName)
+            starViews[safe: number - 1]?.image = UIImage(systemName: Text.filledStarImageName)
         }
         
         if remainder >= 0.5 {
-            starViews[safe: quotient]?.image = UIImage(systemName: Design.halfFilledStarName)
+            starViews[safe: quotient]?.image = UIImage(systemName: Text.halfFilledStarImageName)
         }
     }
 }
@@ -285,13 +285,8 @@ extension DetailViewController {
 // MARK: - NameSpaces
 extension DetailViewController {
     private enum Text {
-    }
-    
-    private enum Design {
-        static let backgroundViewColor: UIColor = .background
-        
-        static let filledStarName: String = "star.fill"
-        static let halfFilledStarName: String = "star.leadinghalf.filled"
-        static let textViewContentInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        static let notFoundImageName: String = "display.trianglebadge.exclamationmark"
+        static let filledStarImageName: String = "star.fill"
+        static let halfFilledStarImageName: String = "star.leadinghalf.filled"
     }
 }
