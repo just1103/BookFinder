@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol DetailCoordinatorDelegete: AnyObject {
+    func removeFromChildCoordinators(coordinator: CoordinatorProtocol)
+}
+
 final class DetailCoordinator: CoordinatorProtocol {
     // MARK: - Properties
+    
+    weak var delegate: DetailCoordinatorDelegete!
     var navigationController: UINavigationController?
     var childCoordinators = [CoordinatorProtocol]()
     var type: CoordinatorType = .detail
@@ -22,11 +28,6 @@ final class DetailCoordinator: CoordinatorProtocol {
     func start(with bookItem: BookItem) {
         showDetailPage(with: bookItem)
     }
-    
-    func finish() {
-        // TODO: Delegate 호출
-//        delegate.removeFromSuperview()
-    }
 
     private func showDetailPage(with bookItem: BookItem) {
         guard let navigationController = navigationController else { return }
@@ -35,6 +36,10 @@ final class DetailCoordinator: CoordinatorProtocol {
         let detailViewController = DetailViewController(viewModel: detailViewModel)
         
         navigationController.pushViewController(detailViewController, animated: true)
+    }
+    
+    func finish() {
+        delegate.removeFromChildCoordinators(coordinator: self)
     }
     
     func popCurrentPage() {

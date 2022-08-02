@@ -35,12 +35,14 @@ final class SearchListCoordinator: CoordinatorProtocol {
         guard let navigationController = navigationController else { return }
         let detailCoordinator = DetailCoordinator(navigationController: navigationController)
         childCoordinators.append(detailCoordinator)
+        detailCoordinator.delegate = self
         detailCoordinator.start(with: bookItem)
     }
-    
-    // TODO: DetailView 내려갈 때 호출, delegate 패턴
-//    func removeFromChildCoordinators(coordinator: CoordinatorProtocol) {
-//        let updatedChildCoordinators = childCoordinators.filter { $0 !== coordinator }
-//        childCoordinators = updatedChildCoordinators
-//    }
+}
+
+extension SearchListCoordinator: DetailCoordinatorDelegete {
+    func removeFromChildCoordinators(coordinator: CoordinatorProtocol) {
+        let updatedChildCoordinators = childCoordinators.filter { $0 !== coordinator }
+        childCoordinators = updatedChildCoordinators
+    }
 }
