@@ -9,6 +9,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+protocol ActivityIndicatorSwitchDelegate: AnyObject {
+    func showActivityIndicator()
+}
+
 final class SearchListViewController: UIViewController {
     // MARK: - Nested Types
     private enum SectionKind: Int {
@@ -76,6 +80,7 @@ final class SearchListViewController: UIViewController {
     convenience init(viewModel: SearchListViewModel) {
         self.init()
         self.viewModel = viewModel
+        viewModel.delegate = self
     }
     
     // MARK: - Lifecycle Methods
@@ -152,8 +157,10 @@ final class SearchListViewController: UIViewController {
             )
             let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 1)
             let section = NSCollectionLayoutSection(group: group)
+            
             return section
         }
+        
         return layout
     }
         
@@ -186,10 +193,12 @@ final class SearchListViewController: UIViewController {
     }
 }
 
-// MARK: - ActivityIndicator
-extension SearchListViewController {
-    private func showActivityIndicator() {
-        activityIndicator.startAnimating()
+// MARK: - ActivityIndicator SwitchDelegate
+extension SearchListViewController: ActivityIndicatorSwitchDelegate {
+    func showActivityIndicator() {
+        DispatchQueue.main.async { [weak self] in
+            self?.activityIndicator.startAnimating()
+        }
     }
     
     private func hideActivityIndicator() {
@@ -263,7 +272,6 @@ extension SearchListViewController: UICollectionViewDelegate {
         forItemAt indexPath: IndexPath
     ) {
         collectionViewDidScroll.onNext(indexPath.row)
-        // TODO: 목록 업데이트되는 index라면 ViewModel에서 showActivityIndicator 호출
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -277,15 +285,6 @@ extension SearchListViewController: UICollectionViewDelegate {
 extension SearchListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else { return }
-        
-        // TODO: 입력값이 있다면 ViewModel에서 showActivityIndicator 호출
-        // VC이 판단하지 말고 VM이 판단해야 함 (if문 삭제 필요)
-        if searchText.isEmpty || searchText == " " {
-            hideActivityIndicator()
-        } else {
-            showActivityIndicator()
-        }
-        
         searchTextDidChanged.onNext(searchText)
     }
 }

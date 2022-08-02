@@ -23,6 +23,7 @@ final class SearchListViewModel {
     }
     
     // MARK: - Properties
+    weak var delegate: ActivityIndicatorSwitchDelegate!
     private weak var coordinator: SearchListCoordinator!
     private let initialPageNumber = 1
     private let itemPerPage = 20
@@ -50,7 +51,7 @@ final class SearchListViewModel {
         return output
     }
     
-    // FIXME: 가끔 searchText가 onNext로 전달되어도 flatMap이 실행되지 않는 문제 발생
+    // FIXME: 가끔 searchText가 onNext로 전달되어도 flatMap이 실행되지 않는 문제 발생 (ex. 탭이 입력)
     private func configureSearchTextDidChangedObserver(by searchText: Observable<String>) -> Observable<(Int, [BookItem])> {
         return searchText
             .withUnretained(self)
@@ -60,12 +61,12 @@ final class SearchListViewModel {
                     self.currentPageNumber = 1
                     self.currentItemCount = 0
                     
-                    return Observable.just((0, []))
+                    return Observable.just((0, []))  // 여기서 stream이 끊기는건가?
                 }
                 
                 return self.fetchSearchResult(with: searchText, at: self.initialPageNumber)
                     .map { searchResultDTO -> (Int, [BookItem]) in
-                        // TODO: 여기서 startActivityViewAnimation을 해야 함 (delegate.start-)
+                        self.delegate.showActivityIndicator()
                         
                         self.currentSearchText = searchText
                         self.currentPageNumber = 1
@@ -109,14 +110,16 @@ final class SearchListViewModel {
         return bookItems
     }
     
-    private func configureCollectionViewDidScrollObserver(by inputObservable: Observable<Int>) -> Observable<[BookItem]> {
+    private func configureCollectionViewDidScrollObserver(
+        by inputObservable: Observable<Int>
+    ) -> Observable<[BookItem]> {
         return inputObservable
             .withUnretained(self)
             .filter { (self, row) in
                 return row + 4 == self.currentItemCount
             }
             .flatMap { _ -> Observable<[BookItem]> in
-                // TODO: 여기서 startActivityViewAnimation을 해야 함 (delegate.start-)
+                self.delegate.showActivityIndicator()
                 
                 self.currentPageNumber += 1
                 self.currentItemCount = self.itemPerPage * self.currentPageNumber
