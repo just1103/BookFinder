@@ -183,6 +183,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		3601FA73289993D200908B95 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				36EAEFE2289632C0009B58DD /* NetworkProvider.swift */,
+				36EAEFE4289632EF009B58DD /* BookFinderURL.swift */,
+				36EAEFF128964324009B58DD /* Entities */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		36EAEF9028961EB5009B58DD = {
 			isa = PBXGroup;
 			children = (
@@ -208,7 +218,7 @@
 				36EAEFD0289629F8009B58DD /* App */,
 				36EAEFD228962A39009B58DD /* Presentation */,
 				36EAF001289654E0009B58DD /* Model */,
-				36EAEFE02896329F009B58DD /* Data */,
+				3601FA73289993D200908B95 /* Network */,
 				36EAEFD628962B63009B58DD /* Protocols */,
 				36EAEFE628963349009B58DD /* Extensions */,
 				36EAEFEB28963416009B58DD /* Utilities */,
@@ -266,24 +276,6 @@
 				3601FA6F2899522D00908B95 /* ViewModelProtocol.swift */,
 			);
 			path = Protocols;
-			sourceTree = "<group>";
-		};
-		36EAEFE02896329F009B58DD /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				36EAEFE1289632AB009B58DD /* RemoteDB */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		36EAEFE1289632AB009B58DD /* RemoteDB */ = {
-			isa = PBXGroup;
-			children = (
-				36EAEFE2289632C0009B58DD /* NetworkProvider.swift */,
-				36EAEFE4289632EF009B58DD /* BookFinderURL.swift */,
-				36EAEFF128964324009B58DD /* Entities */,
-			);
-			path = RemoteDB;
 			sourceTree = "<group>";
 		};
 		36EAEFE628963349009B58DD /* Extensions */ = {
