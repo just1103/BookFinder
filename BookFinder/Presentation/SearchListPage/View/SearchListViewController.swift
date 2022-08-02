@@ -37,7 +37,7 @@ final class SearchListViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.font = .preferredFont(forTextStyle: .title2)
-        label.textColor = .label
+        label.textColor = .black
         label.numberOfLines = 1
         label.text = "검색 결과"
         return label

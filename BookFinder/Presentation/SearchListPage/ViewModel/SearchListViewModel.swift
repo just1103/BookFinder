@@ -50,7 +50,6 @@ final class SearchListViewModel: ViewModelProtocol {
         return output
     }
     
-    // FIXME: 가끔 searchText가 onNext로 전달되어도 flatMap이 실행되지 않는 문제 발생 (ex. 탭이 입력)
     private func configureSearchTextDidChangedObserver(
         by searchText: Observable<String>
     ) -> Observable<(Int, [BookItem])> {
@@ -58,12 +57,12 @@ final class SearchListViewModel: ViewModelProtocol {
             .distinctUntilChanged()
             .withUnretained(self)
             .flatMap { (self, searchText) -> Observable<(Int, [BookItem])> in
-                if searchText.isEmpty || searchText == " " {
+                if self.isEmptyOrSpace(searchText) {
                     self.currentSearchText = ""
                     self.currentPageNumber = 1
                     self.currentItemCount = 0
 
-                    return Observable.just((0, []))  // 여기서 stream이 끊기는건가?
+                    return Observable.just((0, []))
                 }
                 
                 return self.fetchSearchResult(with: searchText, at: self.initialPageNumber)
@@ -81,6 +80,11 @@ final class SearchListViewModel: ViewModelProtocol {
                         return (itemCount, bookItems)
                     }
             }
+    }
+    
+    private func isEmptyOrSpace(_ text: String) -> Bool {
+        let textWithoutSpace = text.replacingOccurrences(of: " ", with: "")
+        return textWithoutSpace.isEmpty
     }
     
     private func fetchSearchResult(with searchText: String, at pageNumber: Int) -> Observable<SearchResultDTO> {

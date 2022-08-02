@@ -33,7 +33,7 @@ final class DetailViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.font = .preferredFont(forTextStyle: .title1)
-        label.textColor = .label
+        label.textColor = .black
         label.numberOfLines = 0
         return label
     }()
@@ -42,7 +42,7 @@ final class DetailViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.font = .preferredFont(forTextStyle: .title2)
-        label.textColor = .label
+        label.textColor = .black
         label.numberOfLines = 0
         return label
     }()
@@ -51,7 +51,7 @@ final class DetailViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.font = .preferredFont(forTextStyle: .title2)
-        label.textColor = .label
+        label.textColor = .black
         label.numberOfLines = 0
         return label
     }()
@@ -87,7 +87,7 @@ final class DetailViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.font = .preferredFont(forTextStyle: .title3)
-        label.textColor = .label
+        label.textColor = .black
         label.numberOfLines = 1
         return label
     }()

@@ -48,7 +48,7 @@ final class BookItemCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.font = .preferredFont(forTextStyle: .title3)
-        label.textColor = .label
+        label.textColor = .black
         label.numberOfLines = 1  
         label.setContentHuggingPriority(.defaultLow, for: .vertical)
         label.setContentCompressionResistancePriority(.required, for: .vertical)
@@ -59,7 +59,7 @@ final class BookItemCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.font = .preferredFont(forTextStyle: .body)
-        label.textColor = .label
+        label.textColor = .black
         label.numberOfLines = 1
         label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         label.setContentCompressionResistancePriority(.required, for: .vertical)
@@ -70,7 +70,7 @@ final class BookItemCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.font = .preferredFont(forTextStyle: .body)
-        label.textColor = .label
+        label.textColor = .black
         label.numberOfLines = 1
         label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         label.setContentCompressionResistancePriority(.required, for: .vertical)
@@ -92,7 +92,7 @@ final class BookItemCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.font = .preferredFont(forTextStyle: .body)
-        label.textColor = .label
+        label.textColor = .black
         label.numberOfLines = 1
         return label
     }()
