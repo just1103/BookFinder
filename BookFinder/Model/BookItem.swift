@@ -10,6 +10,7 @@ import Foundation
 final class BookItem: Hashable {
     let id: String
     let title: String
+    let subtitle: String
     let authors: [String]
     let publisher: String
     let publishedDate: String
@@ -22,6 +23,7 @@ final class BookItem: Hashable {
     init(
         id: String?,
         title: String?,
+        subtitle: String?,
         authors: [String]?,
         publisher: String?,
         publishedDate: String?,
@@ -33,6 +35,7 @@ final class BookItem: Hashable {
     ) {
         self.id = id ?? "id 정보 없음"
         self.title = title ?? "제목 없음"
+        self.subtitle = subtitle ?? "부제 없음"
         self.authors = authors ?? ["저자 정보 없음"]
         self.publisher = publisher ?? "출판사 정보 없음"
         self.publishedDate = publishedDate ?? "출간일 정보 없음"

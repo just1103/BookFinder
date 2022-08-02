@@ -8,6 +8,7 @@
 import UIKit
 
 final class StarImageView: UIImageView {
+    // MARK: - Initializers
     convenience init() {
         self.init(image: UIImage(systemName: Design.emptyStarName))
         translatesAutoresizingMaskIntoConstraints = false

@@ -142,13 +142,13 @@ final class BookItemCell: UICollectionViewCell {
         }
         
         titleLabel.text = bookItem.title
-        configureAuthorLabel(with: bookItem.authors)
+        setAuthorLabel(with: bookItem.authors)
         publicationYearLabel.text = String(bookItem.publishedDate.prefix(4))
-        configureRatingStackView(with: bookItem.averageRating ?? 0)
+        setRatingStackView(with: bookItem.averageRating ?? 0)
         
         if let averageRating = bookItem.averageRating,
            let ratingsCount = bookItem.ratingsCount {
-            ratingCountLabel.text = "(\(averageRating) (\(ratingsCount)건)"
+            ratingCountLabel.text = "\(averageRating) (\(ratingsCount)건)"
         } else {
             ratingCountLabel.text = "(0건)"
         }
@@ -158,7 +158,7 @@ final class BookItemCell: UICollectionViewCell {
         return bookItem
     }
     
-    private func configureAuthorLabel(with authors: [String]) {
+    private func setAuthorLabel(with authors: [String]) {
         guard let firstAuthor = authors.first else { return }
         
         if authors.count == 1 {
@@ -168,7 +168,7 @@ final class BookItemCell: UICollectionViewCell {
         }
     }
     
-    private func configureRatingStackView(with averageRating: Double) {
+    private func setRatingStackView(with averageRating: Double) {
         let quotient = Int(averageRating)
         let remainder = averageRating.truncatingRemainder(dividingBy: 1)
         

@@ -11,7 +11,6 @@ import RxSwift
 final class SearchListViewModel {
     // MARK: - Nested Types
     struct Input {
-//        let invokedViewDidLoad: Observable<Void>
         let searchTextDidChanged: Observable<String>
         let collectionViewDidScroll: Observable<Int>
         let cellDidSelect: Observable<BookItem>
@@ -39,13 +38,12 @@ final class SearchListViewModel {
     
     // MARK: - Methods
     func transform(_ input: Input) -> Output {
-        // TODO: 메서드 이름이 반환값과 매치되도록 수정
-        let searchResult = configureSearchTextDidChangedObserver(by: input.searchTextDidChanged)
+        let searchCountAndItems = configureSearchTextDidChangedObserver(by: input.searchTextDidChanged)
         let nextPageItems = configureCollectionViewDidScrollObserver(by: input.collectionViewDidScroll)
         configureCellDidSelectObserver(by: input.cellDidSelect)
         
         let output = Output(
-            searchCountAndItems: searchResult,
+            searchCountAndItems: searchCountAndItems,
             nextPageItems: nextPageItems
         )
         
@@ -103,6 +101,7 @@ final class SearchListViewModel {
             BookItem(
                 id: item.id,
                 title: item.volumeInfo?.title,
+                subtitle: item.volumeInfo?.subtitle,
                 authors: item.volumeInfo?.authors,
                 publisher: item.volumeInfo?.publisher,
                 publishedDate: item.volumeInfo?.publishedDate,

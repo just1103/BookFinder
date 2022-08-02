@@ -34,6 +34,15 @@ final class DetailViewController: UIViewController {
         label.numberOfLines = 0
         return label
     }()
+    private let subtitleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .left
+        label.font = .preferredFont(forTextStyle: .title2)
+        label.textColor = .label
+        label.numberOfLines = 0
+        return label
+    }()
     private let authorLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -99,6 +108,7 @@ final class DetailViewController: UIViewController {
         textView.clipsToBounds = true
         return textView
     }()
+    
     private var starViews = [StarImageView(), StarImageView(), StarImageView(), StarImageView(), StarImageView()]
     private var viewModel: DetailViewModel!
     private let leftBarButtonDidTap = PublishSubject<Void>()
@@ -135,6 +145,7 @@ final class DetailViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(imageView)
         scrollView.addSubview(titleLabel)
+        scrollView.addSubview(subtitleLabel)
         scrollView.addSubview(authorLabel)
         scrollView.addSubview(publisherLabel)
         scrollView.addSubview(publicationDateLabel)
@@ -160,7 +171,11 @@ final class DetailViewController: UIViewController {
             titleLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 12),
             titleLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -12),
             
-            authorLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            subtitleLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 12),
+            subtitleLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -12),
+            
+            authorLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 8),
             authorLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 12),
             authorLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -12),
             
@@ -211,12 +226,12 @@ extension DetailViewController {
             .withUnretained(self)
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { (self, bookItem) in
-                self.apply(bookItem)
+                self.setUIContents(with: bookItem)
             })
             .disposed(by: disposeBag)
     }
     
-    func apply(_ bookItem: BookItem) {
+    private func setUIContents(with bookItem: BookItem) {
         setNavigationTitle(bookItem.title)
         
         if let imageURL = bookItem.smallImageURL {
@@ -229,6 +244,7 @@ extension DetailViewController {
         }
         
         titleLabel.text = bookItem.title
+        subtitleLabel.text = "부제 : \(bookItem.subtitle)"
         
         let authors = bookItem.authors.joined(separator: ", ")
         authorLabel.text = "저자 : \(authors)"
@@ -236,7 +252,7 @@ extension DetailViewController {
         publisherLabel.text = "출판사 : \(bookItem.publisher)"
         publicationDateLabel.text = "출판일자 : \(bookItem.publishedDate)"
         
-        configureRatingStackView(with: bookItem.averageRating ?? 0)
+        setRatingStackView(with: bookItem.averageRating ?? 0)
         
         if let averageRating = bookItem.averageRating,
            let ratingsCount = bookItem.ratingsCount {
@@ -252,7 +268,7 @@ extension DetailViewController {
         navigationItem.title = title
     }
     
-    private func configureRatingStackView(with averageRating: Double) {
+    private func setRatingStackView(with averageRating: Double) {
         let quotient = Int(averageRating)
         let remainder = averageRating.truncatingRemainder(dividingBy: 1)
         

@@ -36,7 +36,7 @@ final class DetailViewModel {
     // MARK: - Methods
     func transform(_ input: Input) -> Output {
         let bookItem = configureBookItem()
-        configureLeftBarButtonDidTap(by: input.leftBarButtonDidTap)
+        configureLeftBarButtonDidTapObserver(by: input.leftBarButtonDidTap)
         
         let output = Output(bookItem: bookItem)
         
@@ -47,7 +47,7 @@ final class DetailViewModel {
         return Observable.just(bookItem)
     }
     
-    private func configureLeftBarButtonDidTap(by inputObservable: Observable<Void>) {
+    private func configureLeftBarButtonDidTapObserver(by inputObservable: Observable<Void>) {
         inputObservable
             .withUnretained(self)
             .subscribe(onNext: { (self, _) in

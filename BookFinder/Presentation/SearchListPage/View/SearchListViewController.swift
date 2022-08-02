@@ -44,9 +44,6 @@ final class SearchListViewController: UIViewController {
         let searchController = UISearchController()
         searchController.searchBar.placeholder = "책 제목, 저자 검색"
         searchController.searchBar.setValue("취소", forKey: "cancelButtonText")
-//        searchController.searchBar.searchTextField.backgroundColor = .clear
-//        searchController.hidesNavigationBarDuringPresentation = true
-//        searchController.automaticallyShowsCancelButton = true
         return searchController
     }()
     private let collectionView: UICollectionView = {
@@ -66,7 +63,6 @@ final class SearchListViewController: UIViewController {
     private var dataSource: DiffableDataSource!
     private var snapshot: NSDiffableDataSourceSnapshot<SectionKind, BookItem>!
     private var viewModel: SearchListViewModel!
-//    private let invokedViewDidLoad = PublishSubject<Void>()
     private let searchTextDidChanged = PublishSubject<String>()
     private let collectionViewDidScroll = PublishSubject<Int>()
     private let cellDidSelect = PublishSubject<BookItem>()
@@ -95,13 +91,15 @@ final class SearchListViewController: UIViewController {
     // MARK: - Methods
     private func checkIOSVersion() {
         let versionNumbers = UIDevice.current.systemVersion.components(separatedBy: ".")
-        let major = versionNumbers[0]
-        let minor = versionNumbers[1]
+        guard
+            let major = versionNumbers[safe: 0],
+            let minor = versionNumbers[safe: 1]
+        else { return }
         let version = major + "." + minor
         
         guard let systemVersion = Double(version) else { return }
         let errorVersion = 15.0..<15.4
-        // 해당 버전만 is stuck in its update/layout loop. 에러가 발생하여 Alert로 업데이트 권고
+        // 해당 버전만 에러 (is stuck in its update/layout loop.)가 발생하여 업데이트 권고
         if  errorVersion ~= systemVersion {
             showErrorVersionAlert()
         }
@@ -213,7 +211,7 @@ extension SearchListViewController {
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { (self, searchCountAndItems) in
                 let (searchCount, bookItems) = searchCountAndItems
-                self.updateLabel(with: searchCount)
+                self.setLabel(with: searchCount)
                 self.createAndApplySnapshot(with: bookItems)
                 
                 self.hideActivityIndicator()
@@ -221,7 +219,7 @@ extension SearchListViewController {
             .disposed(by: disposeBag)
     }
       
-    private func updateLabel(with itemCount: Int) {
+    private func setLabel(with itemCount: Int) {
         itemCountLabel.text = "검색 결과 (\(itemCount))"
     }
     
