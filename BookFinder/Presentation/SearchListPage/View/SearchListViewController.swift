@@ -182,7 +182,7 @@ final class SearchListViewController: UIViewController {
     
     private func configureDataSource() {
         let cellRegistration = CellRegistration { (cell, _, bookItem) in
-            cell.apply(bookItem: bookItem)
+            cell.setUIContents(with: bookItem)
         }
         
         dataSource = DiffableDataSource(collectionView: collectionView) { collectionView, indexPath, bookItem in

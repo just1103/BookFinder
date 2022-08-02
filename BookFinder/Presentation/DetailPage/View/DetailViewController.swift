@@ -112,7 +112,7 @@ final class DetailViewController: UIViewController {
         return textView
     }()
     
-    private var starViews = [StarImageView(), StarImageView(), StarImageView(), StarImageView(), StarImageView()]
+    private var starViews = (0..<5).map { _ in StarImageView() }
     private var viewModel: DetailViewModel!
     private let leftBarButtonDidTap = PublishSubject<Void>()
     private let disposeBag = DisposeBag()

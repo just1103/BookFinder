@@ -16,20 +16,11 @@ protocol Gettable: APIProtocol { }
 
 enum HttpMethod {
     case get
-//    case post
-//    case delete
-//    case put
     
     var description: String {
         switch self {
         case .get:
             return "GET"
-//        case .post:
-//            return "POST"
-//        case .delete:
-//            return "DELETE"
-//        case .put:
-//            return "PUT"
         }
     }
 }

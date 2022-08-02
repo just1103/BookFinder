@@ -104,8 +104,7 @@ final class BookItemCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    private var starViews = [StarImageView(), StarImageView(), StarImageView(), StarImageView(), StarImageView()]
-//    private var starViews = [StarImageView](repeating: StarImageView(), count: 5)  // TODO: 중복코드 개선
+    private var starViews = (0..<5).map { _ in StarImageView() }
     private var bookItem: BookItem!
     
     // MARK: - Initializers
@@ -131,7 +130,7 @@ final class BookItemCell: UICollectionViewCell {
     }
     
     // MARK: - Methods
-    func apply(bookItem: BookItem) {
+    func setUIContents(with bookItem: BookItem) {
         self.bookItem = bookItem
         
         if let imageURL = bookItem.smallThumbnailURL {
