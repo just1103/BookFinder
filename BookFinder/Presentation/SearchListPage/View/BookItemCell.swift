@@ -49,7 +49,7 @@ final class BookItemCell: UICollectionViewCell {
         label.textAlignment = .left
         label.font = .preferredFont(forTextStyle: .title3)
         label.textColor = .label
-        label.numberOfLines = 1  // TODO: 2줄도 가능하도록 개선 (이미지 크기를 키워서 ratingStackView 하단에 공백 주기)
+        label.numberOfLines = 1  
         label.setContentHuggingPriority(.defaultLow, for: .vertical)
         label.setContentCompressionResistancePriority(.required, for: .vertical)
         return label

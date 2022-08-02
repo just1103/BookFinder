@@ -52,7 +52,8 @@ final class BookItem: Hashable {
     }
 }
 
-//struct BookItem: Hashable {
+// TODO: 추가 데이터 활용하여 Detail 화면에 추가
+// struct BookItem: Hashable {
 //    let id: String
 //
 //    // VolumeInformation
@@ -86,7 +87,7 @@ final class BookItem: Hashable {
 //        self.volumeDescription = volumeDescription ?? "상세정보 없음"
 //        self.averageRating = averageRating
 //        self.ratingsCount = ratingsCount
-//        self.smallThumbnailURL = smallThumbnailURL ?? "" // TODO: 정보없음 이미지로 교체
+//        self.smallThumbnailURL = smallThumbnailURL ?? ""
 //        self.thumbnailURL = thumbnailURL ?? ""
 //    }
 //}
