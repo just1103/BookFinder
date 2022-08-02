@@ -75,10 +75,13 @@ final class DetailViewController: UIViewController {
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.textContainer.lineBreakMode = .byWordWrapping
         textView.dataDetectorTypes = .all
-        textView.backgroundColor = .lightGreen
         textView.textContainerInset = Design.textViewContentInsets
         textView.isEditable = false
         textView.isScrollEnabled = false
+        textView.font = .preferredFont(forTextStyle: .body)
+        textView.backgroundColor = .lightGreen
+        textView.layer.cornerRadius = 10
+        textView.clipsToBounds = true
         return textView
     }()
     private var starViews = [StarImageView(), StarImageView(), StarImageView(), StarImageView(), StarImageView()]
@@ -125,15 +128,11 @@ final class DetailViewController: UIViewController {
         starViews.forEach { ratingStackView.addArrangedSubview($0) }
         ratingStackView.addArrangedSubview(ratingCountLabel)
         
-        
-        
         NSLayoutConstraint.activate([
-            // FIXME: scrollView trailing 고정이 안되어 Horizontal Scroll되는 문제 발생
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-//            scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            scrollView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.contentLayoutGuide.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
             imageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 12),
             imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
@@ -154,7 +153,6 @@ final class DetailViewController: UIViewController {
             
             ratingStackView.topAnchor.constraint(equalTo: publicationDateLabel.bottomAnchor, constant: 8),
             ratingStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 12),
-            ratingStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -12),
             
             descriptionTextView.topAnchor.constraint(equalTo: ratingStackView.bottomAnchor, constant: 15),
             descriptionTextView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 12),
@@ -162,7 +160,6 @@ final class DetailViewController: UIViewController {
             descriptionTextView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -12),
         ])
         
-        scrollView.contentSize.width = UIScreen.main.bounds.width
         starViews.forEach { $0.heightAnchor.constraint(equalTo: ratingCountLabel.heightAnchor).isActive = true }
     }
     
