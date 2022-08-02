@@ -98,7 +98,7 @@ final class SearchListViewController: UIViewController {
         
         guard let systemVersion = Double(version) else { return }
         let errorVersion = 15.0..<15.4
-        // 해당 버전만 에러 (is stuck in its update/layout loop.)가 발생하여 업데이트 권고
+        // estimatedHeight 사용 시 해당 버전만 에러 (is stuck in its update/layout loop)가 발생하여 업데이트 권고
         if  errorVersion ~= systemVersion {
             showErrorVersionAlert()
         }
