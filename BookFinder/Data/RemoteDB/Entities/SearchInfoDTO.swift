@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct SearchInfoDTO: Codable {
+struct SearchInfoDTO: Decodable {
     let textSnippet: String?
 }

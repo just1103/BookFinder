@@ -33,13 +33,16 @@ final class SearchListCoordinator: CoordinatorProtocol {
     
     func showDetailPage(with bookItem: BookItem) {
         guard let navigationController = navigationController else { return }
-//        let detailCoordinator = DetailCoordinator(navigationController: navigationController)
-//        childCoordinators.append(detailCoordinator)
-//        detailCoordinator.start()
+        let detailCoordinator = DetailCoordinator(navigationController: navigationController)
+        childCoordinators.append(detailCoordinator)
+        detailCoordinator.delegate = self
+        detailCoordinator.start(with: bookItem)
     }
-    
-//    func removeFromChildCoordinators(coordinator: CoordinatorProtocol) {
-//        let updatedChildCoordinators = childCoordinators.filter { $0 !== coordinator }
-//        childCoordinators = updatedChildCoordinators
-//    }
+}
+
+extension SearchListCoordinator: DetailCoordinatorDelegete {
+    func removeFromChildCoordinators(coordinator: CoordinatorProtocol) {
+        let updatedChildCoordinators = childCoordinators.filter { $0 !== coordinator }
+        childCoordinators = updatedChildCoordinators
+    }
 }

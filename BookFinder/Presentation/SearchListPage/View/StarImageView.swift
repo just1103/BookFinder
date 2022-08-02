@@ -8,8 +8,13 @@
 import UIKit
 
 final class StarImageView: UIImageView {
+    // MARK: - Initializers
     convenience init() {
         self.init(image: UIImage(systemName: Design.emptyStarName))
+        configureUI()
+    }
+    
+    private func configureUI() {
         translatesAutoresizingMaskIntoConstraints = false
         contentMode = .scaleAspectFit
         heightAnchor.constraint(equalTo: widthAnchor).isActive = true

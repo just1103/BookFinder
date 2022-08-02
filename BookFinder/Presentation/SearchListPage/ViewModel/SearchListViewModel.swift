@@ -8,10 +8,9 @@
 import Foundation
 import RxSwift
 
-final class SearchListViewModel {
+final class SearchListViewModel: ViewModelProtocol {
     // MARK: - Nested Types
     struct Input {
-//        let invokedViewDidLoad: Observable<Void>
         let searchTextDidChanged: Observable<String>
         let collectionViewDidScroll: Observable<Int>
         let cellDidSelect: Observable<BookItem>
@@ -39,29 +38,31 @@ final class SearchListViewModel {
     
     // MARK: - Methods
     func transform(_ input: Input) -> Output {
-        let searchResult = configureSearchTextDidChangedObserver(by: input.searchTextDidChanged)
+        let searchCountAndItems = configureSearchTextDidChangedObserver(by: input.searchTextDidChanged)
         let nextPageItems = configureCollectionViewDidScrollObserver(by: input.collectionViewDidScroll)
         configureCellDidSelectObserver(by: input.cellDidSelect)
         
         let output = Output(
-            searchCountAndItems: searchResult,
+            searchCountAndItems: searchCountAndItems,
             nextPageItems: nextPageItems
         )
         
         return output
     }
     
-    // FIXME: 가끔 searchText가 onNext로 전달되어도 flatMap이 실행되지 않는 문제 발생 (ex. 탭이 입력)
-    private func configureSearchTextDidChangedObserver(by searchText: Observable<String>) -> Observable<(Int, [BookItem])> {
+    private func configureSearchTextDidChangedObserver(
+        by searchText: Observable<String>
+    ) -> Observable<(Int, [BookItem])> {
         return searchText
+            .distinctUntilChanged()
             .withUnretained(self)
             .flatMap { (self, searchText) -> Observable<(Int, [BookItem])> in
-                if searchText.isEmpty || searchText == " " {
+                if self.isEmptyOrSpace(searchText) {
                     self.currentSearchText = ""
                     self.currentPageNumber = 1
                     self.currentItemCount = 0
-                    
-                    return Observable.just((0, []))  // 여기서 stream이 끊기는건가?
+
+                    return Observable.just((0, []))
                 }
                 
                 return self.fetchSearchResult(with: searchText, at: self.initialPageNumber)
@@ -79,6 +80,11 @@ final class SearchListViewModel {
                         return (itemCount, bookItems)
                     }
             }
+    }
+    
+    private func isEmptyOrSpace(_ text: String) -> Bool {
+        let textWithoutSpace = text.replacingOccurrences(of: " ", with: "")
+        return textWithoutSpace.isEmpty
     }
     
     private func fetchSearchResult(with searchText: String, at pageNumber: Int) -> Observable<SearchResultDTO> {
@@ -99,11 +105,15 @@ final class SearchListViewModel {
             BookItem(
                 id: item.id,
                 title: item.volumeInfo?.title,
+                subtitle: item.volumeInfo?.subtitle,
                 authors: item.volumeInfo?.authors,
+                publisher: item.volumeInfo?.publisher,
                 publishedDate: item.volumeInfo?.publishedDate,
                 averageRating: item.volumeInfo?.averageRating,
                 ratingsCount: item.volumeInfo?.ratingsCount,
-                smallThumbnailURL: item.volumeInfo?.imageLinks?.smallThumbnail
+                smallThumbnailURL: item.volumeInfo?.imageLinks?.smallThumbnail,
+                smallImageURL: item.volumeInfo?.imageLinks?.small,
+                description: item.volumeInfo?.volumeDescription
             )
         }
         

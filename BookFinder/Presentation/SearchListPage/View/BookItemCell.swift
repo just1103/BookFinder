@@ -31,8 +31,6 @@ final class BookItemCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = 6
-        imageView.clipsToBounds = true
 //        imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
         return imageView
     }()
@@ -50,8 +48,8 @@ final class BookItemCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.font = .preferredFont(forTextStyle: .title3)
-        label.textColor = .label
-        label.numberOfLines = 1  // TODO: 2줄도 가능하도록 개선 (이미지 크기를 키워서 ratingStackView 하단에 공백 주기)
+        label.textColor = .black
+        label.numberOfLines = 1  
         label.setContentHuggingPriority(.defaultLow, for: .vertical)
         label.setContentCompressionResistancePriority(.required, for: .vertical)
         return label
@@ -61,7 +59,7 @@ final class BookItemCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.font = .preferredFont(forTextStyle: .body)
-        label.textColor = .label
+        label.textColor = .black
         label.numberOfLines = 1
         label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         label.setContentCompressionResistancePriority(.required, for: .vertical)
@@ -72,7 +70,7 @@ final class BookItemCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.font = .preferredFont(forTextStyle: .body)
-        label.textColor = .label
+        label.textColor = .black
         label.numberOfLines = 1
         label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         label.setContentCompressionResistancePriority(.required, for: .vertical)
@@ -94,7 +92,7 @@ final class BookItemCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.font = .preferredFont(forTextStyle: .body)
-        label.textColor = .label
+        label.textColor = .black
         label.numberOfLines = 1
         return label
     }()
@@ -106,9 +104,7 @@ final class BookItemCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    
-    private var starViews = [StarImageView(), StarImageView(), StarImageView(), StarImageView(), StarImageView()]
-//    private var starViews = [StarImageView](repeating: StarImageView(), count: 5)  // TODO: 중복코드 개선
+    private var starViews = (0..<5).map { _ in StarImageView() }
     private var bookItem: BookItem!
     
     // MARK: - Initializers
@@ -134,7 +130,7 @@ final class BookItemCell: UICollectionViewCell {
     }
     
     // MARK: - Methods
-    func apply(bookItem: BookItem) {
+    func setUIContents(with bookItem: BookItem) {
         self.bookItem = bookItem
         
         if let imageURL = bookItem.smallThumbnailURL {
@@ -145,14 +141,15 @@ final class BookItemCell: UICollectionViewCell {
         }
         
         titleLabel.text = bookItem.title
-        configureAuthorLabel(with: bookItem.authors)
+        setAuthorLabel(with: bookItem.authors)
         publicationYearLabel.text = String(bookItem.publishedDate.prefix(4))
-        configureRatingStackView(with: bookItem.averageRating ?? 0)
+        setRatingStackView(with: bookItem.averageRating ?? 0)
         
-        if let ratingsCount = bookItem.ratingsCount {
-            ratingCountLabel.text = "(\(ratingsCount))"
+        if let averageRating = bookItem.averageRating,
+           let ratingsCount = bookItem.ratingsCount {
+            ratingCountLabel.text = "\(averageRating) (\(ratingsCount)건)"
         } else {
-            ratingCountLabel.text = "(0)"
+            ratingCountLabel.text = "(0건)"
         }
     }
     
@@ -160,17 +157,17 @@ final class BookItemCell: UICollectionViewCell {
         return bookItem
     }
     
-    private func configureAuthorLabel(with authors: [String]) {
+    private func setAuthorLabel(with authors: [String]) {
         guard let firstAuthor = authors.first else { return }
         
         if authors.count == 1 {
             authorLabel.text = firstAuthor
         } else {
-            authorLabel.text = "\(firstAuthor) 외 \(authors.count - 1)"
+            authorLabel.text = "\(firstAuthor) 외 \(authors.count - 1)인"
         }
     }
     
-    private func configureRatingStackView(with averageRating: Double) {
+    private func setRatingStackView(with averageRating: Double) {
         let quotient = Int(averageRating)
         let remainder = averageRating.truncatingRemainder(dividingBy: 1)
         

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SearchResultDTO: Codable {
+struct SearchResultDTO: Decodable {
     let kind: String?
     let totalItems: Int?
     let items: [BookItemDTO]?

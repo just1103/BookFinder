@@ -20,34 +20,27 @@ final class SearchListViewController: UIViewController {
     }
     
     // MARK: - Properties
-    private let containerStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.alignment = .fill
-        stackView.distribution = .fill
-        stackView.spacing = 10
-        stackView.backgroundColor = .background
-        return stackView
+    private var searchController: UISearchController = {
+        let searchController = UISearchController()
+        searchController.searchBar.placeholder = "책 제목, 저자 검색"
+        searchController.searchBar.setValue("취소", forKey: "cancelButtonText")
+        return searchController
+    }()
+    private let backgroundView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = Design.backgroundViewColor
+        return view
     }()
     private let itemCountLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.font = .preferredFont(forTextStyle: .title2)
-        label.textColor = .label
+        label.textColor = .black
         label.numberOfLines = 1
         label.text = "검색 결과"
         return label
-    }()
-    private var searchController: UISearchController = {
-        let searchController = UISearchController()
-        searchController.searchBar.placeholder = "책 제목, 저자 검색"
-        searchController.searchBar.setValue("취소", forKey: "cancelButtonText")
-//        searchController.searchBar.searchTextField.backgroundColor = .clear
-//        searchController.hidesNavigationBarDuringPresentation = true
-//        searchController.automaticallyShowsCancelButton = true
-        return searchController
     }()
     private let collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
@@ -66,7 +59,6 @@ final class SearchListViewController: UIViewController {
     private var dataSource: DiffableDataSource!
     private var snapshot: NSDiffableDataSourceSnapshot<SectionKind, BookItem>!
     private var viewModel: SearchListViewModel!
-//    private let invokedViewDidLoad = PublishSubject<Void>()
     private let searchTextDidChanged = PublishSubject<String>()
     private let collectionViewDidScroll = PublishSubject<Int>()
     private let cellDidSelect = PublishSubject<BookItem>()
@@ -95,13 +87,15 @@ final class SearchListViewController: UIViewController {
     // MARK: - Methods
     private func checkIOSVersion() {
         let versionNumbers = UIDevice.current.systemVersion.components(separatedBy: ".")
-        let major = versionNumbers[0]
-        let minor = versionNumbers[1]
+        guard
+            let major = versionNumbers[safe: 0],
+            let minor = versionNumbers[safe: 1]
+        else { return }
         let version = major + "." + minor
         
         guard let systemVersion = Double(version) else { return }
         let errorVersion = 15.0..<15.4
-        // 해당 버전만 is stuck in its update/layout loop. 에러가 발생하여 Alert로 업데이트 권고
+        // 해당 버전만 에러 (is stuck in its update/layout loop.)가 발생하여 업데이트 권고
         if  errorVersion ~= systemVersion {
             showErrorVersionAlert()
         }
@@ -129,7 +123,6 @@ final class SearchListViewController: UIViewController {
             .font: UIFont.preferredFont(forTextStyle: .title1)
         ]
         navigationItem.backButtonDisplayMode = .minimal
-//        navigationItem.hidesSearchBarWhenScrolling = true
     }
 
     private func configureSearchBar() {
@@ -165,18 +158,23 @@ final class SearchListViewController: UIViewController {
     }
         
     private func configureHierarchy() {
-        view.addSubview(containerStackView)
+        view.addSubview(backgroundView)
+        view.addSubview(itemCountLabel)
+        view.addSubview(collectionView)
         view.addSubview(activityIndicator)
-        containerStackView.addArrangedSubview(itemCountLabel)
-        containerStackView.addArrangedSubview(collectionView)
         
         NSLayoutConstraint.activate([
-            containerStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            containerStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            containerStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            containerStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            itemCountLabel.topAnchor.constraint(equalTo: containerStackView.topAnchor, constant: 12),
-            itemCountLabel.leadingAnchor.constraint(equalTo: containerStackView.leadingAnchor, constant: 12),
+            backgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            itemCountLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 12),
+            itemCountLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 12),
+            itemCountLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -12),
+            collectionView.topAnchor.constraint(equalTo: itemCountLabel.bottomAnchor, constant: 12),
+            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 12),
+            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -12),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -12),
             activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
@@ -184,25 +182,12 @@ final class SearchListViewController: UIViewController {
     
     private func configureDataSource() {
         let cellRegistration = CellRegistration { (cell, _, bookItem) in
-            cell.apply(bookItem: bookItem)
+            cell.setUIContents(with: bookItem)
         }
         
         dataSource = DiffableDataSource(collectionView: collectionView) { collectionView, indexPath, bookItem in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: bookItem)
         }
-    }
-}
-
-// MARK: - ActivityIndicator SwitchDelegate
-extension SearchListViewController: ActivityIndicatorSwitchDelegate {
-    func showActivityIndicator() {
-        DispatchQueue.main.async { [weak self] in
-            self?.activityIndicator.startAnimating()
-        }
-    }
-    
-    private func hideActivityIndicator() {
-        activityIndicator.stopAnimating()
     }
 }
 
@@ -227,7 +212,7 @@ extension SearchListViewController {
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { (self, searchCountAndItems) in
                 let (searchCount, bookItems) = searchCountAndItems
-                self.updateLabel(with: searchCount)
+                self.setLabel(with: searchCount)
                 self.createAndApplySnapshot(with: bookItems)
                 
                 self.hideActivityIndicator()
@@ -235,7 +220,7 @@ extension SearchListViewController {
             .disposed(by: disposeBag)
     }
       
-    private func updateLabel(with itemCount: Int) {
+    private func setLabel(with itemCount: Int) {
         itemCountLabel.text = "검색 결과 (\(itemCount))"
     }
     
@@ -289,6 +274,19 @@ extension SearchListViewController: UISearchResultsUpdating {
     }
 }
 
+// MARK: - ActivityIndicator SwitchDelegate
+extension SearchListViewController: ActivityIndicatorSwitchDelegate {
+    func showActivityIndicator() {
+        DispatchQueue.main.async { [weak self] in
+            self?.activityIndicator.startAnimating()
+        }
+    }
+    
+    private func hideActivityIndicator() {
+        activityIndicator.stopAnimating()
+    }
+}
+
 // MARK: - NameSpaces
 extension SearchListViewController {
     private enum Text {
@@ -298,6 +296,8 @@ extension SearchListViewController {
     }
     
     private enum Design {
+        static let backgroundViewColor: UIColor = .background
+        
         static let listRefreshButtonTitleFont: UIFont = .preferredFont(forTextStyle: .body)
     }
 }

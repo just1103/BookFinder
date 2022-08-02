@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BookItemDTO: Codable {
+struct BookItemDTO: Decodable {
     let kind: String?
     let id: String?
     let etag: String?
