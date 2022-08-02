@@ -9,7 +9,7 @@ import UIKit
 
 final class ImageCacheManager {
     static let shared = NSCache<NSString, UIImage>()
-    private let memoryWarningNotification = UIApplication.didReceiveMemoryWarningNotification
+    private let memoryWarningNotification = UIApplication.didReceiveMemoryWarningNotification // TODO: eviction 적용
     
     private init() {
         NotificationCenter.default.addObserver(

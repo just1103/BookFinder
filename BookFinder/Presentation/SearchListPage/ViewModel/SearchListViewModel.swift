@@ -104,7 +104,8 @@ final class SearchListViewModel {
                 publishedDate: item.volumeInfo?.publishedDate,
                 averageRating: item.volumeInfo?.averageRating,
                 ratingsCount: item.volumeInfo?.ratingsCount,
-                smallThumbnailURL: item.volumeInfo?.imageLinks?.smallThumbnail
+                smallThumbnailURL: item.volumeInfo?.imageLinks?.smallThumbnail,
+                description: item.volumeInfo?.volumeDescription
             )
         }
         

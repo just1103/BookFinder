@@ -31,8 +31,6 @@ final class BookItemCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = 6
-        imageView.clipsToBounds = true
 //        imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
         return imageView
     }()
@@ -106,7 +104,6 @@ final class BookItemCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    
     private var starViews = [StarImageView(), StarImageView(), StarImageView(), StarImageView(), StarImageView()]
 //    private var starViews = [StarImageView](repeating: StarImageView(), count: 5)  // TODO: 중복코드 개선
     private var bookItem: BookItem!
@@ -149,10 +146,11 @@ final class BookItemCell: UICollectionViewCell {
         publicationYearLabel.text = String(bookItem.publishedDate.prefix(4))
         configureRatingStackView(with: bookItem.averageRating ?? 0)
         
-        if let ratingsCount = bookItem.ratingsCount {
-            ratingCountLabel.text = "(\(ratingsCount))"
+        if let averageRating = bookItem.averageRating,
+           let ratingsCount = bookItem.ratingsCount {
+            ratingCountLabel.text = "(\(averageRating) (\(ratingsCount)건)"
         } else {
-            ratingCountLabel.text = "(0)"
+            ratingCountLabel.text = "(0건)"
         }
     }
     

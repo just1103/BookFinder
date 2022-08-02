@@ -172,8 +172,8 @@ final class SearchListViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             containerStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            containerStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            containerStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            containerStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            containerStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             containerStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             itemCountLabel.topAnchor.constraint(equalTo: containerStackView.topAnchor, constant: 12),
             itemCountLabel.leadingAnchor.constraint(equalTo: containerStackView.leadingAnchor, constant: 12),

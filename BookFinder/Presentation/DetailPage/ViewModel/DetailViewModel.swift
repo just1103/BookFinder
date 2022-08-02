@@ -30,7 +30,7 @@ final class DetailViewModel {
     }
     
     deinit {
-        coordinator.finish()  // TODO: 호출되는지 확인
+        coordinator.finish()  
     }
     
     // MARK: - Methods
