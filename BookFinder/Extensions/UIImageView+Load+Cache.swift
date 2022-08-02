@@ -31,8 +31,8 @@ extension UIImageView {
             
             ImageCacheManager.shared.setObject(loadedImage, forKey: cacheKey)
             
-            DispatchQueue.main.async {
-                self.image = loadedImage
+            DispatchQueue.main.async { [weak self] in
+                self?.image = loadedImage
             }
         }
     }

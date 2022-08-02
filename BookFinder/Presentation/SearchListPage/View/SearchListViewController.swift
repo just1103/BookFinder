@@ -89,12 +89,12 @@ final class SearchListViewController: UIViewController {
 
     // MARK: - Methods
     private func checkIOSVersion() {
-        let versionNumbers = UIDevice.current.systemVersion.components(separatedBy: ".")
+        let versionNumbers = UIDevice.current.systemVersion.components(separatedBy: Text.dot)
         guard
             let major = versionNumbers[safe: 0],
             let minor = versionNumbers[safe: 1]
         else { return }
-        let version = major + "." + minor
+        let version = major + Text.dot + minor
         
         guard let systemVersion = Double(version) else { return }
         let errorVersion = 15.0..<15.4
@@ -293,12 +293,12 @@ extension SearchListViewController: ActivityIndicatorSwitchDelegate {
 // MARK: - NameSpaces
 extension SearchListViewController {
     private enum Text {
+        static let navigationTitle = "Wanted Book Finder"
         static let searchBarPlaceHolder = "책 제목, 저자 검색"
         static let searchBarCancelButtonTitle = "취소"
         static let searchBarCancelButtonTitleKey = "cancelButtonText"
         static let itemCountLabelDefaultText = "검색 결과"
-        
-        static let navigationTitle = "Wanted Book Finder"
+        static let dot = "."
         static let versionErrorTitle = "기기를 iOS 15.4 이상으로 업데이트 해주세요"
         static let okAlertActionTitle = "OK"
     }

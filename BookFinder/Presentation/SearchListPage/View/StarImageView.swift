@@ -14,6 +14,7 @@ final class StarImageView: UIImageView {
         configureUI()
     }
     
+    // MARK: - Methods
     private func configureUI() {
         translatesAutoresizingMaskIntoConstraints = false
         contentMode = .scaleAspectFit

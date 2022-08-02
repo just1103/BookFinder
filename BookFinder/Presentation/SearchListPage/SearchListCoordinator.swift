@@ -40,6 +40,7 @@ final class SearchListCoordinator: CoordinatorProtocol {
     }
 }
 
+// MARK: - DetailCoordinatorDelegete
 extension SearchListCoordinator: DetailCoordinatorDelegete {
     func removeFromChildCoordinators(coordinator: CoordinatorProtocol) {
         let updatedChildCoordinators = childCoordinators.filter { $0 !== coordinator }
