@@ -33,11 +33,12 @@ final class SearchListCoordinator: CoordinatorProtocol {
     
     func showDetailPage(with bookItem: BookItem) {
         guard let navigationController = navigationController else { return }
-//        let detailCoordinator = DetailCoordinator(navigationController: navigationController)
-//        childCoordinators.append(detailCoordinator)
-//        detailCoordinator.start()
+        let detailCoordinator = DetailCoordinator(navigationController: navigationController)
+        childCoordinators.append(detailCoordinator)
+        detailCoordinator.start(with: bookItem)
     }
     
+    // TODO: DetailView 내려갈 때 호출, delegate 패턴
 //    func removeFromChildCoordinators(coordinator: CoordinatorProtocol) {
 //        let updatedChildCoordinators = childCoordinators.filter { $0 !== coordinator }
 //        childCoordinators = updatedChildCoordinators

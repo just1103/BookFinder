@@ -39,6 +39,7 @@ final class SearchListViewModel {
     
     // MARK: - Methods
     func transform(_ input: Input) -> Output {
+        // TODO: 메서드 이름이 반환값과 매치되도록 수정
         let searchResult = configureSearchTextDidChangedObserver(by: input.searchTextDidChanged)
         let nextPageItems = configureCollectionViewDidScrollObserver(by: input.collectionViewDidScroll)
         configureCellDidSelectObserver(by: input.cellDidSelect)

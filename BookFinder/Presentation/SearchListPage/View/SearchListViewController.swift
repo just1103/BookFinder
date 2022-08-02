@@ -193,19 +193,6 @@ final class SearchListViewController: UIViewController {
     }
 }
 
-// MARK: - ActivityIndicator SwitchDelegate
-extension SearchListViewController: ActivityIndicatorSwitchDelegate {
-    func showActivityIndicator() {
-        DispatchQueue.main.async { [weak self] in
-            self?.activityIndicator.startAnimating()
-        }
-    }
-    
-    private func hideActivityIndicator() {
-        activityIndicator.stopAnimating()
-    }
-}
-
 // MARK: - Rx Binding Methods
 extension SearchListViewController {
     private func bind() {
@@ -286,6 +273,19 @@ extension SearchListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else { return }
         searchTextDidChanged.onNext(searchText)
+    }
+}
+
+// MARK: - ActivityIndicator SwitchDelegate
+extension SearchListViewController: ActivityIndicatorSwitchDelegate {
+    func showActivityIndicator() {
+        DispatchQueue.main.async { [weak self] in
+            self?.activityIndicator.startAnimating()
+        }
+    }
+    
+    private func hideActivityIndicator() {
+        activityIndicator.stopAnimating()
     }
 }
 
