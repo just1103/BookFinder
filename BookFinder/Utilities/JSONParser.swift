@@ -9,28 +9,28 @@ import Foundation
 
 enum JSONParserError: Error, LocalizedError {
     case decodingFail
-    case encodingFail
+//    case encodingFail
     
     var errorDescription: String? {
         switch self {
         case .decodingFail:
             return "디코딩에 실패했습니다."
-        case .encodingFail:
-            return "인코딩에 실패했습니다."
+//        case .encodingFail:
+//            return "인코딩에 실패했습니다."
         }
     }
 }
 
 struct JSONParser<Item: Decodable> {
-    func decode(from json: Data?) -> Item? {
+    func decode(from json: Data?) -> Result<Item, JSONParserError> {
         guard let data = json else {
-            return nil
+            return .failure(.decodingFail)
         }
 
         guard let decodedData = try? JSONDecoder().decode(Item.self, from: data) else {
-            return nil
+            return .failure(.decodingFail)
         }
         
-        return decodedData
+        return .success(decodedData)
     }
 }
