@@ -46,6 +46,22 @@ final class BookItem: Hashable {
         self.description = description ?? "상세설명 정보 없음"
     }
     
+    static func convert(bookItemDTO: BookItemDTO) -> BookItem {
+        return BookItem(
+            id: bookItemDTO.id ?? "id 정보 없음",
+            title: bookItemDTO.volumeInfo?.title ?? "제목 없음",
+            subtitle: bookItemDTO.volumeInfo?.subtitle ?? "부제 없음",
+            authors: bookItemDTO.volumeInfo?.authors ?? ["저자 정보 없음"],
+            publisher: bookItemDTO.volumeInfo?.publisher ?? "출판사 정보 없음",
+            publishedDate: bookItemDTO.volumeInfo?.publishedDate ?? "출간일 정보 없음",
+            averageRating: bookItemDTO.volumeInfo?.averageRating,
+            ratingsCount: bookItemDTO.volumeInfo?.ratingsCount,
+            smallThumbnailURL: bookItemDTO.volumeInfo?.imageLinks?.smallThumbnail,
+            smallImageURL: bookItemDTO.volumeInfo?.imageLinks?.small,
+            description: bookItemDTO.volumeInfo?.volumeDescription ?? "상세설명 정보 없음"
+        )
+    }
+    
     static func == (lhs: BookItem, rhs: BookItem) -> Bool {
         return lhs.id == rhs.id
     }

@@ -102,19 +102,7 @@ final class SearchListViewModel: ViewModelProtocol {
     
     private func makeBookItems(with bookItemsDTO: [BookItemDTO]) -> [BookItem] {
         let bookItems = bookItemsDTO.map { item in
-            BookItem(
-                id: item.id,
-                title: item.volumeInfo?.title,
-                subtitle: item.volumeInfo?.subtitle,
-                authors: item.volumeInfo?.authors,
-                publisher: item.volumeInfo?.publisher,
-                publishedDate: item.volumeInfo?.publishedDate,
-                averageRating: item.volumeInfo?.averageRating,
-                ratingsCount: item.volumeInfo?.ratingsCount,
-                smallThumbnailURL: item.volumeInfo?.imageLinks?.smallThumbnail,
-                smallImageURL: item.volumeInfo?.imageLinks?.small,
-                description: item.volumeInfo?.volumeDescription
-            )
+            BookItem.convert(bookItemDTO: item)
         }
         
         return bookItems

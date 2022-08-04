@@ -47,7 +47,7 @@ struct NetworkProvider {
             
             guard
                 let data = data,
-                let decodedData = try? JSONParser<T>().decode(from: data).get()
+                let decodedData = JSONParser<T>().decode(from: data)
             else {
                 emitter.onError(JSONParserError.decodingFail)
                 return
