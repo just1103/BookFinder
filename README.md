@@ -94,13 +94,27 @@ SearchBar에 공백만 입력하면 화면이 업데이트되지 않는 문제�
 
 따라서 현재 executable의 Bundle 개체를 반환하는 `Bundle.main` (즉, App Bundle)이 아니라, 테스트 코드를 실행하는 주체를 가르키는 `Bundle(for: type(of: self))` (즉, XCTests Bundle)로 path를 수정하여 문제를 해결했습니다.
 
-### 3. 서버 데이터 특성을 고려하여 Model 타입 및 UI 구성
-subtitle, publishedData 등 일부 데이터가 누락된 경우가 빈번하여 `JSON Parsing` 에러를 방지하기 위해 DTO 타입의 모든 프로퍼티를 `옵셔널 타입`으로 지정했습니다.
+### 3. Wide Screen 대응 시 CollectionView Group의 itemCount를 조정하면서 Layout이 깨지는 문제
+iPad 등 `Wide Screen`에 대응하기 위해 Screen Width가 1000이상인 경우 `CollectionView Group`의 `itemCount`를 2로 조정한 이후 아래처럼 Scroll할 때 imageView가 커지는 문제가 발생했습니다.
 
-마찬가지로 이미지 URL 포함 유무도 데이터마다 다르기 때문에 URL이 없는 경우 임의의 `SF Symbol` 이미지를 나타내어 에러 화면으로 인식되는 것을 방지했습니다.
+|Layout이 깨지는 현상|
+|-|
+|<img src="https://user-images.githubusercontent.com/70856586/183058840-2036968f-7ec5-41c7-80e2-416d75377aa8.gif" width="200">|
+
+CollectionView CompositionalLayout에서 estimatedHeight를 사용했는데, Cell Constraints를 설정할 때 Cell의 크기와 동일하게 `Horizontal StackView`를 넣고, imageView width를 `stackView width * 0.2`으로 설정했었는데, 이 조건만으로는 imageView의 height가 명확하지 않아서 발생하는 문제라고 파악했습니다.
+
+따라서 estimatedHeight를 유지한 채로 기존 Horizontal StackView를 삭제하고, imageView의 `height:width 비율`을 추가하여 아래처럼 문제를 해결했습니다. (Wide Mode에서 group당 itemCount가 2이 되면서 Cell width가 1/2이 되기 때문에 imageView width가 Cell width의 0.2가 아닌 0.4가 되도록 작업을 추가했습니다.)
+|iPhone8|iPhone13 Pro Max|iPad Pro 12.9|
+|-|-|-|
+|<img src="https://user-images.githubusercontent.com/70856586/183058895-dafdcc4a-978e-4c07-abf1-a9718b79a0e5.gif" width="180">|<img src="https://user-images.githubusercontent.com/70856586/183058941-1c9a8665-4667-4c54-a569-f13eb94cbf2b.gif" width="200">|<img src="https://user-images.githubusercontent.com/70856586/183058951-cde4ccc3-b360-432e-8955-2bb8999a27b8.gif" width="300">|
 
 ### 4. estimatedHeight 사용 시 특정 버전에서 crash 발생
 CompositionalLayout에서 `estimatedHeight`를 사용할 때, iOS 15.0 이상 15.3 이하 버전에서 crash가 발생했습니다. 이에 대응하기 위해 사용자의 기기 버전이 iOS 15.0~15.3인 경우 Alert를 띄워 사용자에게 업데이트를 권하도록 구현했습니다.
+
+### 5. 서버 데이터 특성을 고려하여 Model 타입 및 UI 구성
+subtitle, publishedData 등 일부 데이터가 누락된 경우가 빈번하여 `JSON Parsing` 에러를 방지하기 위해 DTO 타입의 모든 프로퍼티를 `옵셔널 타입`으로 지정했습니다.
+
+마찬가지로 이미지 URL 포함 유무도 데이터마다 다르기 때문에 URL이 없는 경우 임의의 `SF Symbol` 이미지를 나타내어 에러 화면으로 인식되는 것을 방지했습니다.
 
 # Feature-2. 상세 화면 구현
 ## 2-1 주요 기능
@@ -109,9 +123,9 @@ CompositionalLayout에서 `estimatedHeight`를 사용할 때, iOS 15.0 이상 15
 
 *배경 및 구체적인 작업 내용은 관련 PR ["목록 화면에서 도서 Cell을 탭하면 상세 화면을 나타냅니다."](https://github.com/just1103/BookFinder/pull/2)를 참고해주세요.
 
-|상세 화면|가로/세로 모드 전환|
-|-|-|
-|<img src="https://user-images.githubusercontent.com/70856586/182443900-32b4509f-6ead-4e8b-8dbe-e431eb7a1084.gif" width="200">|<img src="https://user-images.githubusercontent.com/70856586/182443986-a3379239-83f7-4276-8ba0-304d04ec4e60.gif" width="200">|
+|상세 화면|
+|-|
+|<img src="https://user-images.githubusercontent.com/70856586/182443900-32b4509f-6ead-4e8b-8dbe-e431eb7a1084.gif" width="200">|
 
 ## 2-2 구현 내용 
 ### 1. DetailCoordinator 추가 및 Delegate 패턴 적용
@@ -130,5 +144,4 @@ Horizontal Scroll이 되는 문제가 발생하여 ScrollView의 `ContentView Wi
 
 # 보완할 점
 - Quick/Numble을 활용하여 ViewModel 테스트 코드를 추가할 예정입니다.
-- iPad 등 Wide Screen에 대응하기 위해 Compositional Layout의 columnCount 값을 재설정할 예정입니다.
 - Clean Swift를 스터디하고 적용해볼 예정입니다.
