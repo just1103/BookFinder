@@ -45,9 +45,10 @@ BookFinderTests
 - `URLSession`을 통해 네트워크 통신을 구현했습니다. (MockURLSession을 통한 테스트 실행)
 - `SearchController`에 검색키워드를 입력할 때마다 `CollectionView`가 즉시 업데이트됩니다.
 - 목록 최하단으로 Scroll하면 서버에서 다음 페이지의 데이터를 받아오도록 `Pagination`을 구현했습니다.
-- `ActivityIndicator`를 통해 로딩 애니메이션을 보여줍니다. (추가 구현)
-- 이미지 `Cache`를 구현했습니다. (추가 구현)
-- `JSONParserTests`, `MockNetworkProviderTests`, `NetworkProviderTests`를 통한 테스트 를 진행했습니다. (추가 구현)
+- iPad 등 Wide Screen과 가로/세로 모드 전환에 대응하는 `반응형 디자인`을 구현했습니다. (✅ 추가 구현)
+- `ActivityIndicator`를 통해 로딩 애니메이션을 보여줍니다. (✅ 추가 구현)
+- 이미지 `Cache`를 구현했습니다. (✅ 추가 구현)
+- `JSONParserTests`, `MockNetworkProviderTests`, `NetworkProviderTests`를 통한 테스트 를 진행했습니다. (✅ 추가 구현)
 
 *배경 및 리뷰 노트 등은 관련 PR ["검색키워드를 입력하면 서버 데이터를 전달받아 목록 화면에 나타냅니다."](https://github.com/just1103/BookFinder/pull/1)를 참고해주세요.
 
@@ -118,8 +119,7 @@ subtitle, publishedData 등 일부 데이터가 누락된 경우가 빈번하여
 
 # Feature-2. 상세 화면 구현
 ## 2-1 주요 기능
-- 검색 목록의 도서 Cell을 탭하면 상세 화면으로 이동합니다.
-- 가로/세로 모드 전환에 반응합니다.
+- 검색 목록의 도서 Cell을 탭하면 상세 화면으로 이동합니다. (✅ 추가 구현)
 
 *배경 및 구체적인 작업 내용은 관련 PR ["목록 화면에서 도서 Cell을 탭하면 상세 화면을 나타냅니다."](https://github.com/just1103/BookFinder/pull/2)를 참고해주세요.
 
