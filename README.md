@@ -143,5 +143,7 @@ subtitle, publishedData 등 일부 데이터가 누락된 경우가 빈번하여
 Horizontal Scroll이 되는 문제가 발생하여 ScrollView의 `ContentView Width`가 화면 크기와 동일하도록 설정했습니다. 그리고 `TextView`에 텍스트가 채워지면서 Scroll이 아래로 내려가는 문제가 발생하여 다시 Scroll을 맨 위로 올리는 작업을 추가했습니다.
 
 # 보완할 점
+- [x] ~~iPad 등 Wide Screen에 대응하기 위해 Compositional Layout의 columnCount 값을 재설정할 예정입니다.~~ (완료)
 - Quick/Numble을 활용하여 ViewModel 테스트 코드를 추가할 예정입니다.
 - Clean Swift를 스터디하고 적용해볼 예정입니다.
+
