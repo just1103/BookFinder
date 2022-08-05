@@ -142,16 +142,22 @@ final class SearchListViewController: UIViewController {
         let layout = UICollectionViewCompositionalLayout { _, _ -> NSCollectionLayoutSection? in
             let screenWidth = UIScreen.main.bounds.width
             let estimatedHeight = NSCollectionLayoutDimension.estimated(screenWidth * 0.35)
+            
+            let isWideMode = screenWidth > 1000
+            let itemWidthRatio: CGFloat = isWideMode ? 0.5 : 1.0
+            let columnCount = isWideMode ? 2 : 1
+            
             let itemSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
+                widthDimension: .fractionalWidth(itemWidthRatio),
                 heightDimension: estimatedHeight
             )
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            
             let groupSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
                 heightDimension: estimatedHeight
             )
-            let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 1)
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: columnCount)
             let section = NSCollectionLayoutSection(group: group)
             
             return section

@@ -9,24 +9,24 @@ import UIKit
 
 final class BookItemCell: UICollectionViewCell {
     // MARK: - Properties
-    private let containerStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
-        stackView.alignment = .fill
-        stackView.distribution = .fill
-        stackView.spacing = 10
-        let verticalInset: CGFloat = 12
-        let horizontalInset: CGFloat = 12
-        stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(
-            top: verticalInset,
-            leading: horizontalInset,
-            bottom: verticalInset,
-            trailing: horizontalInset
-        )
-        stackView.isLayoutMarginsRelativeArrangement = true
-        return stackView
-    }()
+//    private let containerStackView: UIStackView = {
+//        let stackView = UIStackView()
+//        stackView.translatesAutoresizingMaskIntoConstraints = false
+//        stackView.axis = .horizontal
+//        stackView.alignment = .fill
+//        stackView.distribution = .fillEqually
+//        stackView.spacing = 10
+//        let verticalInset: CGFloat = 12
+//        let horizontalInset: CGFloat = 12
+//        stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(
+//            top: verticalInset,
+//            leading: horizontalInset,
+//            bottom: verticalInset,
+//            trailing: horizontalInset
+//        )
+//        stackView.isLayoutMarginsRelativeArrangement = true
+//        return stackView
+//    }()
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -79,7 +79,7 @@ final class BookItemCell: UICollectionViewCell {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.alignment = .leading
+        stackView.alignment = .center
         stackView.distribution = .fillProportionally
         stackView.spacing = 5
         stackView.setContentHuggingPriority(.required, for: .vertical)
@@ -181,11 +181,10 @@ final class BookItemCell: UICollectionViewCell {
     
     private func configureUI() {
         backgroundColor = .lightGreen2
-        
-        addSubview(containerStackView)
-        containerStackView.addArrangedSubview(imageView)
-        containerStackView.addArrangedSubview(volumeInfoStackView)
-        containerStackView.addArrangedSubview(accessoryImageView)
+
+        addSubview(imageView)
+        addSubview(volumeInfoStackView)
+        addSubview(accessoryImageView)
         
         volumeInfoStackView.addArrangedSubview(titleLabel)
         volumeInfoStackView.addArrangedSubview(authorLabel)
@@ -195,16 +194,26 @@ final class BookItemCell: UICollectionViewCell {
         starViews.forEach { ratingStackView.addArrangedSubview($0) }
         ratingStackView.addArrangedSubview(ratingCountLabel)
 
-        NSLayoutConstraint.activate([
-            containerStackView.topAnchor.constraint(equalTo: self.topAnchor),
-            containerStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            containerStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            containerStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            imageView.widthAnchor.constraint(equalTo: containerStackView.widthAnchor, multiplier: 0.3),
-            accessoryImageView.widthAnchor.constraint(equalTo: containerStackView.widthAnchor, multiplier: 0.03)
-        ])
+        let screenWidth = UIScreen.main.bounds.width
+        let isWideMode = screenWidth > 1000
+        let imageViewWidthRatio: CGFloat = isWideMode ? 0.4 : 0.2
         
-        starViews.forEach { $0.heightAnchor.constraint(equalTo: ratingCountLabel.heightAnchor).isActive = true }
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            imageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: imageViewWidthRatio),
+            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1.5),
+
+            volumeInfoStackView.topAnchor.constraint(equalTo: imageView.topAnchor),
+            volumeInfoStackView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10),
+            volumeInfoStackView.trailingAnchor.constraint(equalTo: accessoryImageView.leadingAnchor, constant: -10),
+            volumeInfoStackView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor),
+            
+            accessoryImageView.topAnchor.constraint(equalTo: imageView.topAnchor),
+            accessoryImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            accessoryImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.03),
+            accessoryImageView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor),
+        ])
     }
 }
 
