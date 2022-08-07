@@ -18,6 +18,7 @@ struct NetworkProvider {
         self.session = session
     }
     
+    // MARK: - Methods
     func fetchData<T: Decodable>(api: Gettable, decodingType: T.Type) -> Observable<T> {
         return Observable.create { emitter in
             guard let task = dataTask(api: api, emitter: emitter) else {
