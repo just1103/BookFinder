@@ -116,7 +116,7 @@ final class SearchListViewModel: ViewModelProtocol {
             .filter { (self, row) in
                 return row + 4 == self.currentItemCount
             }
-            .flatMap { _ -> Observable<[BookItem]> in
+            .flatMap { (self, _) -> Observable<[BookItem]> in
                 self.delegate.showActivityIndicator()
                 
                 self.currentPageNumber += 1
