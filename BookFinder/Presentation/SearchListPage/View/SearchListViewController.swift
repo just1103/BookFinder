@@ -62,7 +62,6 @@ final class SearchListViewController: UIViewController {
     private var dataSource: DiffableDataSource!
     private var snapshot: NSDiffableDataSourceSnapshot<SectionKind, BookItem>!
     private var viewModel: SearchListViewModel!
-    private let searchTextDidChanged = PublishSubject<String>()
     private let collectionViewDidScroll = PublishSubject<Int>()
     private let cellDidSelect = PublishSubject<BookItem>()
     private let disposeBag = DisposeBag()
@@ -129,7 +128,7 @@ final class SearchListViewController: UIViewController {
     }
 
     private func configureSearchBar() {
-        searchController.searchResultsUpdater = self
+//        searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
     }
     
@@ -204,7 +203,7 @@ final class SearchListViewController: UIViewController {
 extension SearchListViewController {
     private func bind() {
         let input = SearchListViewModel.Input(
-            searchTextDidChanged: searchTextDidChanged,
+            searchTextDidChanged: searchController.searchBar.searchTextField.rx.text.orEmpty.asObservable(),
             collectionViewDidScroll: collectionViewDidScroll,
             cellDidSelect: cellDidSelect
         )
@@ -272,14 +271,6 @@ extension SearchListViewController: UICollectionViewDelegate {
         guard let selectedCell = collectionView.cellForItem(at: indexPath) as? BookItemCell else { return }
         let bookItem = selectedCell.retrieveBookItem()
         cellDidSelect.onNext(bookItem)
-    }
-}
-
-// MARK: - UISearchResultsUpdating
-extension SearchListViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let searchText = searchController.searchBar.text else { return }
-        searchTextDidChanged.onNext(searchText)
     }
 }
 

@@ -8,6 +8,13 @@
 import Foundation
 @testable import BookFinder
 
+//protocol URLSessionProtocol {
+//    func dataTask(
+//        with request: URLRequest,
+//        completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void
+//    ) -> URLSessionDataTask
+//}
+
 class MockURLSessionDataTask: URLSessionDataTask {
     var resumeDidCall: () -> Void = {}
     

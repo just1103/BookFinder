@@ -55,6 +55,7 @@ final class SearchListViewModel: ViewModelProtocol {
     ) -> Observable<(Int, [BookItem])> {
         return searchText
             .distinctUntilChanged()
+            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)  // TODO: main 스레드 아니어도 가능
             .withUnretained(self)
             .flatMap { (self, searchText) -> Observable<(Int, [BookItem])> in
                 if self.isEmptyOrSpace(searchText) {
