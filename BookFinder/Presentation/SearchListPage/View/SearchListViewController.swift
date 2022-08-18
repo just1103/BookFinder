@@ -211,7 +211,6 @@ extension SearchListViewController {
         let output = viewModel.transform(input)
         
         configureSearchCountAndItems(with: output.searchCountAndItems)
-//        configureKeyboardControl(with: output.)
         configureNextPageItems(with: output.nextPageItems)
     }
     
@@ -224,8 +223,9 @@ extension SearchListViewController {
                 owner.setLabel(with: searchCount)
                 owner.createAndApplySnapshot(with: bookItems)
                 
-                owner.hideActivityIndicator()
                 owner.showKeyboard()
+                owner.collectionView.setContentOffset(.zero, animated: true)
+                owner.hideActivityIndicator()
             })
             .disposed(by: disposeBag)
     }
@@ -235,8 +235,14 @@ extension SearchListViewController {
     }
     
     private func createAndApplySnapshot(with bookItems: [BookItem]) {
-        snapshot = SnapShot()
-        snapshot.appendSections([.main])
+        if snapshot == nil {
+            snapshot = SnapShot()
+            snapshot.appendSections([.main])
+        } else {
+            let previousBookItems = snapshot.itemIdentifiers(inSection: .main)
+            snapshot.deleteItems(previousBookItems)
+        }
+      
         snapshot.appendItems(bookItems)
         dataSource.apply(snapshot, animatingDifferences: true)
     }

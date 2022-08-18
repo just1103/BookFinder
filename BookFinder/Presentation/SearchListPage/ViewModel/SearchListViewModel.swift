@@ -55,7 +55,7 @@ final class SearchListViewModel: ViewModelProtocol {
     ) -> Observable<(Int, [BookItem])> {
         return searchText
             .distinctUntilChanged()
-            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)  // TODO: main 스레드 아니어도 가능
+            .debounce(.milliseconds(600), scheduler: ConcurrentDispatchQueueScheduler.init(qos: .default)) 
             .withUnretained(self)
             .flatMap { (owner, searchText) -> Observable<(Int, [BookItem])> in
                 if owner.isEmptyOrSpace(searchText) {
@@ -114,8 +114,12 @@ final class SearchListViewModel: ViewModelProtocol {
     ) -> Observable<[BookItem]> {
         return inputObservable
             .withUnretained(self)
-            .filter { (owner, row) in  
-                owner.delegate.hideKeyboard()
+            .filter { (owner, row) in
+                let itemCountOnScreen = 5
+                if row > itemCountOnScreen {
+                    owner.delegate.hideKeyboard()
+                }
+                
                 return row + 4 == owner.currentItemCount
             }
             .flatMap { (owner, _) -> Observable<[BookItem]> in
@@ -123,7 +127,7 @@ final class SearchListViewModel: ViewModelProtocol {
                 owner.delegate.hideKeyboard()
                 
                 owner.currentPageNumber += 1
-                owner.currentItemCount = owner.itemPerPage * owner.currentPageNumber
+                owner.currentItemCount += owner.itemPerPage
                 
                 return owner.fetchSearchResult(with: owner.currentSearchText, at: owner.currentPageNumber)
                     .map { searchResultDTO -> [BookItem] in
