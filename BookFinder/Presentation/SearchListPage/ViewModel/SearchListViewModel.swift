@@ -22,7 +22,7 @@ final class SearchListViewModel: ViewModelProtocol {
     }
     
     // MARK: - Properties
-    weak var delegate: ActivityIndicatorSwitchDelegate!
+    weak var delegate: KeyboardAndActivityIndicatorSwitchable!
     private weak var coordinator: SearchListCoordinator!
     private let initialPageNumber = 1
     private let itemPerPage = 20
@@ -114,11 +114,13 @@ final class SearchListViewModel: ViewModelProtocol {
     ) -> Observable<[BookItem]> {
         return inputObservable
             .withUnretained(self)
-            .filter { (owner, row) in
+            .filter { (owner, row) in  
+                owner.delegate.hideKeyboard()
                 return row + 4 == owner.currentItemCount
             }
             .flatMap { (owner, _) -> Observable<[BookItem]> in
                 owner.delegate.showActivityIndicator()
+                owner.delegate.hideKeyboard()
                 
                 owner.currentPageNumber += 1
                 owner.currentItemCount = owner.itemPerPage * owner.currentPageNumber

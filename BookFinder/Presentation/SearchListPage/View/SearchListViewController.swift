@@ -9,7 +9,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol ActivityIndicatorSwitchDelegate: AnyObject {
+protocol KeyboardAndActivityIndicatorSwitchable: AnyObject {
+    func hideKeyboard()
     func showActivityIndicator()
 }
 
@@ -203,13 +204,14 @@ extension SearchListViewController {
     private func bind() {
         let input = SearchListViewModel.Input(
             searchTextDidChanged: searchController.searchBar.searchTextField.rx.text.orEmpty.asObservable(),
-            collectionViewDidScroll: collectionViewDidScroll,
-            cellDidSelect: cellDidSelect
+            collectionViewDidScroll: collectionViewDidScroll.asObservable(),
+            cellDidSelect: cellDidSelect.asObservable()
         )
         
         let output = viewModel.transform(input)
         
         configureSearchCountAndItems(with: output.searchCountAndItems)
+//        configureKeyboardControl(with: output.)
         configureNextPageItems(with: output.nextPageItems)
     }
     
@@ -223,6 +225,7 @@ extension SearchListViewController {
                 owner.createAndApplySnapshot(with: bookItems)
                 
                 owner.hideActivityIndicator()
+                owner.showKeyboard()
             })
             .disposed(by: disposeBag)
     }
@@ -273,8 +276,16 @@ extension SearchListViewController: UICollectionViewDelegate {
     }
 }
 
-// MARK: - ActivityIndicator SwitchDelegate
-extension SearchListViewController: ActivityIndicatorSwitchDelegate {
+// MARK: - Keyboard And ActivityIndicator Switchable
+extension SearchListViewController: KeyboardAndActivityIndicatorSwitchable {
+    private func showKeyboard() {
+        searchController.searchBar.searchTextField.becomeFirstResponder()
+    }
+    
+    func hideKeyboard() {
+        searchController.searchBar.searchTextField.resignFirstResponder()
+    }
+    
     func showActivityIndicator() {
         DispatchQueue.main.async { [weak self] in
             self?.activityIndicator.startAnimating()
