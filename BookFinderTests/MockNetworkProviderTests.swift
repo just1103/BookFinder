@@ -36,7 +36,7 @@ class MockNetworkProviderTests: XCTestCase {
         _ = observable.subscribe(onNext: { result in
             XCTAssertNotNil(result)
             XCTAssertEqual(result.kind, "books#volumes")
-            XCTAssertEqual(result.totalItems, 623)
+            XCTAssertEqual(result.totalItems, 568)
             expectation.fulfill()
         })
         .disposed(by: disposeBag)

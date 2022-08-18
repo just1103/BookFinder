@@ -1,11 +1,11 @@
 {
   "kind": "books#volumes",
-  "totalItems": 623,
+  "totalItems": 568,
   "items": [
     {
       "kind": "books#volume",
       "id": "VuVuDQAAQBAJ",
-      "etag": "Kgo+9HgWafM",
+      "etag": "3JEKt+iOyQk",
       "selfLink": "https://www.googleapis.com/books/v1/volumes/VuVuDQAAQBAJ",
       "volumeInfo": {
         "title": "Plants and Flowers",
@@ -80,7 +80,7 @@
     {
       "kind": "books#volume",
       "id": "UYNMAAAAMAAJ",
-      "etag": "H3hZlgrDWEY",
+      "etag": "haGxSigPe1I",
       "selfLink": "https://www.googleapis.com/books/v1/volumes/UYNMAAAAMAAJ",
       "volumeInfo": {
         "title": "Flowers Chronicles",
@@ -149,7 +149,7 @@
     {
       "kind": "books#volume",
       "id": "w0w9AQAAMAAJ",
-      "etag": "PfILwjLObCc",
+      "etag": "sLbJF5wf+1M",
       "selfLink": "https://www.googleapis.com/books/v1/volumes/w0w9AQAAMAAJ",
       "volumeInfo": {
         "title": "Some Desert Flowers Collected Near Cairo",
@@ -216,7 +216,7 @@
     {
       "kind": "books#volume",
       "id": "NtTqAAAAMAAJ",
-      "etag": "k4jUbpKvpK0",
+      "etag": "rWpbO4fd1xk",
       "selfLink": "https://www.googleapis.com/books/v1/volumes/NtTqAAAAMAAJ",
       "volumeInfo": {
         "title": "Flowers and Nature",
@@ -284,8 +284,79 @@
     },
     {
       "kind": "books#volume",
+      "id": "p7lyfH_NLYIC",
+      "etag": "/Bd9eAnSZDM",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/p7lyfH_NLYIC",
+      "volumeInfo": {
+        "title": "Flowers in the Attic/Petals on the Wind",
+        "authors": [
+          "V.C. Andrews"
+        ],
+        "publisher": "Simon and Schuster",
+        "publishedDate": "2009-11-10",
+        "description": "Contains \"Flowers in the Attic\" in which four children are locked into the attic of their grandmother's home after the death of their father, and \"Petals on the Wind\" in which Cathy discovers that she has the power to revenge those childhood years lockedin an attic with her brothers and sister.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781442403017"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1442403012"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 828,
+        "printType": "BOOK",
+        "categories": [
+          "Juvenile Fiction"
+        ],
+        "averageRating": 4,
+        "ratingsCount": 11,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=p7lyfH_NLYIC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=p7lyfH_NLYIC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=p7lyfH_NLYIC&printsec=frontcover&dq=flowers&hl=&cd=5&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=p7lyfH_NLYIC&dq=flowers&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Flowers_in_the_Attic_Petals_on_the_Wind.html?hl=&id=p7lyfH_NLYIC"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=p7lyfH_NLYIC&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "A value-priced bindup of the first two books ever published by V. C. Andrews, Flowers in the Attic and Petals on the Wind."
+      }
+    },
+    {
+      "kind": "books#volume",
       "id": "VTpFAQAAIAAJ",
-      "etag": "voqQdldu6N8",
+      "etag": "ZRI1jNkbv14",
       "selfLink": "https://www.googleapis.com/books/v1/volumes/VTpFAQAAIAAJ",
       "volumeInfo": {
         "title": "Understanding Flowers and Flowering",
@@ -323,7 +394,7 @@
           "thumbnail": "http://books.google.com/books/content?id=VTpFAQAAIAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
         },
         "language": "en",
-        "previewLink": "http://books.google.co.kr/books?id=VTpFAQAAIAAJ&q=flowers&dq=flowers&hl=&cd=5&source=gbs_api",
+        "previewLink": "http://books.google.co.kr/books?id=VTpFAQAAIAAJ&q=flowers&dq=flowers&hl=&cd=6&source=gbs_api",
         "infoLink": "http://books.google.co.kr/books?id=VTpFAQAAIAAJ&dq=flowers&hl=&source=gbs_api",
         "canonicalVolumeLink": "https://books.google.com/books/about/Understanding_Flowers_and_Flowering.html?hl=&id=VTpFAQAAIAAJ"
       },
@@ -355,7 +426,7 @@
     {
       "kind": "books#volume",
       "id": "vOtaAAAAQAAJ",
-      "etag": "o0s2e73IGSw",
+      "etag": "Sr+mpxnfZ9s",
       "selfLink": "https://www.googleapis.com/books/v1/volumes/vOtaAAAAQAAJ",
       "volumeInfo": {
         "title": "The English Flower Garden and Home Grounds",
@@ -391,7 +462,7 @@
           "thumbnail": "http://books.google.com/books/content?id=vOtaAAAAQAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
         },
         "language": "en",
-        "previewLink": "http://books.google.co.kr/books?id=vOtaAAAAQAAJ&q=flowers&dq=flowers&hl=&cd=6&source=gbs_api",
+        "previewLink": "http://books.google.co.kr/books?id=vOtaAAAAQAAJ&q=flowers&dq=flowers&hl=&cd=7&source=gbs_api",
         "infoLink": "http://books.google.co.kr/books?id=vOtaAAAAQAAJ&dq=flowers&hl=&source=gbs_api",
         "canonicalVolumeLink": "https://books.google.com/books/about/The_English_Flower_Garden_and_Home_Groun.html?hl=&id=vOtaAAAAQAAJ"
       },
@@ -423,7 +494,7 @@
     {
       "kind": "books#volume",
       "id": "kY0pAQAAMAAJ",
-      "etag": "O30M51aLj+w",
+      "etag": "kmzS2qGu5qQ",
       "selfLink": "https://www.googleapis.com/books/v1/volumes/kY0pAQAAMAAJ",
       "volumeInfo": {
         "title": "New Generation Guide to the Wild Flowers of Britain and Northern Europe",
@@ -459,7 +530,7 @@
           "thumbnail": "http://books.google.com/books/content?id=kY0pAQAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
         },
         "language": "en",
-        "previewLink": "http://books.google.co.kr/books?id=kY0pAQAAMAAJ&q=flowers&dq=flowers&hl=&cd=7&source=gbs_api",
+        "previewLink": "http://books.google.co.kr/books?id=kY0pAQAAMAAJ&q=flowers&dq=flowers&hl=&cd=8&source=gbs_api",
         "infoLink": "http://books.google.co.kr/books?id=kY0pAQAAMAAJ&dq=flowers&hl=&source=gbs_api",
         "canonicalVolumeLink": "https://books.google.com/books/about/New_Generation_Guide_to_the_Wild_Flowers.html?hl=&id=kY0pAQAAMAAJ"
       },
@@ -490,65 +561,8 @@
     },
     {
       "kind": "books#volume",
-      "id": "eIdJzgEACAAJ",
-      "etag": "lcEyoZi088Q",
-      "selfLink": "https://www.googleapis.com/books/v1/volumes/eIdJzgEACAAJ",
-      "volumeInfo": {
-        "title": "플라워 컬러 가이드",
-        "publishedDate": "2019",
-        "industryIdentifiers": [
-          {
-            "type": "ISBN_10",
-            "identifier": "9791196001"
-          },
-          {
-            "type": "ISBN_13",
-            "identifier": "9789791196000"
-          }
-        ],
-        "readingModes": {
-          "text": false,
-          "image": false
-        },
-        "printType": "BOOK",
-        "maturityRating": "NOT_MATURE",
-        "allowAnonLogging": false,
-        "contentVersion": "preview-1.0.0",
-        "panelizationSummary": {
-          "containsEpubBubbles": false,
-          "containsImageBubbles": false
-        },
-        "language": "ko",
-        "previewLink": "http://books.google.co.kr/books?id=eIdJzgEACAAJ&dq=flowers&hl=&cd=8&source=gbs_api",
-        "infoLink": "http://books.google.co.kr/books?id=eIdJzgEACAAJ&dq=flowers&hl=&source=gbs_api",
-        "canonicalVolumeLink": "https://books.google.com/books/about/%ED%94%8C%EB%9D%BC%EC%9B%8C_%EC%BB%AC%EB%9F%AC_%EA%B0%80%EC%9D%B4%EB%93%9C.html?hl=&id=eIdJzgEACAAJ"
-      },
-      "saleInfo": {
-        "country": "KR",
-        "saleability": "NOT_FOR_SALE",
-        "isEbook": false
-      },
-      "accessInfo": {
-        "country": "KR",
-        "viewability": "NO_PAGES",
-        "embeddable": false,
-        "publicDomain": false,
-        "textToSpeechPermission": "ALLOWED",
-        "epub": {
-          "isAvailable": false
-        },
-        "pdf": {
-          "isAvailable": false
-        },
-        "webReaderLink": "http://play.google.com/books/reader?id=eIdJzgEACAAJ&hl=&printsec=frontcover&source=gbs_api",
-        "accessViewStatus": "NONE",
-        "quoteSharingAllowed": false
-      }
-    },
-    {
-      "kind": "books#volume",
       "id": "K-OTrgEACAAJ",
-      "etag": "UDlmJQNzz18",
+      "etag": "6MZogz2IKbk",
       "selfLink": "https://www.googleapis.com/books/v1/volumes/K-OTrgEACAAJ",
       "volumeInfo": {
         "title": "L'herbier merveilleux",
@@ -622,7 +636,7 @@
     {
       "kind": "books#volume",
       "id": "c4oLAQAAIAAJ",
-      "etag": "wCs/Mnh97iY",
+      "etag": "iVdL+eki9Pk",
       "selfLink": "https://www.googleapis.com/books/v1/volumes/c4oLAQAAIAAJ",
       "volumeInfo": {
         "title": "Upland Kenya Wild Flowers",
@@ -682,6 +696,2203 @@
         "webReaderLink": "http://play.google.com/books/reader?id=c4oLAQAAIAAJ&hl=&printsec=frontcover&source=gbs_api",
         "accessViewStatus": "NONE",
         "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "uTCiDQAAQBAJ",
+      "etag": "Njs1omCiY7E",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/uTCiDQAAQBAJ",
+      "volumeInfo": {
+        "title": "In Bloom",
+        "subtitle": "Creating and Living With Flowers",
+        "authors": [
+          "Ngoc Minh Ngo"
+        ],
+        "publisher": "Rizzoli Publications",
+        "publishedDate": "2016-09-20",
+        "description": "Inspiring new ways to connect with the beauty of flowers in everyday life. Like the author’s exquisite first book, Bringing Nature Home, this much-awaited follow-up title presents stunning arrangements and ideas for interiors inspired by the beauty of flowers. Ngoc Minh Ngo has recorded the work of artists, designers, and tastemakers who demonstrate the many ways that flowers can enhance our homes and work spaces. Each chapter focuses on a unique way to incorporate floral designs into interiors, from flower arrangements made from foraged greenery to wall painting evoking Monet’s water lilies to paper flowers that never lose their vibrancy. Renowned photographer Oberto Gili fills his house in Italy with treasures from his bountiful garden that inspire his work, and landscape designer Miranda Brooks puts to use her passion for all things botanical in the decoration of her beautiful Brooklyn home. With exceptional photography that captures the beauty of these flower-inspired homes and text that shares how these imaginative artists and designers achieved their botanical creations, this is an irresistible book for flower lovers, decorators, and homeowners.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9780847848508"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "0847848507"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 224,
+        "printType": "BOOK",
+        "categories": [
+          "Crafts & Hobbies"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.1.0.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=uTCiDQAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=uTCiDQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=uTCiDQAAQBAJ&dq=flowers&hl=&cd=11&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=uTCiDQAAQBAJ&dq=flowers&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/In_Bloom.html?hl=&id=uTCiDQAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=uTCiDQAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "With exceptional photography that captures the beauty of these flower-inspired homes and text that shares how these imaginative artists and designers achieved their botanical creations, this is an irresistible book for flower lovers, ..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "alJgAAAAMAAJ",
+      "etag": "jNIr0QGSb20",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/alJgAAAAMAAJ",
+      "volumeInfo": {
+        "title": "Flowering Plants of Jamaica",
+        "authors": [
+          "Charles Dennis Adams"
+        ],
+        "publishedDate": "1972",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "UTEXAS:059173023156477"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 848,
+        "printType": "BOOK",
+        "categories": [
+          "Botany"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.3.2.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=alJgAAAAMAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=alJgAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=alJgAAAAMAAJ&q=flowers&dq=flowers&hl=&cd=12&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=alJgAAAAMAAJ&dq=flowers&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Flowering_Plants_of_Jamaica.html?hl=&id=alJgAAAAMAAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=alJgAAAAMAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Plant-body of distinct stem and leaves: \u003cb\u003eFlowers\u003c/b\u003e clustered in the branch-axils or solitary; stamen 1 ; carpel 1 6. Najadaceae (p. 35) \u003cb\u003eFlowers\u003c/b\u003e in terminal or axillary spikes: Spikes axillary; \u003cb\u003eflowers\u003c/b\u003e bisexual; stamens 4; carpels 4 3."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "jLlFAAAAYAAJ",
+      "etag": "tBBZCWxdg4Q",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/jLlFAAAAYAAJ",
+      "volumeInfo": {
+        "title": "The Royal Horticultural Society Gardeners' Encyclopedia of Plants and Flowers",
+        "authors": [
+          "Royal Horticultural Society (Great Britain)"
+        ],
+        "publisher": "DK Publishing (Dorling Kindersley)",
+        "publishedDate": "1989",
+        "description": "Colourful book on plants and gardens includes trees, vines, shrubs and over 4000 colour photos.",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "UVA:X001667072"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 608,
+        "printType": "BOOK",
+        "categories": [
+          "Flowers"
+        ],
+        "averageRating": 4.5,
+        "ratingsCount": 2,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.5.5.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=jLlFAAAAYAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=jLlFAAAAYAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=jLlFAAAAYAAJ&pg=RA30-PT2&dq=flowers&hl=&cd=13&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=jLlFAAAAYAAJ&dq=flowers&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_Royal_Horticultural_Society_Gardener.html?hl=&id=jLlFAAAAYAAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=jLlFAAAAYAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "vtUY8UPG4KcC",
+      "etag": "PgkJ23bjCwE",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/vtUY8UPG4KcC",
+      "volumeInfo": {
+        "title": "Favorite Flowers",
+        "authors": [
+          "Dover Publications Inc"
+        ],
+        "publisher": "Courier Corporation",
+        "publishedDate": "2002",
+        "description": "This rich treasury of 253 high-quality, black-and-white illustrations encompasses a profusion of tropical blooms, garden flowers, house plants, roses, orchids, wildflowers, and many other popular florals.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9780486995137"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "0486995135"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 48,
+        "printType": "BOOK",
+        "categories": [
+          "Design"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.1.0.0.preview.1",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=vtUY8UPG4KcC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=vtUY8UPG4KcC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=vtUY8UPG4KcC&printsec=frontcover&dq=flowers&hl=&cd=14&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=vtUY8UPG4KcC&dq=flowers&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Favorite_Flowers.html?hl=&id=vtUY8UPG4KcC"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=vtUY8UPG4KcC&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "This rich treasury of 253 high-quality, black-and-white illustrations encompasses a profusion of tropical blooms, garden flowers, house plants, roses, orchids, wildflowers, and many other popular florals."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "3LXLEhz5--MC",
+      "etag": "CsIZtV2HQDI",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/3LXLEhz5--MC",
+      "volumeInfo": {
+        "title": "Water balance of cut chrysanthemum flower buds as influenced by sugar uptake",
+        "authors": [
+          "Chia-huei Weenie Cheng"
+        ],
+        "publishedDate": "1973",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "UCAL:X31457"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 192,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.2.0.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=3LXLEhz5--MC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=3LXLEhz5--MC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=3LXLEhz5--MC&q=flowers&dq=flowers&hl=&cd=15&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=3LXLEhz5--MC&dq=flowers&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Water_balance_of_cut_chrysanthemum_flowe.html?hl=&id=3LXLEhz5--MC"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=3LXLEhz5--MC&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "The observed appearance of leaves and \u003cb\u003eflowers\u003c/b\u003e of &#39;Snow Ridge&#39; chrysanthemums cut in the bud stage and opened in the opening solution II with various sucrose concentrations for 8 days. Treatments Stems with Leaves Stems without Leaves&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "nF0EAAAAYAAJ",
+      "etag": "73MM6O10Ot8",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/nF0EAAAAYAAJ",
+      "volumeInfo": {
+        "title": "The Flowers Personified",
+        "subtitle": "Being a Translation of Grandville's \"Les Fleurs Animées.\"",
+        "authors": [
+          "J. J. Grandville",
+          "Nehemiah Cleaveland"
+        ],
+        "publishedDate": "1849",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "HARVARD:HXKL2J"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 778,
+        "printType": "BOOK",
+        "categories": [
+          "Botany"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.5.6.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=nF0EAAAAYAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=nF0EAAAAYAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=nF0EAAAAYAAJ&pg=PA3&dq=flowers&hl=&cd=16&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=nF0EAAAAYAAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=nF0EAAAAYAAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=nF0EAAAAYAAJ&rdid=book-nF0EAAAAYAAJ&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.co.kr/books/download/The_Flowers_Personified.epub?id=nF0EAAAAYAAJ&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "downloadLink": "http://books.google.co.kr/books/download/The_Flowers_Personified.pdf?id=nF0EAAAAYAAJ&hl=&output=pdf&sig=ACfU3U0RFfFGoP6FpJUfHPmoxJoJ6Qzt7Q&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=nF0EAAAAYAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "PAGE 113 127 129 A Petition , ( the \u003cb\u003eFlowers\u003c/b\u003e of the Ball - room ) .. 134 The Myrtle and the Laurel . ... The Story of Two Shepherdesses , the Blonde and the Brunette ; and of a Queen of France The \u003cb\u003eFlower\u003c/b\u003e of our Choice ."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "yrxHDwAAQBAJ",
+      "etag": "qr/vMCxr7c0",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/yrxHDwAAQBAJ",
+      "volumeInfo": {
+        "title": "The Physiology of Flowering",
+        "subtitle": "Volume I: Initiation Of Flowers",
+        "authors": [
+          "Bernier"
+        ],
+        "publisher": "CRC Press",
+        "publishedDate": "2018-01-18",
+        "description": "The present work is organised such that the whole phenomenon of flowing is divided into two major steps: 1. the initiation of flower primordia and 2. The development of these primordia into mature flowers until anthesis.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781351092579"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "135109257X"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 159,
+        "printType": "BOOK",
+        "categories": [
+          "Science"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.1.2.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=yrxHDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=yrxHDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=yrxHDwAAQBAJ&printsec=frontcover&dq=flowers&hl=&cd=17&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=yrxHDwAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=yrxHDwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 70316,
+          "currencyCode": "KRW"
+        },
+        "retailPrice": {
+          "amount": 63284,
+          "currencyCode": "KRW"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=yrxHDwAAQBAJ&rdid=book-yrxHDwAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 70316000000,
+              "currencyCode": "KRW"
+            },
+            "retailPrice": {
+              "amountInMicros": 63284000000,
+              "currencyCode": "KRW"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.kr/books/download/The_Physiology_of_Flowering-sample-epub.acsm?id=yrxHDwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.kr/books/download/The_Physiology_of_Flowering-sample-pdf.acsm?id=yrxHDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=yrxHDwAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "The present work is organised such that the whole phenomenon of flowing is divided into two major steps: 1. the initiation of flower primordia and 2. The development of these primordia into mature flowers until anthesis."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "kidBAAAAYAAJ",
+      "etag": "7fg6YWSEtYg",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/kidBAAAAYAAJ",
+      "volumeInfo": {
+        "title": "Flower Craft",
+        "subtitle": "A Handbook of Basic Information on the Care and Use of Flowers ...",
+        "authors": [
+          "Patricia Easterbrook Roberts"
+        ],
+        "publishedDate": "1949",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "CORNELL:31924000405641"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 177,
+        "printType": "BOOK",
+        "categories": [
+          "Floral Decoration"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.2.2.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=kidBAAAAYAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=kidBAAAAYAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=kidBAAAAYAAJ&q=flowers&dq=flowers&hl=&cd=18&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=kidBAAAAYAAJ&dq=flowers&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Flower_Craft.html?hl=&id=kidBAAAAYAAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=kidBAAAAYAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "A Handbook of Basic Information on the Care and Use of \u003cb\u003eFlowers\u003c/b\u003e ... Patricia Easterbrook Roberts ... You can&#39;t sit comfortably on a \u003cb\u003eflower\u003c/b\u003e nor can you eat one, although we have on record that our forebears did. However, there are other&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "hhhrmfbv-sQC",
+      "etag": "Y9rHcFwYzik",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/hhhrmfbv-sQC",
+      "volumeInfo": {
+        "title": "Common Families of Flowering Plants",
+        "authors": [
+          "Hickey Michael",
+          "Michael Hickey",
+          "Clive King",
+          "King Clive"
+        ],
+        "publisher": "Cambridge University Press",
+        "publishedDate": "1997-01-28",
+        "description": "An introduction to the general characteristics of a selection of important plant families.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "0521576091"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9780521576093"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 228,
+        "printType": "BOOK",
+        "categories": [
+          "Nature"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.2.2.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=hhhrmfbv-sQC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=hhhrmfbv-sQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=hhhrmfbv-sQC&printsec=frontcover&dq=flowers&hl=&cd=19&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=hhhrmfbv-sQC&dq=flowers&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Common_Families_of_Flowering_Plants.html?hl=&id=hhhrmfbv-sQC"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=hhhrmfbv-sQC&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "An introduction to the general characteristics of a selection of important plant families."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "8LIifmGfMc4C",
+      "etag": "7LQnac/mm6g",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/8LIifmGfMc4C",
+      "volumeInfo": {
+        "title": "Tropical Flowers of the World Coloring Book",
+        "authors": [
+          "Lynda E. Chandler"
+        ],
+        "publisher": "Courier Corporation",
+        "publishedDate": "1981-12",
+        "description": "Here are handsome line renderings of 45 colorful, varied, and exotic specimens: Cannonball Tree (Brazil and Trinidad); Bird-of-Paradise Flower (South Africa); Flame of the Forest (India); Sausage Tree (Africa); Cup-and-Saucer Vine (Mexico); and 40 others. Publisher's note and captions.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "0486242064"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9780486242064"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 48,
+        "printType": "BOOK",
+        "categories": [
+          "Juvenile Nonfiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.2.2.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=8LIifmGfMc4C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=8LIifmGfMc4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=8LIifmGfMc4C&printsec=frontcover&dq=flowers&hl=&cd=20&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=8LIifmGfMc4C&dq=flowers&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Tropical_Flowers_of_the_World_Coloring_B.html?hl=&id=8LIifmGfMc4C"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=8LIifmGfMc4C&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Here are handsome line renderings of 45 colorful, varied, and exotic specimens: Cannonball Tree (Brazil and Trinidad); Bird-of-Paradise Flower (South Africa); Flame of the Forest (India); Sausage Tree (Africa); Cup-and-Saucer Vine (Mexico); ..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "eIdJzgEACAAJ",
+      "etag": "438mlKyfz2s",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/eIdJzgEACAAJ",
+      "volumeInfo": {
+        "title": "플라워 컬러 가이드",
+        "publishedDate": "2019",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "9791196001"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9789791196000"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "language": "ko",
+        "previewLink": "http://books.google.co.kr/books?id=eIdJzgEACAAJ&dq=flowers&hl=&cd=21&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=eIdJzgEACAAJ&dq=flowers&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/%ED%94%8C%EB%9D%BC%EC%9B%8C_%EC%BB%AC%EB%9F%AC_%EA%B0%80%EC%9D%B4%EB%93%9C.html?hl=&id=eIdJzgEACAAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=eIdJzgEACAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "36tWAAAAcAAJ",
+      "etag": "xCKojZAvBhU",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/36tWAAAAcAAJ",
+      "volumeInfo": {
+        "title": "Glenny's Hand-book to the Flower Garden & Greenhouse, etc",
+        "authors": [
+          "George GLENNY (the Elder.)"
+        ],
+        "publishedDate": "1855",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "BL:A0017593858"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.3.3.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=36tWAAAAcAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=36tWAAAAcAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=36tWAAAAcAAJ&pg=PA113&dq=flowers&hl=&cd=22&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=36tWAAAAcAAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=36tWAAAAcAAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=36tWAAAAcAAJ&rdid=book-36tWAAAAcAAJ&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.co.kr/books/download/Glenny_s_Hand_book_to_the_Flower_Garden.epub?id=36tWAAAAcAAJ&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "downloadLink": "http://books.google.co.kr/books/download/Glenny_s_Hand_book_to_the_Flower_Garden.pdf?id=36tWAAAAcAAJ&hl=&output=pdf&sig=ACfU3U1xh50lzfuv1W-19yE5XZvcjKnH2Q&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=36tWAAAAcAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Hardy bulb , { ft . high ; \u003cb\u003eflowers\u003c/b\u003e white and brown , in February . Pisa , 1842. C. asturicus ( Asturian ) . Hardy bulb , i ft . high ; \u003cb\u003eflowers\u003c/b\u003e purple , in October . Asturia , 1842. C. aureus ( golden ) ."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "TYoMAQAAMAAJ",
+      "etag": "h49zrXzx2Tw",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/TYoMAQAAMAAJ",
+      "volumeInfo": {
+        "title": "The Families of Flowering Plants",
+        "authors": [
+          "Richard Headstrom"
+        ],
+        "publishedDate": "1978",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "WISC:89031213606"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 427,
+        "printType": "BOOK",
+        "categories": [
+          "Angiosperms"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.1.1.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=TYoMAQAAMAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=TYoMAQAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=TYoMAQAAMAAJ&q=flowers&dq=flowers&hl=&cd=23&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=TYoMAQAAMAAJ&dq=flowers&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_Families_of_Flowering_Plants.html?hl=&id=TYoMAQAAMAAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=TYoMAQAAMAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "To define a \u003cb\u003eflower\u003c/b\u003e is not easy , because a \u003cb\u003eflower\u003c/b\u003e or bristly and sometimes is covered with a sticky fluid is too complex and variable in structure and behavior so that the pollen grains will adhere to it . The ovary to allow an easy&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "U6oQAQAAMAAJ",
+      "etag": "iiCsQARGG4E",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/U6oQAQAAMAAJ",
+      "volumeInfo": {
+        "title": "The Flowering Plants of Africa",
+        "subtitle": "A Magazine Containing Coloured Figures with Descriptions of the Flowering Plants Indigenous in Africa ...",
+        "publishedDate": "1936",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "PSU:000018617931"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "printType": "BOOK",
+        "categories": [
+          "Plants"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.2.3.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=U6oQAQAAMAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=U6oQAQAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=U6oQAQAAMAAJ&q=flowers&dq=flowers&hl=&cd=24&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=U6oQAQAAMAAJ&dq=flowers&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_Flowering_Plants_of_Africa.html?hl=&id=U6oQAQAAMAAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=U6oQAQAAMAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "A Magazine Containing Coloured Figures with Descriptions of the \u003cb\u003eFlowering\u003c/b\u003e Plants Indigenous in Africa . ... Davy states that the petals are white , though in subsequent collectings the \u003cb\u003eflowers\u003c/b\u003e are described as white , tinged with pink ."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "gmFHAQAAIAAJ",
+      "etag": "gORpg0vByDo",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/gmFHAQAAIAAJ",
+      "volumeInfo": {
+        "title": "The Flemish Flower Painters in the XVIIth Century",
+        "authors": [
+          "Marie-Louise Hairs",
+          "Dominique Finet"
+        ],
+        "publisher": "Lefebvre & Gillet",
+        "publishedDate": "1985",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "STANFORD:36105032983004"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 518,
+        "printType": "BOOK",
+        "categories": [
+          "Art"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.4.4.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=gmFHAQAAIAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=gmFHAQAAIAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=gmFHAQAAIAAJ&q=flowers&dq=flowers&hl=&cd=25&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=gmFHAQAAIAAJ&dq=flowers&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_Flemish_Flower_Painters_in_the_XVIIt.html?hl=&id=gmFHAQAAIAAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=gmFHAQAAIAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Religious or Symbolic Compositions with \u003cb\u003eFlowers\u003c/b\u003e .............................................. D. Works Mentioned but not Found ................. | CHAPTER III. - Daniel Seghers ........................... 1. The Life of Daniel Seghers&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "ZzpQAAAAYAAJ",
+      "etag": "ULIRCvUTCCI",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/ZzpQAAAAYAAJ",
+      "volumeInfo": {
+        "title": "Home Garden & Flower Grower",
+        "publishedDate": "1966",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "UVA:X004950201"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "printType": "BOOK",
+        "categories": [
+          "Gardening"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.3.2.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=ZzpQAAAAYAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=ZzpQAAAAYAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=ZzpQAAAAYAAJ&q=flowers&dq=flowers&hl=&cd=26&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=ZzpQAAAAYAAJ&dq=flowers&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Home_Garden_Flower_Grower.html?hl=&id=ZzpQAAAAYAAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=ZzpQAAAAYAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "5 LAYOUTS INCLUDED AT Included FREE of extra cost you get 4 different garden layouts to show off \u003cb\u003eflowers\u003c/b\u003e to best advantage . ... This big bargain offer assures you the most beautiful spring \u003cb\u003eflower\u003c/b\u003e bulb garden in your neighborhood ."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "EIdEAAAAMAAJ",
+      "etag": "1XtSZ1athgE",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/EIdEAAAAMAAJ",
+      "volumeInfo": {
+        "title": "Subject Heading Authority List, UCLA Biomedical Library",
+        "authors": [
+          "University of California, Los Angeles. Library"
+        ],
+        "publishedDate": "1974",
+        "description": "Subject heading authority list of some 50,000 entries. Intended to incorporate in single alphabetical listing the latest MeSH vocabulary with headings from the Library of Congress, the National Agricultural Library, and taxonomic terms developed at the Biomedical Library. Covers health and biological sciences. Entries include terms and sources; many cross references. Includes list of 13 reference sources consulted.",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "UOM:39015033887814"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 399,
+        "printType": "BOOK",
+        "categories": [
+          "Life sciences"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.6.3.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=EIdEAAAAMAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=EIdEAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=EIdEAAAAMAAJ&q=flowers&dq=flowers&hl=&cd=27&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=EIdEAAAAMAAJ&dq=flowers&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Subject_Heading_Authority_List_UCLA_Biom.html?hl=&id=EIdEAAAAMAAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=EIdEAAAAMAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "... Wild \u003cb\u003eflower\u003c/b\u003e gardening - LCwild \u003cb\u003eflowers\u003c/b\u003e by place X \u003cb\u003eFlowers\u003c/b\u003e , Wild x Wildflowers - LCwild \u003cb\u003eflowers\u003c/b\u003e - - Acadia National Park - LCwild \u003cb\u003eflowers\u003c/b\u003e - - Africa , South - LCwild \u003cb\u003eflowers\u003c/b\u003e - - Alaska - LCwild \u003cb\u003eflowers\u003c/b\u003e - - Alps - LCwild \u003cb\u003eflowers\u003c/b\u003e&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "Hs3ZAAAAMAAJ",
+      "etag": "aSNQSIrC/S8",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/Hs3ZAAAAMAAJ",
+      "volumeInfo": {
+        "title": "The Flower Family Album",
+        "subtitle": "Family Histories",
+        "authors": [
+          "Helen Field Fischer"
+        ],
+        "publishedDate": "1941",
+        "description": "Arrangement by families of flowers, weeds, and a few vegetables.",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "PSU:000029047055"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 152,
+        "printType": "BOOK",
+        "categories": [
+          "Botany"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.3.3.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=Hs3ZAAAAMAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=Hs3ZAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=Hs3ZAAAAMAAJ&q=flowers&dq=flowers&hl=&cd=28&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=Hs3ZAAAAMAAJ&dq=flowers&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_Flower_Family_Album.html?hl=&id=Hs3ZAAAAMAAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=Hs3ZAAAAMAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Lettuce and Other Paintbrush \u003cb\u003eFlowers\u003c/b\u003e COMPOSITE FAMILY Continued WY CHICORY Cichorium Intybus ( si -. Wild Salsify has yellow blooms , and its shaggy seed heads give it the name of Goat &#39; s Beard . Lettuce is the type plant for this page&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "kv_yDwAAQBAJ",
+      "etag": "Zb54l+csns8",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/kv_yDwAAQBAJ",
+      "volumeInfo": {
+        "title": "The American Flower Garden Directory",
+        "authors": [
+          "Hibbert and Buist"
+        ],
+        "publisher": "BoD – Books on Demand",
+        "publishedDate": "2020-07-25",
+        "description": "Reproduction of the original: The American Flower Garden Directory by Hibbert and Buist",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9783752336993"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "3752336994"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 224,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=kv_yDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=kv_yDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=kv_yDwAAQBAJ&pg=PA146&dq=flowers&hl=&cd=29&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=kv_yDwAAQBAJ&dq=flowers&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_American_Flower_Garden_Directory.html?hl=&id=kv_yDwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=kv_yDwAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "I. grandiflòra, large white \u003cb\u003eflowers\u003c/b\u003e, with acute petals; leaves large, cordate, ovate. I. pulchélla has \u003cb\u003eflowers\u003c/b\u003e of a handsome violet colour. They are all easily cultivated. It is said that I. tuberòsa is much used in the West Indies to&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "97BQAQAAMAAJ",
+      "etag": "GUmAxWUjMO8",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/97BQAQAAMAAJ",
+      "volumeInfo": {
+        "title": "American Flower-garden Directory",
+        "subtitle": "Containing Practical Directions for the Culture of Plants in the Flower-garden, Hot-house, Green-house, Rooms, Or Parlour Windows, for Every Month of the Year ...",
+        "authors": [
+          "Robert Buist"
+        ],
+        "publishedDate": "1865",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "UIUC:30112020354863"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 342,
+        "printType": "BOOK",
+        "categories": [
+          "Floriculture"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.2.3.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=97BQAQAAMAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=97BQAQAAMAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=97BQAQAAMAAJ&pg=PA230&dq=flowers&hl=&cd=30&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=97BQAQAAMAAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=97BQAQAAMAAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=97BQAQAAMAAJ&rdid=book-97BQAQAAMAAJ&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.co.kr/books/download/American_Flower_garden_Directory.epub?id=97BQAQAAMAAJ&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=97BQAQAAMAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Containing Practical Directions for the Culture of Plants in the \u003cb\u003eFlower\u003c/b\u003e-garden, Hot-house, Green-house, Rooms, ... Edwurdsias , about four species , very beautiful foliaged plants , and have very curious yellow \u003cb\u003eflowers\u003c/b\u003e , but do not&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "oLs_AAAAYAAJ",
+      "etag": "3/lu5sNfIwg",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/oLs_AAAAYAAJ",
+      "volumeInfo": {
+        "title": "The Art of Flower Arrangement",
+        "authors": [
+          "Kozan Okada"
+        ],
+        "publishedDate": "1959",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "CORNELL:31924002821290"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 54,
+        "printType": "BOOK",
+        "categories": [
+          "Flower arrangement"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.3.2.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=oLs_AAAAYAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=oLs_AAAAYAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=oLs_AAAAYAAJ&q=flowers&dq=flowers&hl=&cd=31&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=oLs_AAAAYAAJ&dq=flowers&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_Art_of_Flower_Arrangement.html?hl=&id=oLs_AAAAYAAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=oLs_AAAAYAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Nageire is distinguished from all other schools of \u003cb\u003eflower\u003c/b\u003e arrangement, for its characteristic freedom of style, ... to recreate the artist&#39;s ideal with \u003cb\u003eflowers\u003c/b\u003e, or in other words, to arrange \u003cb\u003eflowers\u003c/b\u003e without destroying the image of their&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "URlCAAAAYAAJ",
+      "etag": "pEsLVq/YIxY",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/URlCAAAAYAAJ",
+      "volumeInfo": {
+        "title": "Principles of Flower Arrangement",
+        "authors": [
+          "Edward Albert White"
+        ],
+        "publishedDate": "1936",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "CORNELL:31924003368259"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 220,
+        "printType": "BOOK",
+        "categories": [
+          "Flower arrangement"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.5.1.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=URlCAAAAYAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=URlCAAAAYAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=URlCAAAAYAAJ&q=flowers&dq=flowers&hl=&cd=32&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=URlCAAAAYAAJ&dq=flowers&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Principles_of_Flower_Arrangement.html?hl=&id=URlCAAAAYAAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=URlCAAAAYAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "174 Receptacles, Adaptation of \u003cb\u003eflowers\u003c/b\u003e and, 74; colors of, 69; decorations on, 67; form and shape of 67; practical value, 66; potted plant, 78, 79; relation between height of \u003cb\u003eflowers\u003c/b\u003e in composition and height of, 67; size of, 67;&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "RlsEYAAACAAJ",
+      "etag": "f/G5SjKj53w",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/RlsEYAAACAAJ",
+      "volumeInfo": {
+        "title": "Crocheted Flowers",
+        "authors": [
+          "Jan Ollis"
+        ],
+        "publisher": "Search PressLtd",
+        "publishedDate": "2011-12-19",
+        "description": "Presents projects with instructions and patterns for twenty crochet flowers to add to clothing, accessories, and household items.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "1844487067"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9781844487066"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 47,
+        "printType": "BOOK",
+        "categories": [
+          "Crafts & Hobbies"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=RlsEYAAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=RlsEYAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=RlsEYAAACAAJ&dq=flowers&hl=&cd=33&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=RlsEYAAACAAJ&dq=flowers&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Crocheted_Flowers.html?hl=&id=RlsEYAAACAAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=RlsEYAAACAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Presents projects with instructions and patterns for twenty crochet flowers to add to clothing, accessories, and household items."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "VTi4AAAAIAAJ",
+      "etag": "BXoQELRNj5Q",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/VTi4AAAAIAAJ",
+      "volumeInfo": {
+        "title": "Bulletin",
+        "authors": [
+          "Great Britain. Ministry of Agriculture, Fisheries and Food"
+        ],
+        "publishedDate": "1936",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "UCAL:B4264359"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "printType": "BOOK",
+        "categories": [
+          "Agriculture"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.4.5.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=VTi4AAAAIAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=VTi4AAAAIAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=VTi4AAAAIAAJ&q=flowers&dq=flowers&hl=&cd=34&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=VTi4AAAAIAAJ&dq=flowers&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Bulletin.html?hl=&id=VTi4AAAAIAAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=VTi4AAAAIAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Large , bronze - red \u003cb\u003eflowers\u003c/b\u003e of good substance Madame R . Oberarthur . - ( d . s ) Late Dec . Large , pure white \u003cb\u003eflowers\u003c/b\u003e , Mayfield Sunrise . — ( s ) Late Dec . A sport from Winter Cheer . Described as old rose with gold points ."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "qNEpEAAAQBAJ",
+      "etag": "IXQjtCED4/E",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/qNEpEAAAQBAJ",
+      "volumeInfo": {
+        "title": "The Flower Painters Essential Handbook",
+        "subtitle": "How to Paint 50 Beautiful Flowers in Watercolor",
+        "authors": [
+          "Jill Bays"
+        ],
+        "publisher": "David and Charles",
+        "publishedDate": "2006-03-15",
+        "description": "From Agapanthus to Water lily, this unique artist's reference provides easy-to-follow, plant-specific information on how to paint 50 of today's most popular flowers. Learn to draw each basic flower shape and then paint a single detailed bloom Gain full, practical guidance for painting each flower through clear illustrations, step-by-step instruction, and the essential color palette Refer to Jill's beautiful finished paintings for further inspiration Use the indispensable introduction to discover basic flower painting materials, techniques and color considerations The must-have practical reference that no flower painter can be without!",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9780715335352"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "0715335359"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 128,
+        "printType": "BOOK",
+        "categories": [
+          "Art"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.1.1.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=qNEpEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=qNEpEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=qNEpEAAAQBAJ&printsec=frontcover&dq=flowers&hl=&cd=35&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=qNEpEAAAQBAJ&dq=flowers&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_Flower_Painters_Essential_Handbook.html?hl=&id=qNEpEAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.kr/books/download/The_Flower_Painters_Essential_Handbook-sample-epub.acsm?id=qNEpEAAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.kr/books/download/The_Flower_Painters_Essential_Handbook-sample-pdf.acsm?id=qNEpEAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=qNEpEAAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Learn to draw each basic flower shape and then paint a single detailed bloom Gain full, practical guidance for painting each flower through clear illustrations, step-by-step instruction, and the essential color palette Refer to Jill&#39;s ..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "WVLXDwAAQBAJ",
+      "etag": "jRuD8vnIt0I",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/WVLXDwAAQBAJ",
+      "volumeInfo": {
+        "title": "The Flower Book",
+        "subtitle": "Let the Beauty of Each Bloom Speak for Itself",
+        "authors": [
+          "Rachel Siegfried"
+        ],
+        "publisher": "Penguin",
+        "publishedDate": "2017-02-07",
+        "description": "The Flower Book explores 60 flowers, bloom-by-bloom in stunning portraiture. Lush macrophotography allows readers to see the details of each featured flower up close, from the amaryllis in spring, snapdragon in summer, and dahlia in fall to tropical wonders such as orchids and more. Intimate portraits of each flower include quick-reference profiles with tips for choosing the best blooms, care for cut stems, arranging recommendations, colors, shapes, and even growing tips to transform the home, from yard to tabletop. Gorgeous photographs throughout spotlight 30 sample floral arrangements that show how to design and build custom floral arrangements using featured blooms. Plus, a step-by-step techniques section walks beginners through the basics of foliage and fillers, bouquets, and arrangements to make this book as practical as it is beautiful. The Flower Book celebrates all the wonderful qualities of flowers-their sheer beauty, infinite variety, and power to evoke admiration-bloom by exquisite bloom.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781465495532"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1465495533"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 224,
+        "printType": "BOOK",
+        "categories": [
+          "Nature"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.3.3.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=WVLXDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=WVLXDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=WVLXDwAAQBAJ&pg=PA18&dq=flowers&hl=&cd=36&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=WVLXDwAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=WVLXDwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 52214,
+          "currencyCode": "KRW"
+        },
+        "retailPrice": {
+          "amount": 46993,
+          "currencyCode": "KRW"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=WVLXDwAAQBAJ&rdid=book-WVLXDwAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 52214000000,
+              "currencyCode": "KRW"
+            },
+            "retailPrice": {
+              "amountInMicros": 46993000000,
+              "currencyCode": "KRW"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.kr/books/download/The_Flower_Book-sample-epub.acsm?id=WVLXDwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.kr/books/download/The_Flower_Book-sample-pdf.acsm?id=WVLXDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=WVLXDwAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "18 Designing with \u003cb\u003eFlowers\u003c/b\u003e Place the Focal \u003cb\u003eFlowers\u003c/b\u003e I decided to display the back of &#39;Totally Tangerine&#39; dahlia—with its intense color and bold form, it is equally as interesting from this angle. The next step is to add the focal \u003cb\u003eflowers\u003c/b\u003e."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "RoxODQAAQBAJ",
+      "etag": "UQJHcN9fesU",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/RoxODQAAQBAJ",
+      "volumeInfo": {
+        "title": "Floret Farm's Cut Flower Garden",
+        "subtitle": "Grow, Harvest, and Arrange Stunning Seasonal Blooms",
+        "authors": [
+          "Erin Benzakein"
+        ],
+        "publisher": "Chronicle Books",
+        "publishedDate": "2017-03-07",
+        "description": "#1 Amazon Best Seller — Welcome to the farm! The Cut Flower Garden: Erin Benzakein is a florist-farmer, leader in the locaflor farm-to-centerpiece movement, and owner of internationally renowned Floret Flower Farm in Washington's lush Skagit Valley. A stunning flower book: This beautiful guide to growing, harvesting, and arranging gorgeous blooms year-round provides readers with vital tools to nurture a stunning flower garden and use their blossoms to create show-stopping arrangements. Floret Farm's Cut Flower Garden: Cut Flower Garden is equal parts instruction and inspiration—a book overflowing with lush photography of magnificent flowers and breathtaking arrangements organized by season. Find inspiration in this lush flower book: Irresistible photos of Erin's flower farm that showcase exquisite blooms Tips for growing in a variety of spaces and climates Step-by-step instructions for lavish garlands, airy centerpieces, and romantic floral décor for every season If you liked Paris in Bloom, you'll love Floret Farm's Cut Flower Garden.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781452150932"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1452150931"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 308,
+        "printType": "BOOK",
+        "categories": [
+          "Gardening"
+        ],
+        "averageRating": 4,
+        "ratingsCount": 11,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "1.6.7.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=RoxODQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=RoxODQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=RoxODQAAQBAJ&pg=PA39&dq=flowers&hl=&cd=37&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=RoxODQAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=RoxODQAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 28524,
+          "currencyCode": "KRW"
+        },
+        "retailPrice": {
+          "amount": 25672,
+          "currencyCode": "KRW"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=RoxODQAAQBAJ&rdid=book-RoxODQAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 28524000000,
+              "currencyCode": "KRW"
+            },
+            "retailPrice": {
+              "amountInMicros": 25672000000,
+              "currencyCode": "KRW"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.kr/books/download/Floret_Farm_s_Cut_Flower_Garden-sample-epub.acsm?id=RoxODQAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.kr/books/download/Floret_Farm_s_Cut_Flower_Garden-sample-pdf.acsm?id=RoxODQAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=RoxODQAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "But for the most part, harvesting \u003cb\u003eflowers\u003c/b\u003e before they&#39;ve fully opened, and before the bees have found them, is best. Once pollinated, \u003cb\u003eflowers\u003c/b\u003e are signaled to start making seeds, and their vase life is inherently shortened."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "fVEDAAAAQAAJ",
+      "etag": "MCaR6Yt23ZM",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/fVEDAAAAQAAJ",
+      "volumeInfo": {
+        "title": "The botanic garden; representations of hardy ornamental flowering plants cultivated in Great Britain; with their names, classes [&c.]. [With] The floral register [and] The fruitist",
+        "authors": [
+          "Benjamin Maund"
+        ],
+        "publishedDate": "1824",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "OXFORD:555002403"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.2.5.0.full.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=fVEDAAAAQAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=fVEDAAAAQAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=fVEDAAAAQAAJ&pg=PP188&dq=flowers&hl=&cd=38&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=fVEDAAAAQAAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=fVEDAAAAQAAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=fVEDAAAAQAAJ&rdid=book-fVEDAAAAQAAJ&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.co.kr/books/download/The_botanic_garden_representations_of_ha.epub?id=fVEDAAAAQAAJ&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "downloadLink": "http://books.google.co.kr/books/download/The_botanic_garden_representations_of_ha.pdf?id=fVEDAAAAQAAJ&hl=&output=pdf&sig=ACfU3U3aWWBIsI8JDjKOTdfiOceorHxucA&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=fVEDAAAAQAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Parkinson says , “ Master Hesket&#39;s Double Primrose is very like vnto the small double Primrose , both in leafe , root , and heighth of growing , the stalke not rising much higher then it , but bearing \u003cb\u003eflowers\u003c/b\u003e in a farre different manner&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "E-jrCAAAQBAJ",
+      "etag": "aynRaNRQ6wI",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/E-jrCAAAQBAJ",
+      "volumeInfo": {
+        "title": "Postharvest Biotechnology of Flowers and Ornamental Plants",
+        "authors": [
+          "Dattajirao K. Salunkhe",
+          "Narayana R. Bhat",
+          "Babasaheb B. Desai"
+        ],
+        "publisher": "Springer Science & Business Media",
+        "publishedDate": "2012-12-06",
+        "description": "The floricultural industry has been undergoing an unprecedented revolu tion in terms of the type of commodity produced and the production and marketing technology in both developed and developing countries. As a result of this revolution, as we know today, there is a flower for every purpose and for every person in the world, as is evident from the slogan of the Society for American Florists: \"say it with flowers\". In re cent years, the Latin American and European countries have become sizeable competitors for the North American fresh flower markets and the trend continues growing. Like any other crop production, floricultural production can be divided into three basic factors: (1) production costs (2) quality (3) transportation costs. All these must be optimum for this area or industry to be safe from competition. With increasing consumer awareness and the current recession, the pressure from the artificial floral products in dustry and also of neighbouring countries on the American fresh flower industry, and continued competition even amongst the growers, whole salers and retailers, quality in floricultural industry is becoming increas ingly important to all those concerned with handling these products. The visual quality aspects of the product are the sole determiner of consumer acceptability in this industry and, unlike fruits and vegetables, flowers cannot be marketed by just discarding the damaged portion.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9783642738036"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "3642738036"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 192,
+        "printType": "BOOK",
+        "categories": [
+          "Science"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.1.1.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=E-jrCAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=E-jrCAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=E-jrCAAAQBAJ&printsec=frontcover&dq=flowers&hl=&cd=39&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=E-jrCAAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=E-jrCAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "FOR_SALE_AND_RENTAL",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 108004,
+          "currencyCode": "KRW"
+        },
+        "retailPrice": {
+          "amount": 108004,
+          "currencyCode": "KRW"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=E-jrCAAAQBAJ&rdid=book-E-jrCAAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 108004000000,
+              "currencyCode": "KRW"
+            },
+            "retailPrice": {
+              "amountInMicros": 108004000000,
+              "currencyCode": "KRW"
+            }
+          },
+          {
+            "finskyOfferType": 3,
+            "listPrice": {
+              "amountInMicros": 37806000000,
+              "currencyCode": "KRW"
+            },
+            "retailPrice": {
+              "amountInMicros": 37806000000,
+              "currencyCode": "KRW"
+            },
+            "rentalDuration": {
+              "unit": "DAY",
+              "count": 90
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.kr/books/download/Postharvest_Biotechnology_of_Flowers_and-sample-pdf.acsm?id=E-jrCAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=E-jrCAAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "The floricultural industry has been undergoing an unprecedented revolu tion in terms of the type of commodity produced and the production and marketing technology in both developed and developing countries."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "-AMfvgAACAAJ",
+      "etag": "3wtskXlFqfc",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/-AMfvgAACAAJ",
+      "volumeInfo": {
+        "title": "Sweet Blue Flowers",
+        "authors": [
+          "Takako Shimura"
+        ],
+        "publisher": "VIZ Media LLC",
+        "publishedDate": "2017-09-19",
+        "description": "A genre-defining saga of love and friendship between girls. Akira Okudaira is starting high school and is ready for exciting new experiences. And on the first day of school, she runs into her best friend from kindergarten at the train station! Now Akira and Fumi have the chance to rekindle their friendship, but life has gotten a lot more complicated since they were kids… Fumi is glad Akira is back in her life. Even in kindergarten, Akira knew how to stand up for herself, and she was always willing to stand up for Fumi too. But Fumi’s first love recently got married, and Fumi is grappling with a broken heart and the fact that her sweetheart was another woman… Can Akira’s open heart help dispel the gloom Fumi has been caught up in?",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "1421592983"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9781421592985"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 400,
+        "printType": "BOOK",
+        "categories": [
+          "Comics & Graphic Novels"
+        ],
+        "averageRating": 4,
+        "ratingsCount": 5,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "comicsContent": true,
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=-AMfvgAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=-AMfvgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.kr/books?id=-AMfvgAACAAJ&dq=flowers&hl=&cd=40&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=-AMfvgAACAAJ&dq=flowers&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Sweet_Blue_Flowers.html?hl=&id=-AMfvgAACAAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=-AMfvgAACAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "A genre-defining saga of love and friendship between girls."
       }
     }
   ]

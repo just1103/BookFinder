@@ -29,7 +29,7 @@ class NetworkProviderTests: XCTestCase {
         let expectation = XCTestExpectation(description: "BookSearchAPI 비동기 테스트")
         
         let observable = sut.fetchData(
-            api: BookFinderURL.BookSearchAPI(searchText: "flowers"),
+            api: BookFinderURL.BookSearchAPI(searchText: "flowers", pageNumber: 1),
             decodingType: SearchResultDTO.self
         )
         _ = observable.subscribe(onNext: { result in
@@ -61,9 +61,9 @@ class NetworkProviderTests: XCTestCase {
             XCTAssertEqual(result.items?.count, 20)
 
             XCTAssertEqual(result.kind, "books#volumes")
-            XCTAssertEqual(result.items?[0].id, "8LIifmGfMc4C")
-            XCTAssertEqual(result.items?[0].volumeInfo?.title, "Tropical Flowers of the World Coloring Book")
-            XCTAssertEqual(result.items?[0].volumeInfo?.authors, ["Lynda E. Chandler"])
+            XCTAssertEqual(result.items?[0].id, "eIdJzgEACAAJ")
+            XCTAssertEqual(result.items?[0].volumeInfo?.title, "플라워 컬러 가이드")
+            XCTAssertEqual(result.items?[0].volumeInfo?.authors, nil)
             XCTAssertEqual(result.items?[0].accessInfo?.epub?.isAvailable, false)
             
             expectation.fulfill()

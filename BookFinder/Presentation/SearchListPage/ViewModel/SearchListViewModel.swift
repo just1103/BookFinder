@@ -24,11 +24,10 @@ final class SearchListViewModel: ViewModelProtocol {
     // MARK: - Properties
     weak var delegate: KeyboardAndActivityIndicatorSwitchable!
     private weak var coordinator: SearchListCoordinator!
-    private let initialPageNumber = 1
     private let itemPerPage = 20
-    private var currentPageNumber: Int = 1
-    private var currentItemCount: Int = 0
-    private var currentSearchText: String = Text.emptyString
+    private var currentPageNumber = 1
+    private var currentItemCountOnList = 0
+    private var currentSearchText = Text.emptyString
     private let disposeBag = DisposeBag()
     
     // MARK: - Initializers
@@ -58,33 +57,39 @@ final class SearchListViewModel: ViewModelProtocol {
             .debounce(.milliseconds(600), scheduler: ConcurrentDispatchQueueScheduler.init(qos: .default)) 
             .withUnretained(self)
             .flatMap { (owner, searchText) -> Observable<(Int, [BookItem])> in
-                if owner.isEmptyOrSpace(searchText) {
+                if owner.isEmptyOrWhiteSpace(searchText) {
                     owner.currentSearchText = Text.emptyString
                     owner.currentPageNumber = 1
-                    owner.currentItemCount = 0
+                    owner.currentItemCountOnList = 0
 
                     return Observable.just((0, []))
                 }
+  
+                // FIXME: 스크롤 내리면서 동시에 입력값을 지우면 (x 버튼), 목록이 남아있는 버그 발생
+                owner.currentSearchText = searchText
+                owner.currentPageNumber = 1
                 
-                return owner.fetchSearchResult(with: searchText, at: owner.initialPageNumber)
+                return owner.fetchSearchResult(with: searchText, at: owner.currentPageNumber)
                     .map { searchResultDTO -> (Int, [BookItem]) in
                         owner.delegate.showActivityIndicator()
-                        
-                        owner.currentSearchText = searchText
-                        owner.currentPageNumber = 1
-                        owner.currentItemCount = owner.itemPerPage * owner.currentPageNumber
                         
                         let itemCount = searchResultDTO.totalItems ?? 0
                         let bookItemsDTO = searchResultDTO.items ?? []
                         let bookItems = owner.makeBookItems(with: bookItemsDTO)
+                        
+                        if itemCount >= owner.itemPerPage {
+                            owner.currentItemCountOnList = owner.itemPerPage
+                        } else {
+                            owner.currentItemCountOnList = itemCount  // 검색결과 개수를 반영
+                        }
                         
                         return (itemCount, bookItems)
                     }
             }
     }
     
-    private func isEmptyOrSpace(_ text: String) -> Bool {
-        let textWithoutSpace = text.replacingOccurrences(of: Text.space, with: Text.emptyString)
+    private func isEmptyOrWhiteSpace(_ text: String) -> Bool {
+        let textWithoutSpace = text.replacingOccurrences(of: Text.whiteSpace, with: Text.emptyString)
         return textWithoutSpace.isEmpty
     }
     
@@ -115,23 +120,28 @@ final class SearchListViewModel: ViewModelProtocol {
         return inputObservable
             .withUnretained(self)
             .filter { (owner, row) in
-                let itemCountOnScreen = 5
+                let itemCountOnScreen = 5  // FIXME: 검색결과가 5개 이하에서는 스크롤해도 키보드 안내려감, iPad에서는 입력값 수정하자마자 키보드가 내려감
                 if row > itemCountOnScreen {
                     owner.delegate.hideKeyboard()
                 }
                 
-                return row + 4 == owner.currentItemCount
+                return row + 4 == owner.currentItemCountOnList
             }
             .flatMap { (owner, _) -> Observable<[BookItem]> in
                 owner.delegate.showActivityIndicator()
                 owner.delegate.hideKeyboard()
                 
                 owner.currentPageNumber += 1
-                owner.currentItemCount += owner.itemPerPage
                 
                 return owner.fetchSearchResult(with: owner.currentSearchText, at: owner.currentPageNumber)
                     .map { searchResultDTO -> [BookItem] in
                         let bookItems = owner.makeBookItems(with: searchResultDTO.items ?? [])
+                        
+                        if bookItems.count == owner.itemPerPage {
+                            owner.currentItemCountOnList += owner.itemPerPage
+                        } else {
+                            owner.currentItemCountOnList += bookItems.count  // 검색결과 개수를 반영
+                        }
                         
                         return bookItems
                     }
@@ -152,6 +162,6 @@ final class SearchListViewModel: ViewModelProtocol {
 extension SearchListViewModel {
     private enum Text {
         static let emptyString: String = ""
-        static let space: String = " "
+        static let whiteSpace: String = " "
     }
 }
