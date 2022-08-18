@@ -225,8 +225,8 @@ extension DetailViewController {
         inputObservable
             .withUnretained(self)
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { (self, bookItem) in
-                self.setUIContents(with: bookItem)
+            .subscribe(onNext: { (owner, bookItem) in
+                owner.setUIContents(with: bookItem)
             })
             .disposed(by: disposeBag)
     }

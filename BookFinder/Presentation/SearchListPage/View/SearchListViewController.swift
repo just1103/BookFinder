@@ -128,7 +128,6 @@ final class SearchListViewController: UIViewController {
     }
 
     private func configureSearchBar() {
-//        searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
     }
     
@@ -218,12 +217,12 @@ extension SearchListViewController {
         inputObservable
             .withUnretained(self)
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { (self, searchCountAndItems) in
+            .subscribe(onNext: { (owner, searchCountAndItems) in
                 let (searchCount, bookItems) = searchCountAndItems
-                self.setLabel(with: searchCount)
-                self.createAndApplySnapshot(with: bookItems)
+                owner.setLabel(with: searchCount)
+                owner.createAndApplySnapshot(with: bookItems)
                 
-                self.hideActivityIndicator()
+                owner.hideActivityIndicator()
             })
             .disposed(by: disposeBag)
     }
@@ -236,17 +235,17 @@ extension SearchListViewController {
         snapshot = SnapShot()
         snapshot.appendSections([.main])
         snapshot.appendItems(bookItems)
-        dataSource.apply(self.snapshot, animatingDifferences: true)
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
             
     private func configureNextPageItems(with inputObservable: Observable<[BookItem]>) {
         inputObservable
             .withUnretained(self)
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { (self, nextPageBookItems) in
-                self.appendAndApplySnapshot(with: nextPageBookItems)
+            .subscribe(onNext: { (owner, nextPageBookItems) in
+                owner.appendAndApplySnapshot(with: nextPageBookItems)
                 
-                self.hideActivityIndicator()
+                owner.hideActivityIndicator()
             })
             .disposed(by: disposeBag)
     }

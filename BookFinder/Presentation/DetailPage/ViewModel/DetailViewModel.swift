@@ -50,8 +50,8 @@ final class DetailViewModel: ViewModelProtocol {
     private func configureLeftBarButtonDidTapObserver(by inputObservable: Observable<Void>) {
         inputObservable
             .withUnretained(self)
-            .subscribe(onNext: { (self, _) in
-                self.coordinator.popCurrentPage()
+            .subscribe(onNext: { (owner, _) in
+                owner.coordinator.popCurrentPage()
             })
             .disposed(by: disposeBag)
     }

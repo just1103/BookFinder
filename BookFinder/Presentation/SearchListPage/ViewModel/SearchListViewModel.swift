@@ -57,26 +57,26 @@ final class SearchListViewModel: ViewModelProtocol {
             .distinctUntilChanged()
             .debounce(.milliseconds(500), scheduler: MainScheduler.instance)  // TODO: main 스레드 아니어도 가능
             .withUnretained(self)
-            .flatMap { (self, searchText) -> Observable<(Int, [BookItem])> in
-                if self.isEmptyOrSpace(searchText) {
-                    self.currentSearchText = Text.emptyString
-                    self.currentPageNumber = 1
-                    self.currentItemCount = 0
+            .flatMap { (owner, searchText) -> Observable<(Int, [BookItem])> in
+                if owner.isEmptyOrSpace(searchText) {
+                    owner.currentSearchText = Text.emptyString
+                    owner.currentPageNumber = 1
+                    owner.currentItemCount = 0
 
                     return Observable.just((0, []))
                 }
                 
-                return self.fetchSearchResult(with: searchText, at: self.initialPageNumber)
+                return owner.fetchSearchResult(with: searchText, at: owner.initialPageNumber)
                     .map { searchResultDTO -> (Int, [BookItem]) in
-                        self.delegate.showActivityIndicator()
+                        owner.delegate.showActivityIndicator()
                         
-                        self.currentSearchText = searchText
-                        self.currentPageNumber = 1
-                        self.currentItemCount = self.itemPerPage * self.currentPageNumber
+                        owner.currentSearchText = searchText
+                        owner.currentPageNumber = 1
+                        owner.currentItemCount = owner.itemPerPage * owner.currentPageNumber
                         
                         let itemCount = searchResultDTO.totalItems ?? 0
                         let bookItemsDTO = searchResultDTO.items ?? []
-                        let bookItems = self.makeBookItems(with: bookItemsDTO)
+                        let bookItems = owner.makeBookItems(with: bookItemsDTO)
                         
                         return (itemCount, bookItems)
                     }
@@ -114,18 +114,18 @@ final class SearchListViewModel: ViewModelProtocol {
     ) -> Observable<[BookItem]> {
         return inputObservable
             .withUnretained(self)
-            .filter { (self, row) in
-                return row + 4 == self.currentItemCount
+            .filter { (owner, row) in
+                return row + 4 == owner.currentItemCount
             }
-            .flatMap { (self, _) -> Observable<[BookItem]> in
-                self.delegate.showActivityIndicator()
+            .flatMap { (owner, _) -> Observable<[BookItem]> in
+                owner.delegate.showActivityIndicator()
                 
-                self.currentPageNumber += 1
-                self.currentItemCount = self.itemPerPage * self.currentPageNumber
+                owner.currentPageNumber += 1
+                owner.currentItemCount = owner.itemPerPage * owner.currentPageNumber
                 
-                return self.fetchSearchResult(with: self.currentSearchText, at: self.currentPageNumber)
+                return owner.fetchSearchResult(with: owner.currentSearchText, at: owner.currentPageNumber)
                     .map { searchResultDTO -> [BookItem] in
-                        let bookItems = self.makeBookItems(with: searchResultDTO.items ?? [])
+                        let bookItems = owner.makeBookItems(with: searchResultDTO.items ?? [])
                         
                         return bookItems
                     }
@@ -135,8 +135,8 @@ final class SearchListViewModel: ViewModelProtocol {
     private func configureCellDidSelectObserver(by inputObservable: Observable<BookItem>) {
         inputObservable
             .withUnretained(self)
-            .subscribe(onNext: { (self, bookItem) in
-                self.coordinator.showDetailPage(with: bookItem)
+            .subscribe(onNext: { (owner, bookItem) in
+                owner.coordinator.showDetailPage(with: bookItem)
             })
             .disposed(by: disposeBag)
     }
